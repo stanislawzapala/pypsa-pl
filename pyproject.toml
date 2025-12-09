@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypsa-pl"
-version = "3.0.0"
+version = "3.1.0"
 description = "PyPSA-PL: optimisation model of the Polish energy system"
 authors = [
     "Patryk Kubiczek <patryk.kubiczek@instrat.pl>",
@@ -12,6 +12,9 @@ packages = [{include = "pypsa_pl", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
+pypsa = "0.32.1"
+linopy = "0.5.0"
+highspy = "1.9.0"
 numpy = "^1.26.4"
 pandas = "^2.2.0"
 gspread = "5.12.4"
@@ -21,9 +24,9 @@ xarray = "2024.2.0"
 matplotlib = "^3.8.3"
 notebook = "^7.1.2"
 ipywidgets = "^8.1.2"
-linopy = "0.3.8"
-pypsa = {git = "https://github.com/PyPSA/PyPSA", rev = "b1e15c7"}
-highspy = "^1.7.2"
+gurobipy = "12"
+cartopy = "^0.24.1"
+geopandas = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 icecream = "^2.1.3"

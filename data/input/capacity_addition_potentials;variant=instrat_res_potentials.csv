@@ -1,0 +1,21 @@
+area,carrier,year,attribute,value
+PL,solar PV ground,2030,nom_max,47400
+PL,solar PV ground,2035,nom_max,47400
+PL,solar PV ground,2040,nom_max,47400
+PL,solar PV ground,2045,nom_max,47400
+PL,solar PV ground,2050,nom_max,47400
+PL,solar PV roof,2030,nom_max,48050
+PL,solar PV roof,2035,nom_max,48020
+PL,solar PV roof,2040,nom_max,48020
+PL,solar PV roof,2045,nom_max,48020
+PL,solar PV roof,2050,nom_max,48020
+PL,wind offshore,2030,nom_max,6030
+PL,wind offshore,2035,nom_max,18000
+PL,wind offshore,2040,nom_max,31200
+PL,wind offshore,2045,nom_max,31200
+PL,wind offshore,2050,nom_max,31200
+PL,wind onshore,2030,nom_max,43340
+PL,wind onshore,2035,nom_max,43340
+PL,wind onshore,2040,nom_max,43340
+PL,wind onshore,2045,nom_max,43340
+PL,wind onshore,2050,nom_max,43340

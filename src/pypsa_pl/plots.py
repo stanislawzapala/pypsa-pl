@@ -47,7 +47,7 @@ mpl_style = {
     "axes.spines.right": False,
     #
     "figure.titlesize": default_size + 2,
-    "figure.dpi": 90,
+    "figure.dpi": 120,
     #
     "font.family": "sans-serif",
     "font.sans-serif": ["Work Sans", "DejaVu Sans", "Arial", "sans-serif"],
@@ -65,7 +65,7 @@ mpl_style = {
     "lines.markersize": 6,
     #
     "patch.edgecolor": dark_color,
-    "patch.linewidth": 0.25,
+    "patch.linewidth": 0 * 0.25,
     #
     "xtick.bottom": False,
     "xtick.color": light_color,
@@ -240,6 +240,10 @@ def add_legend(ax, sign, n_cat, max_characters=30):
         artist = ax.add_artist(legend)
         artist.set_in_layout(True)
 
+    # Remove legend if there is only one entry and there are only positive values
+    if sign == "+" and n_cat["-"] == 0 and n_cat["+"] <= 1:
+        ax.get_legend().remove()
+
 
 def plot_bar(
     df,
@@ -260,6 +264,10 @@ def plot_bar(
     fig, ax = plt.subplots(figsize=figsize)
 
     df = df.pivot(index=x_var, columns=cat_var, values=y_var)
+
+    # Only reindex if the index is categorical (to show all categories, including dummies/spaces)
+    if isinstance(df.index.dtype, pd.CategoricalDtype):
+        df = df.reindex(df.index.categories)
 
     cats = {"+": df.columns[(df > 0).any()], "-": df.columns[(df < 0).any()]}
 

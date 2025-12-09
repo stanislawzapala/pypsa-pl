@@ -18,6 +18,7 @@ PL electricity import flow 2020,PL,electricity import,outflow,flow,2020,17.9
 PL hard coal CHP flow 2020,PL,hard coal CHP,outflow,flow,2020,17.8
 PL hard coal power flow 2020,PL,hard coal power,outflow,flow,2020,52.1
 PL hydrogen electrolysis min_flow 2030,PL,hydrogen electrolysis,outflow,min_flow,2030,1.7
+PL hydrogen electrolysis min_flow 2035,PL,hydrogen electrolysis,outflow,min_flow,2035,3.4
 PL lignite power flow 2020,PL,lignite power,outflow,flow,2020,36.6
 PL natural gas CHP flow 2020,PL,natural gas CHP,outflow,flow,2020,14.8
 PL natural gas supply max_flow 2030,PL,natural gas supply,outflow,max_flow,2030,233.8

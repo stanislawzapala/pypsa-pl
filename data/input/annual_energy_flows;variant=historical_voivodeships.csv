@@ -1,0 +1,243 @@
+name,area,carrier,type,parameter,year,value
+PL biogas CHP flow 2020,PL,biogas CHP,outflow,flow,2020,1.1
+PL biogas CHP flow 2023,PL,biogas CHP,outflow,flow,2023,1.3
+PL biogas CHP flow 2024,PL,biogas CHP,outflow,flow,2024,1.4
+PL biomass wood CHP flow 2020,PL,biomass wood CHP,outflow,flow,2020,4.4
+PL biomass wood CHP flow 2023,PL,biomass wood CHP,outflow,flow,2023,3.6
+PL biomass wood CHP flow 2024,PL,biomass wood CHP,outflow,flow,2024,3.2
+PL biomass wood power flow 2020,PL,biomass wood power,outflow,flow,2020,1.9
+PL biomass wood power flow 2023,PL,biomass wood power,outflow,flow,2023,2.3
+PL biomass wood power flow 2024,PL,biomass wood power,outflow,flow,2024,2.3
+PL electricity export flow 2020,PL,electricity export,inflow,flow,2020,7.4
+PL electricity export flow 2023,PL,electricity export,inflow,flow,2023,11.4
+PL electricity export flow 2024,PL,electricity export,inflow,flow,2024,13.2
+PL electricity import flow 2020,PL,electricity import,outflow,flow,2020,20.6
+PL electricity import flow 2023,PL,electricity import,outflow,flow,2023,15.1
+PL electricity import flow 2024,PL,electricity import,outflow,flow,2024,15.2
+PL hard coal CHP flow 2020,PL,hard coal CHP,outflow,flow,2020,17.2
+PL hard coal CHP flow 2023,PL,hard coal CHP,outflow,flow,2023,14.3
+PL hard coal CHP flow 2024,PL,hard coal CHP,outflow,flow,2024,13.6
+PL hard coal power flow 2020,PL,hard coal power,outflow,flow,2020,46.7
+PL hard coal power flow 2023,PL,hard coal power,outflow,flow,2023,44.2
+PL hard coal power flow 2024,PL,hard coal power,outflow,flow,2024,38.9
+PL hydro PSH power flow 2020,PL,hydro PSH power,outflow,flow,2020,0.8
+PL hydro PSH power flow 2023,PL,hydro PSH power,outflow,flow,2023,1.3
+PL hydro PSH power flow 2024,PL,hydro PSH power,outflow,flow,2024,1.0
+PL hydro ROR flow 2020,PL,hydro ROR,outflow,flow,2020,2.1
+PL hydro ROR flow 2023,PL,hydro ROR,outflow,flow,2023,2.4
+PL hydro ROR flow 2024,PL,hydro ROR,outflow,flow,2024,2.1
+PL hydrogen final use flow 2020,PL,hydrogen final use,inflow,flow,2020,28.6
+PL hydrogen final use flow 2023,PL,hydrogen final use,inflow,flow,2023,23.7
+PL lignite power flow 2020,PL,lignite power,outflow,flow,2020,33.0
+PL lignite power flow 2023,PL,lignite power,outflow,flow,2023,29.8
+PL lignite power flow 2024,PL,lignite power,outflow,flow,2024,30.8
+PL natural gas CHP flow 2020,PL,natural gas CHP,outflow,flow,2020,15.8
+PL natural gas CHP flow 2023,PL,natural gas CHP,outflow,flow,2023,16.2
+PL natural gas CHP flow 2024,PL,natural gas CHP,outflow,flow,2024,19.1
+PL natural gas power flow 2024,PL,natural gas power,outflow,flow,2024,1.0
+PL other CHP flow 2020,PL,other CHP,outflow,flow,2020,2.7
+PL other CHP flow 2023,PL,other CHP,outflow,flow,2023,2.4
+PL other CHP flow 2024,PL,other CHP,outflow,flow,2024,2.4
+PL other heating final use flow 2020,PL,other heating final use,inflow,flow,2020,15.6
+PL other heating final use flow 2023,PL,other heating final use,inflow,flow,2023,15.2
+PL solar PV ground flow 2020,PL,solar PV ground,outflow,flow,2020,1.0
+PL solar PV ground flow 2023,PL,solar PV ground,outflow,flow,2023,4.6
+PL solar PV ground flow 2024,PL,solar PV ground,outflow,flow,2024,7.4
+PL solar PV roof flow 2020,PL,solar PV roof,outflow,flow,2020,1.1
+PL solar PV roof flow 2023,PL,solar PV roof,outflow,flow,2023,6.8
+PL solar PV roof flow 2024,PL,solar PV roof,outflow,flow,2024,7.9
+PL wind onshore flow 2020,PL,wind onshore,outflow,flow,2020,15.8
+PL wind onshore flow 2023,PL,wind onshore,outflow,flow,2023,23.2
+PL wind onshore flow 2024,PL,wind onshore,outflow,flow,2024,24.5
+PL dolnośląskie electricity HMV final use flow 2020,PL dolnośląskie,electricity HMV final use,inflow,flow,2020,11.91
+PL dolnośląskie electricity HMV final use flow 2023,PL dolnośląskie,electricity HMV final use,inflow,flow,2023,11.81
+PL dolnośląskie electricity HMV final use flow 2024,PL dolnośląskie,electricity HMV final use,inflow,flow,2024,11.95
+PL dolnośląskie electricity LV final use flow 2020,PL dolnośląskie,electricity LV final use,inflow,flow,2020,5.2
+PL dolnośląskie electricity LV final use flow 2023,PL dolnośląskie,electricity LV final use,inflow,flow,2023,5.15
+PL dolnośląskie electricity LV final use flow 2024,PL dolnośląskie,electricity LV final use,inflow,flow,2024,5.22
+PL dolnośląskie light vehicle mobility final use flow 2020,PL dolnośląskie,light vehicle mobility final use,inflow,flow,2020,3.37
+PL dolnośląskie light vehicle mobility final use flow 2023,PL dolnośląskie,light vehicle mobility final use,inflow,flow,2023,3.46
+PL dolnośląskie space heating final use flow 2020,PL dolnośląskie,space heating final use,inflow,flow,2020,11.48
+PL dolnośląskie space heating final use flow 2023,PL dolnośląskie,space heating final use,inflow,flow,2023,11.26
+PL dolnośląskie water heating final use flow 2020,PL dolnośląskie,water heating final use,inflow,flow,2020,3.57
+PL dolnośląskie water heating final use flow 2023,PL dolnośląskie,water heating final use,inflow,flow,2023,3.75
+PL kujawsko-pomorskie electricity HMV final use flow 2020,PL kujawsko-pomorskie,electricity HMV final use,inflow,flow,2020,3.6
+PL kujawsko-pomorskie electricity HMV final use flow 2023,PL kujawsko-pomorskie,electricity HMV final use,inflow,flow,2023,3.57
+PL kujawsko-pomorskie electricity HMV final use flow 2024,PL kujawsko-pomorskie,electricity HMV final use,inflow,flow,2024,3.61
+PL kujawsko-pomorskie electricity LV final use flow 2020,PL kujawsko-pomorskie,electricity LV final use,inflow,flow,2020,3.54
+PL kujawsko-pomorskie electricity LV final use flow 2023,PL kujawsko-pomorskie,electricity LV final use,inflow,flow,2023,3.51
+PL kujawsko-pomorskie electricity LV final use flow 2024,PL kujawsko-pomorskie,electricity LV final use,inflow,flow,2024,3.55
+PL kujawsko-pomorskie light vehicle mobility final use flow 2020,PL kujawsko-pomorskie,light vehicle mobility final use,inflow,flow,2020,2.26
+PL kujawsko-pomorskie light vehicle mobility final use flow 2023,PL kujawsko-pomorskie,light vehicle mobility final use,inflow,flow,2023,2.29
+PL kujawsko-pomorskie space heating final use flow 2020,PL kujawsko-pomorskie,space heating final use,inflow,flow,2020,8.34
+PL kujawsko-pomorskie space heating final use flow 2023,PL kujawsko-pomorskie,space heating final use,inflow,flow,2023,8.17
+PL kujawsko-pomorskie water heating final use flow 2020,PL kujawsko-pomorskie,water heating final use,inflow,flow,2020,2.55
+PL kujawsko-pomorskie water heating final use flow 2023,PL kujawsko-pomorskie,water heating final use,inflow,flow,2023,2.69
+PL lubelskie electricity HMV final use flow 2020,PL lubelskie,electricity HMV final use,inflow,flow,2020,2.67
+PL lubelskie electricity HMV final use flow 2023,PL lubelskie,electricity HMV final use,inflow,flow,2023,2.65
+PL lubelskie electricity HMV final use flow 2024,PL lubelskie,electricity HMV final use,inflow,flow,2024,2.68
+PL lubelskie electricity LV final use flow 2020,PL lubelskie,electricity LV final use,inflow,flow,2020,2.8
+PL lubelskie electricity LV final use flow 2023,PL lubelskie,electricity LV final use,inflow,flow,2023,2.77
+PL lubelskie electricity LV final use flow 2024,PL lubelskie,electricity LV final use,inflow,flow,2024,2.81
+PL lubelskie light vehicle mobility final use flow 2020,PL lubelskie,light vehicle mobility final use,inflow,flow,2020,2.35
+PL lubelskie light vehicle mobility final use flow 2023,PL lubelskie,light vehicle mobility final use,inflow,flow,2023,2.4
+PL lubelskie space heating final use flow 2020,PL lubelskie,space heating final use,inflow,flow,2020,9.02
+PL lubelskie space heating final use flow 2023,PL lubelskie,space heating final use,inflow,flow,2023,8.85
+PL lubelskie water heating final use flow 2020,PL lubelskie,water heating final use,inflow,flow,2020,2.61
+PL lubelskie water heating final use flow 2023,PL lubelskie,water heating final use,inflow,flow,2023,2.74
+PL lubuskie electricity HMV final use flow 2020,PL lubuskie,electricity HMV final use,inflow,flow,2020,2.17
+PL lubuskie electricity HMV final use flow 2023,PL lubuskie,electricity HMV final use,inflow,flow,2023,2.15
+PL lubuskie electricity HMV final use flow 2024,PL lubuskie,electricity HMV final use,inflow,flow,2024,2.17
+PL lubuskie electricity LV final use flow 2020,PL lubuskie,electricity LV final use,inflow,flow,2020,1.76
+PL lubuskie electricity LV final use flow 2023,PL lubuskie,electricity LV final use,inflow,flow,2023,1.74
+PL lubuskie electricity LV final use flow 2024,PL lubuskie,electricity LV final use,inflow,flow,2024,1.76
+PL lubuskie light vehicle mobility final use flow 2020,PL lubuskie,light vehicle mobility final use,inflow,flow,2020,1.23
+PL lubuskie light vehicle mobility final use flow 2023,PL lubuskie,light vehicle mobility final use,inflow,flow,2023,1.26
+PL lubuskie space heating final use flow 2020,PL lubuskie,space heating final use,inflow,flow,2020,3.77
+PL lubuskie space heating final use flow 2023,PL lubuskie,space heating final use,inflow,flow,2023,3.7
+PL lubuskie water heating final use flow 2020,PL lubuskie,water heating final use,inflow,flow,2020,1.25
+PL lubuskie water heating final use flow 2023,PL lubuskie,water heating final use,inflow,flow,2023,1.31
+PL mazowieckie electricity HMV final use flow 2020,PL mazowieckie,electricity HMV final use,inflow,flow,2020,10.9
+PL mazowieckie electricity HMV final use flow 2023,PL mazowieckie,electricity HMV final use,inflow,flow,2023,10.8
+PL mazowieckie electricity HMV final use flow 2024,PL mazowieckie,electricity HMV final use,inflow,flow,2024,10.94
+PL mazowieckie electricity LV final use flow 2020,PL mazowieckie,electricity LV final use,inflow,flow,2020,10.96
+PL mazowieckie electricity LV final use flow 2023,PL mazowieckie,electricity LV final use,inflow,flow,2023,10.86
+PL mazowieckie electricity LV final use flow 2024,PL mazowieckie,electricity LV final use,inflow,flow,2024,10.99
+PL mazowieckie light vehicle mobility final use flow 2020,PL mazowieckie,light vehicle mobility final use,inflow,flow,2020,7.05
+PL mazowieckie light vehicle mobility final use flow 2023,PL mazowieckie,light vehicle mobility final use,inflow,flow,2023,7.34
+PL mazowieckie space heating final use flow 2020,PL mazowieckie,space heating final use,inflow,flow,2020,22.59
+PL mazowieckie space heating final use flow 2023,PL mazowieckie,space heating final use,inflow,flow,2023,22.16
+PL mazowieckie water heating final use flow 2020,PL mazowieckie,water heating final use,inflow,flow,2020,6.73
+PL mazowieckie water heating final use flow 2023,PL mazowieckie,water heating final use,inflow,flow,2023,7.09
+PL małopolskie electricity HMV final use flow 2020,PL małopolskie,electricity HMV final use,inflow,flow,2020,6.79
+PL małopolskie electricity HMV final use flow 2023,PL małopolskie,electricity HMV final use,inflow,flow,2023,6.73
+PL małopolskie electricity HMV final use flow 2024,PL małopolskie,electricity HMV final use,inflow,flow,2024,6.81
+PL małopolskie electricity LV final use flow 2020,PL małopolskie,electricity LV final use,inflow,flow,2020,5.78
+PL małopolskie electricity LV final use flow 2023,PL małopolskie,electricity LV final use,inflow,flow,2023,5.73
+PL małopolskie electricity LV final use flow 2024,PL małopolskie,electricity LV final use,inflow,flow,2024,5.8
+PL małopolskie light vehicle mobility final use flow 2020,PL małopolskie,light vehicle mobility final use,inflow,flow,2020,3.68
+PL małopolskie light vehicle mobility final use flow 2023,PL małopolskie,light vehicle mobility final use,inflow,flow,2023,3.82
+PL małopolskie space heating final use flow 2020,PL małopolskie,space heating final use,inflow,flow,2020,14.46
+PL małopolskie space heating final use flow 2023,PL małopolskie,space heating final use,inflow,flow,2023,14.18
+PL małopolskie water heating final use flow 2020,PL małopolskie,water heating final use,inflow,flow,2020,4.2
+PL małopolskie water heating final use flow 2023,PL małopolskie,water heating final use,inflow,flow,2023,4.42
+PL opolskie electricity HMV final use flow 2020,PL opolskie,electricity HMV final use,inflow,flow,2020,3.27
+PL opolskie electricity HMV final use flow 2023,PL opolskie,electricity HMV final use,inflow,flow,2023,3.24
+PL opolskie electricity HMV final use flow 2024,PL opolskie,electricity HMV final use,inflow,flow,2024,3.28
+PL opolskie electricity LV final use flow 2020,PL opolskie,electricity LV final use,inflow,flow,2020,1.65
+PL opolskie electricity LV final use flow 2023,PL opolskie,electricity LV final use,inflow,flow,2023,1.64
+PL opolskie electricity LV final use flow 2024,PL opolskie,electricity LV final use,inflow,flow,2024,1.66
+PL opolskie light vehicle mobility final use flow 2020,PL opolskie,light vehicle mobility final use,inflow,flow,2020,1.12
+PL opolskie light vehicle mobility final use flow 2023,PL opolskie,light vehicle mobility final use,inflow,flow,2023,1.13
+PL opolskie space heating final use flow 2020,PL opolskie,space heating final use,inflow,flow,2020,3.54
+PL opolskie space heating final use flow 2023,PL opolskie,space heating final use,inflow,flow,2023,3.47
+PL opolskie water heating final use flow 2020,PL opolskie,water heating final use,inflow,flow,2020,1.17
+PL opolskie water heating final use flow 2023,PL opolskie,water heating final use,inflow,flow,2023,1.23
+PL podkarpackie electricity HMV final use flow 2020,PL podkarpackie,electricity HMV final use,inflow,flow,2020,4.0
+PL podkarpackie electricity HMV final use flow 2023,PL podkarpackie,electricity HMV final use,inflow,flow,2023,3.96
+PL podkarpackie electricity HMV final use flow 2024,PL podkarpackie,electricity HMV final use,inflow,flow,2024,4.01
+PL podkarpackie electricity LV final use flow 2020,PL podkarpackie,electricity LV final use,inflow,flow,2020,2.58
+PL podkarpackie electricity LV final use flow 2023,PL podkarpackie,electricity LV final use,inflow,flow,2023,2.56
+PL podkarpackie electricity LV final use flow 2024,PL podkarpackie,electricity LV final use,inflow,flow,2024,2.59
+PL podkarpackie light vehicle mobility final use flow 2020,PL podkarpackie,light vehicle mobility final use,inflow,flow,2020,2.23
+PL podkarpackie light vehicle mobility final use flow 2023,PL podkarpackie,light vehicle mobility final use,inflow,flow,2023,2.29
+PL podkarpackie space heating final use flow 2020,PL podkarpackie,space heating final use,inflow,flow,2020,8.68
+PL podkarpackie space heating final use flow 2023,PL podkarpackie,space heating final use,inflow,flow,2023,8.51
+PL podkarpackie water heating final use flow 2020,PL podkarpackie,water heating final use,inflow,flow,2020,2.59
+PL podkarpackie water heating final use flow 2023,PL podkarpackie,water heating final use,inflow,flow,2023,2.73
+PL podlaskie electricity HMV final use flow 2020,PL podlaskie,electricity HMV final use,inflow,flow,2020,1.64
+PL podlaskie electricity HMV final use flow 2023,PL podlaskie,electricity HMV final use,inflow,flow,2023,1.63
+PL podlaskie electricity HMV final use flow 2024,PL podlaskie,electricity HMV final use,inflow,flow,2024,1.65
+PL podlaskie electricity LV final use flow 2020,PL podlaskie,electricity LV final use,inflow,flow,2020,1.94
+PL podlaskie electricity LV final use flow 2023,PL podlaskie,electricity LV final use,inflow,flow,2023,1.92
+PL podlaskie electricity LV final use flow 2024,PL podlaskie,electricity LV final use,inflow,flow,2024,1.95
+PL podlaskie light vehicle mobility final use flow 2020,PL podlaskie,light vehicle mobility final use,inflow,flow,2020,1.19
+PL podlaskie light vehicle mobility final use flow 2023,PL podlaskie,light vehicle mobility final use,inflow,flow,2023,1.22
+PL podlaskie space heating final use flow 2020,PL podlaskie,space heating final use,inflow,flow,2020,5.41
+PL podlaskie space heating final use flow 2023,PL podlaskie,space heating final use,inflow,flow,2023,5.3
+PL podlaskie water heating final use flow 2020,PL podlaskie,water heating final use,inflow,flow,2020,1.43
+PL podlaskie water heating final use flow 2023,PL podlaskie,water heating final use,inflow,flow,2023,1.51
+PL pomorskie electricity HMV final use flow 2020,PL pomorskie,electricity HMV final use,inflow,flow,2020,4.79
+PL pomorskie electricity HMV final use flow 2023,PL pomorskie,electricity HMV final use,inflow,flow,2023,4.75
+PL pomorskie electricity HMV final use flow 2024,PL pomorskie,electricity HMV final use,inflow,flow,2024,4.81
+PL pomorskie electricity LV final use flow 2020,PL pomorskie,electricity LV final use,inflow,flow,2020,4.31
+PL pomorskie electricity LV final use flow 2023,PL pomorskie,electricity LV final use,inflow,flow,2023,4.27
+PL pomorskie electricity LV final use flow 2024,PL pomorskie,electricity LV final use,inflow,flow,2024,4.32
+PL pomorskie light vehicle mobility final use flow 2020,PL pomorskie,light vehicle mobility final use,inflow,flow,2020,2.6
+PL pomorskie light vehicle mobility final use flow 2023,PL pomorskie,light vehicle mobility final use,inflow,flow,2023,2.67
+PL pomorskie space heating final use flow 2020,PL pomorskie,space heating final use,inflow,flow,2020,9.39
+PL pomorskie space heating final use flow 2023,PL pomorskie,space heating final use,inflow,flow,2023,9.21
+PL pomorskie water heating final use flow 2020,PL pomorskie,water heating final use,inflow,flow,2020,2.89
+PL pomorskie water heating final use flow 2023,PL pomorskie,water heating final use,inflow,flow,2023,3.04
+PL warmińsko-mazurskie electricity HMV final use flow 2020,PL warmińsko-mazurskie,electricity HMV final use,inflow,flow,2020,2.21
+PL warmińsko-mazurskie electricity HMV final use flow 2023,PL warmińsko-mazurskie,electricity HMV final use,inflow,flow,2023,2.19
+PL warmińsko-mazurskie electricity HMV final use flow 2024,PL warmińsko-mazurskie,electricity HMV final use,inflow,flow,2024,2.22
+PL warmińsko-mazurskie electricity LV final use flow 2020,PL warmińsko-mazurskie,electricity LV final use,inflow,flow,2020,2.44
+PL warmińsko-mazurskie electricity LV final use flow 2023,PL warmińsko-mazurskie,electricity LV final use,inflow,flow,2023,2.42
+PL warmińsko-mazurskie electricity LV final use flow 2024,PL warmińsko-mazurskie,electricity LV final use,inflow,flow,2024,2.45
+PL warmińsko-mazurskie light vehicle mobility final use flow 2020,PL warmińsko-mazurskie,light vehicle mobility final use,inflow,flow,2020,1.45
+PL warmińsko-mazurskie light vehicle mobility final use flow 2023,PL warmińsko-mazurskie,light vehicle mobility final use,inflow,flow,2023,1.47
+PL warmińsko-mazurskie space heating final use flow 2020,PL warmińsko-mazurskie,space heating final use,inflow,flow,2020,6.2
+PL warmińsko-mazurskie space heating final use flow 2023,PL warmińsko-mazurskie,space heating final use,inflow,flow,2023,6.08
+PL warmińsko-mazurskie water heating final use flow 2020,PL warmińsko-mazurskie,water heating final use,inflow,flow,2020,1.75
+PL warmińsko-mazurskie water heating final use flow 2023,PL warmińsko-mazurskie,water heating final use,inflow,flow,2023,1.84
+PL wielkopolskie electricity HMV final use flow 2020,PL wielkopolskie,electricity HMV final use,inflow,flow,2020,8.14
+PL wielkopolskie electricity HMV final use flow 2023,PL wielkopolskie,electricity HMV final use,inflow,flow,2023,8.06
+PL wielkopolskie electricity HMV final use flow 2024,PL wielkopolskie,electricity HMV final use,inflow,flow,2024,8.16
+PL wielkopolskie electricity LV final use flow 2020,PL wielkopolskie,electricity LV final use,inflow,flow,2020,6.38
+PL wielkopolskie electricity LV final use flow 2023,PL wielkopolskie,electricity LV final use,inflow,flow,2023,6.32
+PL wielkopolskie electricity LV final use flow 2024,PL wielkopolskie,electricity LV final use,inflow,flow,2024,6.4
+PL wielkopolskie light vehicle mobility final use flow 2020,PL wielkopolskie,light vehicle mobility final use,inflow,flow,2020,4.39
+PL wielkopolskie light vehicle mobility final use flow 2023,PL wielkopolskie,light vehicle mobility final use,inflow,flow,2023,4.5
+PL wielkopolskie space heating final use flow 2020,PL wielkopolskie,space heating final use,inflow,flow,2020,13.63
+PL wielkopolskie space heating final use flow 2023,PL wielkopolskie,space heating final use,inflow,flow,2023,13.37
+PL wielkopolskie water heating final use flow 2020,PL wielkopolskie,water heating final use,inflow,flow,2020,4.34
+PL wielkopolskie water heating final use flow 2023,PL wielkopolskie,water heating final use,inflow,flow,2023,4.57
+PL zachodniopomorskie electricity HMV final use flow 2020,PL zachodniopomorskie,electricity HMV final use,inflow,flow,2020,2.95
+PL zachodniopomorskie electricity HMV final use flow 2023,PL zachodniopomorskie,electricity HMV final use,inflow,flow,2023,2.93
+PL zachodniopomorskie electricity HMV final use flow 2024,PL zachodniopomorskie,electricity HMV final use,inflow,flow,2024,2.96
+PL zachodniopomorskie electricity LV final use flow 2020,PL zachodniopomorskie,electricity LV final use,inflow,flow,2020,3.05
+PL zachodniopomorskie electricity LV final use flow 2023,PL zachodniopomorskie,electricity LV final use,inflow,flow,2023,3.03
+PL zachodniopomorskie electricity LV final use flow 2024,PL zachodniopomorskie,electricity LV final use,inflow,flow,2024,3.06
+PL zachodniopomorskie light vehicle mobility final use flow 2020,PL zachodniopomorskie,light vehicle mobility final use,inflow,flow,2020,1.82
+PL zachodniopomorskie light vehicle mobility final use flow 2023,PL zachodniopomorskie,light vehicle mobility final use,inflow,flow,2023,1.85
+PL zachodniopomorskie space heating final use flow 2020,PL zachodniopomorskie,space heating final use,inflow,flow,2020,6.4
+PL zachodniopomorskie space heating final use flow 2023,PL zachodniopomorskie,space heating final use,inflow,flow,2023,6.28
+PL zachodniopomorskie water heating final use flow 2020,PL zachodniopomorskie,water heating final use,inflow,flow,2020,2.08
+PL zachodniopomorskie water heating final use flow 2023,PL zachodniopomorskie,water heating final use,inflow,flow,2023,2.19
+PL łódzkie electricity HMV final use flow 2020,PL łódzkie,electricity HMV final use,inflow,flow,2020,6.63
+PL łódzkie electricity HMV final use flow 2023,PL łódzkie,electricity HMV final use,inflow,flow,2023,6.57
+PL łódzkie electricity HMV final use flow 2024,PL łódzkie,electricity HMV final use,inflow,flow,2024,6.65
+PL łódzkie electricity LV final use flow 2020,PL łódzkie,electricity LV final use,inflow,flow,2020,4.08
+PL łódzkie electricity LV final use flow 2023,PL łódzkie,electricity LV final use,inflow,flow,2023,4.04
+PL łódzkie electricity LV final use flow 2024,PL łódzkie,electricity LV final use,inflow,flow,2024,4.09
+PL łódzkie light vehicle mobility final use flow 2020,PL łódzkie,light vehicle mobility final use,inflow,flow,2020,2.87
+PL łódzkie light vehicle mobility final use flow 2023,PL łódzkie,light vehicle mobility final use,inflow,flow,2023,2.91
+PL łódzkie space heating final use flow 2020,PL łódzkie,space heating final use,inflow,flow,2020,9.99
+PL łódzkie space heating final use flow 2023,PL łódzkie,space heating final use,inflow,flow,2023,9.79
+PL łódzkie water heating final use flow 2020,PL łódzkie,water heating final use,inflow,flow,2020,3.04
+PL łódzkie water heating final use flow 2023,PL łódzkie,water heating final use,inflow,flow,2023,3.2
+PL śląskie electricity HMV final use flow 2020,PL śląskie,electricity HMV final use,inflow,flow,2020,15.45
+PL śląskie electricity HMV final use flow 2023,PL śląskie,electricity HMV final use,inflow,flow,2023,15.31
+PL śląskie electricity HMV final use flow 2024,PL śląskie,electricity HMV final use,inflow,flow,2024,15.5
+PL śląskie electricity LV final use flow 2020,PL śląskie,electricity LV final use,inflow,flow,2020,7.32
+PL śląskie electricity LV final use flow 2023,PL śląskie,electricity LV final use,inflow,flow,2023,7.26
+PL śląskie electricity LV final use flow 2024,PL śląskie,electricity LV final use,inflow,flow,2024,7.35
+PL śląskie light vehicle mobility final use flow 2020,PL śląskie,light vehicle mobility final use,inflow,flow,2020,4.85
+PL śląskie light vehicle mobility final use flow 2023,PL śląskie,light vehicle mobility final use,inflow,flow,2023,4.92
+PL śląskie space heating final use flow 2020,PL śląskie,space heating final use,inflow,flow,2020,17.75
+PL śląskie space heating final use flow 2023,PL śląskie,space heating final use,inflow,flow,2023,17.4
+PL śląskie water heating final use flow 2020,PL śląskie,water heating final use,inflow,flow,2020,5.59
+PL śląskie water heating final use flow 2023,PL śląskie,water heating final use,inflow,flow,2023,5.88
+PL świętokrzyskie electricity HMV final use flow 2020,PL świętokrzyskie,electricity HMV final use,inflow,flow,2020,3.17
+PL świętokrzyskie electricity HMV final use flow 2023,PL świętokrzyskie,electricity HMV final use,inflow,flow,2023,3.14
+PL świętokrzyskie electricity HMV final use flow 2024,PL świętokrzyskie,electricity HMV final use,inflow,flow,2024,3.18
+PL świętokrzyskie electricity LV final use flow 2020,PL świętokrzyskie,electricity LV final use,inflow,flow,2020,1.6
+PL świętokrzyskie electricity LV final use flow 2023,PL świętokrzyskie,electricity LV final use,inflow,flow,2023,1.58
+PL świętokrzyskie electricity LV final use flow 2024,PL świętokrzyskie,electricity LV final use,inflow,flow,2024,1.6
+PL świętokrzyskie light vehicle mobility final use flow 2020,PL świętokrzyskie,light vehicle mobility final use,inflow,flow,2020,1.33
+PL świętokrzyskie light vehicle mobility final use flow 2023,PL świętokrzyskie,light vehicle mobility final use,inflow,flow,2023,1.36
+PL świętokrzyskie space heating final use flow 2020,PL świętokrzyskie,space heating final use,inflow,flow,2020,5.16
+PL świętokrzyskie space heating final use flow 2023,PL świętokrzyskie,space heating final use,inflow,flow,2023,5.06
+PL świętokrzyskie water heating final use flow 2020,PL świętokrzyskie,water heating final use,inflow,flow,2020,1.52
+PL świętokrzyskie water heating final use flow 2023,PL świętokrzyskie,water heating final use,inflow,flow,2023,1.6

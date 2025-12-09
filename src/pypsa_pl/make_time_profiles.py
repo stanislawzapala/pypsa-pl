@@ -15,27 +15,39 @@ def set_snapshot_index(df, params):
     return df
 
 
-def make_electricity_final_use_load_profile(df, snapshots, params):
-    df_t = pd.read_csv(
-        data_dir(
-            "input",
-            f"timeseries;variant={params['timeseries']}",
-            f"demand_profile;carrier=electricity final use;year={params['weather_year']}.csv",
+def make_electricity_final_use_load_profile_func(carrier="electricity final use"):
+    def make_electricity_final_use_load_profile(df, snapshots, params):
+        df_t = pd.read_csv(
+            data_dir(
+                "input",
+                f"timeseries;variant={params['timeseries']}",
+                f"demand_profile;carrier={carrier};year={params['weather_year']}.csv",
+            )
         )
-    )
-    # Create dataframe with profiles for each final use component based on area match
-    df_t = set_snapshot_index(df_t, params).loc[snapshots]
-    df_t = df_t.transpose().reset_index(names="area")
-    df_t = (
-        df[["name", "area", "p_set_annual"]]
-        .merge(df_t, on="area", how="inner")
-        .drop(columns="area")
-    )
-    # Multiply the load profile by p_set_annual
-    df_t[snapshots] *= df_t["p_set_annual"].values[:, np.newaxis]
-    df_t = df_t.drop(columns="p_set_annual")
-    df_t = df_t.set_index("name").transpose()
-    return df_t
+        # Create dataframe with profiles for each final use component based on area match
+        df_t = set_snapshot_index(df_t, params).loc[snapshots]
+        df_t = df_t.transpose().reset_index(names="area")
+        df_t = (
+            df[["name", "area", "p_set_annual"]]
+            .merge(df_t, on="area", how="inner")
+            .drop(columns="area")
+        )
+        # Multiply the load profile by p_set_annual
+        df_t[snapshots] *= df_t["p_set_annual"].values[:, np.newaxis]
+        df_t = df_t.drop(columns="p_set_annual")
+        df_t = df_t.set_index("name").transpose()
+        return df_t
+
+    return make_electricity_final_use_load_profile
+
+
+make_electricity_final_use_load_profile = make_electricity_final_use_load_profile_func()
+make_electricity_hmv_final_use_load_profile = (
+    make_electricity_final_use_load_profile_func("electricity HMV final use")
+)
+make_electricity_lv_final_use_load_profile = (
+    make_electricity_final_use_load_profile_func("electricity LV final use")
+)
 
 
 def make_public_heat_final_use_load_profile(df, snapshots, params):
@@ -100,14 +112,14 @@ make_light_vehicle_mobility_final_use_load_pu_profile = (
 
 def make_vres_availability_profile(df, snapshots, params):
     dfs_t = {
-        carrier: pd.read_csv(
+        technology: pd.read_csv(
             data_dir(
                 "input",
                 f"timeseries;variant={params['timeseries']}",
-                f"availability_profile;carrier={carrier};year={params['weather_year']}.csv",
+                f"availability_profile;technology={technology};year={params['weather_year']}.csv",
             )
         )
-        for carrier in df["carrier"].unique()
+        for technology in df["technology"].unique()
     }
     df_t = pd.concat(
         [
@@ -115,14 +127,22 @@ def make_vres_availability_profile(df, snapshots, params):
             .loc[snapshots]
             .transpose()
             .reset_index(names="area")
-            .assign(**{"carrier": carrier})
-            for carrier, df_t in dfs_t.items()
+            .assign(**{"technology": technology})
+            for technology, df_t in dfs_t.items()
         ]
     )
     df_t = (
-        df[["name", "area", "carrier", "qualifier", "p_max_pu_annual"]]
-        .merge(df_t, on=["area", "carrier"], how="inner")
-        .drop(columns=["carrier"])
+        df[
+            [
+                "name",
+                "area",
+                "technology",
+                "qualifier",
+                "availability_correction_factor",
+            ]
+        ]
+        .merge(df_t, on=["area", "technology"], how="inner")
+        .drop(columns=["technology"])
     )
 
     # Modify availability profiles s.t. they match the assumed annual availability factors
@@ -130,14 +150,17 @@ def make_vres_availability_profile(df, snapshots, params):
     is_domestic = df_t["area"].str.startswith("PL")
     df_t.loc[is_domestic, snapshots] = modify_vres_availability_profile(
         df_t.loc[is_domestic, snapshots].values.transpose(),
-        annual_availability_factor=df_t.loc[is_domestic, "p_max_pu_annual"].values,
+        # annual_availability_factor=df_t.loc[is_domestic, "p_max_pu_annual"].values,
+        annual_correction_factor=df_t.loc[
+            is_domestic, "availability_correction_factor"
+        ].values,
     ).transpose()
 
     # For prosumer vRES capacities, reduce the availability by self consumption rate
     is_prosumer = df_t["qualifier"] == "prosumer"
     df_t.loc[is_prosumer, snapshots] *= 1 - params["prosumer_self_consumption"]
 
-    df_t = df_t.drop(columns=["area", "qualifier", "p_max_pu_annual"])
+    df_t = df_t.drop(columns=["area", "qualifier", "availability_correction_factor"])
     df_t = df_t.set_index("name").transpose()
     return df_t
 
@@ -316,6 +339,7 @@ def calculate_bev_battery_max_soc_profile(snapshots, params):
         / bev_efficiency
     )
     df_t += soc_max - df_t.max()
+
     return df_t
 
 
@@ -326,6 +350,10 @@ def make_bev_battery_max_soc_profile(df, snapshots, params):
     df_t = df[["name", "area"]].merge(df_t, on="area", how="inner").drop(columns="area")
 
     df_t = df_t.set_index("name").transpose()
+
+    # If flexibility is unlimited, set e_max_pu_t to 1
+    if np.isinf(params.get("bev_flexibility_factor", 1)):
+        df_t[:] = 1.0
     return df_t
 
 
@@ -338,6 +366,7 @@ def make_bev_battery_min_soc_profile(df, snapshots, params):
     # TODO: if possible, get them from the technology cost data
     # 10 kW of avg. max wheel power and 44 kWh of battery capacity per BEV
     bev_output_to_battery_ratio = params.get("bev_output_to_battery_ratio", 10 / 44)
+    bev_battery_per_vehicle = params.get("bev_battery_per_vehicle", 44)  # in kWh
     # Battery-to-wheel efficiency
     bev_efficiency = params.get("bev_efficiency", 0.85)
     # Assume average flexibility is of the order of the daily electricity consumption of BEVs
@@ -350,7 +379,7 @@ def make_bev_battery_min_soc_profile(df, snapshots, params):
         * params.get("bev_flexibility_factor", 1)
     )
     logging.info(
-        f"Mean BEV storage flexibility: {e_flex_pu_mean * 44:.2f} kWh/BEV (flexible vehicles only)"
+        f"Mean BEV storage flexibility: {e_flex_pu_mean * bev_battery_per_vehicle:.2f} kWh/BEV (flexible vehicles only)"
     )
     # Assume the ratio of mean to max flexibility is specified by the user
     # Default ratio stems from Muessel et al. 2023 (https://doi.org/10.1016/j.isci.2023.107816)
@@ -388,11 +417,19 @@ def make_bev_battery_min_soc_profile(df, snapshots, params):
     df_t = df[["name", "area"]].merge(df_t, on="area", how="inner").drop(columns="area")
 
     df_t = df_t.set_index("name").transpose()
+
+    # Make sure values never go below 0 or above 1
+    df_t = df_t.clip(lower=0, upper=1)
+    # If flexibility is unlimited, set e_min_pu_t to 0
+    if np.isinf(params.get("bev_flexibility_factor", 1)):
+        df_t[:] = 0.0
     return df_t
 
 
 make_profile_funcs = {
     "electricity final use load profile": make_electricity_final_use_load_profile,
+    "electricity HMV final use load profile": make_electricity_hmv_final_use_load_profile,
+    "electricity LV final use load profile": make_electricity_lv_final_use_load_profile,
     "public heat final use load profile": make_public_heat_final_use_load_profile,
     "space heating final use load pu profile": make_space_heating_final_use_load_pu_profile,
     "light vehicle mobility final use load pu profile": make_light_vehicle_mobility_final_use_load_pu_profile,

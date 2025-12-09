@@ -1,16 +1,18 @@
 technology,carrier,aggregation,parent,bus_carrier,input_carrier,output_carrier,output2_carrier,component,color,order
 electricity final use,electricity final use,electricity final use,,,electricity out,,,Generator,#b6b6b7,1
-space heating final use,space heating final use,heat final use,,,space heating,,,Generator,#b6b6b7,2
-water heating final use,water heating final use,heat final use,,,water heating,,,Generator,#b6b6b7,3
-other heating final use,other heating final use,heat final use,,,other heating,,,Generator,#b6b6b7,4
-light vehicle mobility final use,light vehicle mobility final use,light vehicle mobility final use,,,light vehicle mobility,,,Generator,#b6b6b7,5
-hydrogen final use,hydrogen final use,hydrogen final use,,,hydrogen,,,Generator,#b6b6b7,6
-hard coal final use,hard coal final use,hard coal final use,,,hard coal,,,Generator,#b6b6b7,7
-natural gas final use,natural gas final use,natural gas final use,,,natural gas,,,Generator,#b6b6b7,8
-other fuel final use,other fuel final use,other fuel final use,,,other fuel,,,Generator,#b6b6b7,9
-biomass wood final use,biomass wood final use,biomass wood final use,,,biomass wood,,,Generator,#b6b6b7,10
-process emissions final use,process emissions final use,process emissions final use,,,process emissions,,,Generator,#b6b6b7,11
-lulucf final use,lulucf final use,lulucf final use,,,lulucf,,,Generator,#b6b6b7,12
+electricity HMV final use,electricity HMV final use,electricity final use,,,electricity out,,,Generator,#b6b6b7,2
+electricity LV final use,electricity LV final use,electricity final use,,,electricity out,,,Generator,#b6b6b7,3
+space heating final use,space heating final use,heat final use,,,space heating,,,Generator,#b6b6b7,4
+water heating final use,water heating final use,heat final use,,,water heating,,,Generator,#b6b6b7,5
+other heating final use,other heating final use,heat final use,,,other heating,,,Generator,#b6b6b7,6
+light vehicle mobility final use,light vehicle mobility final use,light vehicle mobility final use,,,light vehicle mobility,,,Generator,#b6b6b7,7
+hydrogen final use,hydrogen final use,hydrogen final use,,,hydrogen,,,Generator,#b6b6b7,8
+hard coal final use,hard coal final use,hard coal final use,,,hard coal,,,Generator,#b6b6b7,9
+natural gas final use,natural gas final use,natural gas final use,,,natural gas,,,Generator,#b6b6b7,10
+other fuel final use,other fuel final use,other fuel final use,,,other fuel,,,Generator,#b6b6b7,11
+biomass wood final use,biomass wood final use,biomass wood final use,,,biomass wood,,,Generator,#b6b6b7,12
+process emissions final use,process emissions final use,process emissions final use,,,process emissions,,,Generator,#b6b6b7,13
+lulucf final use,lulucf final use,lulucf final use,,,lulucf,,,Generator,#b6b6b7,14
 hard coal supply,hard coal supply,hard coal supply,,,,hard coal,,Generator,#b5c6cf,110
 hard coal power old,hard coal power,hard coal power,,,hard coal,electricity in,,Link,#b5c6cf,111
 hard coal power SC,hard coal power,hard coal power,,,hard coal,electricity in,,Link,#b5c6cf,112
@@ -51,7 +53,9 @@ wind onshore old,wind onshore,wind onshore,,,,electricity in,,Generator,#b9f6ca,
 wind onshore,wind onshore,wind onshore,,,,electricity in,,Generator,#b9f6ca,212
 wind offshore,wind offshore,wind offshore,,,,electricity in,,Generator,#69f0ae,213
 solar PV ground,solar PV ground,solar PV ground,,,,electricity in,,Generator,#f3b3fd,221
-solar PV roof,solar PV roof,solar PV roof,,,,electricity in,,Generator,#e040fb,222
+solar PV ground E,solar PV ground,solar PV ground,,,,electricity in,,Generator,#f3b3fd,222
+solar PV ground W,solar PV ground,solar PV ground,,,,electricity in,,Generator,#f3b3fd,223
+solar PV roof,solar PV roof,solar PV roof,,,,electricity in,,Generator,#e040fb,225
 hydro PSH storage,hydro PSH storage,hydro PSH,hydro PSH power,hydro PSH electricity,,,,Store,#82b1ff,230
 hydro PSH power,hydro PSH power,hydro PSH,,,hydro PSH electricity,electricity in,,Link,#82b1ff,231
 hydro PSH pump,hydro PSH pump,hydro PSH,hydro PSH power,,electricity out,hydro PSH electricity,,Link,#82b1ff,232
@@ -61,8 +65,8 @@ battery large charger,battery large charger,battery large,battery large power,,e
 BEV V2G,BEV V2G,BEV,BEV,,BEV electricity,electricity in,,Link,#153d80,251
 electricity import AC,electricity import,electricity import or export,,,electricity out,electricity in,,Link,#767778,281
 electricity import DC,electricity import,electricity import or export,,,electricity out,electricity in,,Link,#767778,282
-electricity export AC,electricity export,electricity import or export,,,electricity out,electricity in,,Link,#767778,283
-electricity export DC,electricity export,electricity import or export,,,electricity out,electricity in,,Link,#767778,284
+electricity export AC,electricity export,electricity import or export,,,electricity in,electricity in,,Link,#767778,283
+electricity export DC,electricity export,electricity import or export,,,electricity in,electricity in,,Link,#767778,284
 DSR reduction,DSR reduction,DSR,,,,electricity in,,Generator,#1b1c1e,291
 heat pump large AW,heat pump large,heat pump large,,,electricity out,heat centralised in,,Link,#f4a6a5,301
 resistive heater large,resistive heater large,resistive heater large,,,electricity out,heat centralised in,,Link,#e94d4c,311
@@ -97,5 +101,16 @@ hydrogen storage,hydrogen storage,hydrogen storage,,hydrogen,,,,Store,#00aad4,61
 hydrogen,hydrogen,hydrogen,,,hydrogen,hydrogen,,Link,#b6b6b7,691
 process emissions supply,process emissions supply,process emissions supply,,,,process emissions,,Generator,#b6b6b7,801
 lulucf supply,lulucf supply,lulucf supply,,,,lulucf,,Generator,#b6b6b7,802
-electricity grid,electricity grid,electricity grid,,,electricity in,electricity out,,Link,#b6b6b7,1201
+transmission line AC,transmission line AC,transmission grid,,,electricity in,electricity in,,Line,#ffecb3,1201
+transmission line DC,transmission line DC,transmission grid,,,electricity in,electricity in,,Link,#ffecb3,1202
+transformation EHV-HMV,transformation EHV-HMV,transmission grid,,,electricity in,electricity in,,Link,#ffecb3,1203
+transformation HMV-EHV,transformation HMV-EHV,transmission grid,transformation EHV-HMV,,electricity out,electricity in,,Link,#ffecb3,1204
+distribution HMV,distribution HMV,distribution grid,,,electricity in,electricity out,,Link,#ffd54f,1211
+connection HMV-vRES,connection HMV-vRES,distribution grid,,,electricity out,electricity in,,Link,#ffd54f,1212
+connection vRES-HMV,connection vRES-HMV,distribution grid,connection HMV-vRES,,electricity out,electricity in,,Link,#ffd54f,1213
+direct line vRES,direct line vRES,distribution grid,,,electricity in,electricity out,,Link,#ffd54f,1214
+transformation HMV-LV,transformation HMV-LV,distribution grid,,,electricity out,electricity in,,Link,#ffd54f,1215
+transformation LV-HMV,transformation LV-HMV,distribution grid,transformation HMV-LV,,electricity out,electricity in,,Link,#ffd54f,1216
+distribution LV,distribution LV,distribution grid,,,electricity in,electricity out,,Link,#ffab00,1217
+electricity grid,electricity grid,electricity grid,,,electricity in,electricity out,,Link,#b6b6b7,1221
 district heating,district heating,district heating,,,heat centralised in,heat centralised out,,Link,#b6b6b7,1301

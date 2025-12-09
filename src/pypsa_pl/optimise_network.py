@@ -1,8 +1,10 @@
 import logging
-import pandas as pd
+import multiprocessing as mp
+
 from pypsa_pl.helper_functions import ignore_future_warnings
 from pypsa_pl.custom_constraints import (
     define_operational_limit_link,
+    define_operational_limit_per_area,
     define_custom_primary_energy_limit,
     define_nominal_constraints_per_area_carrier,
     define_annual_capacity_utilisation_constraints,
@@ -13,41 +15,55 @@ from pypsa_pl.custom_constraints import (
     define_non_heating_capacity_utilisation_constraints,
     define_minimum_synchronous_generation,
     remove_annual_carrier_demand_constraints,
+    define_proportional_expansion_constraint,
+    define_minimum_bev_charge_level_constraint,
 )
+from pypsa_pl.config import project_dir
+
+# Set the number of threads to be used by the solver to 75% of available cores, but never more than 8
+n_threads = min(max(1, int(mp.cpu_count() * 0.75 + 0.01)), 8)
 
 
-solver_options = lambda eps=1e-6, flags=[]: {
+solver_options = lambda eps=1e-6, log_dir=project_dir, flags=[]: {
     "highs": {
-        "threads": 4,
+        "threads": n_threads,
         "solver": "ipm",
         "run_crossover": "off",
         "small_matrix_value": 1e-7,
         "large_matrix_value": 1e12,
-        "primal_feasibility_tolerance": eps * 10,
-        "dual_feasibility_tolerance": eps * 10,
         "ipm_optimality_tolerance": eps,
+        "dual_feasibility_tolerance": eps,
+        "primal_feasibility_tolerance": eps * 10,
         "parallel": "on",
         "random_seed": 0,
         **{flag: "on" for flag in flags},
     },
     "gurobi": {
-        "threads": 4,
-        "method": 2,  # barrier (IPM)
-        "crossover": 0,
+        "Threads": n_threads,
+        "Method": 2,  # barrier (IPM)
+        "Crossover": 0,
+        # "OptimalityTol": eps,  # only relevent if crossover is on
         "BarConvTol": eps,
         "FeasibilityTol": eps * 10,
+        # Those help to stabilise the solver in the final iterations
+        "NumericFocus": 1,
+        "BarCorrectors": 1,
+        # "BarHomogeneous": 1, # this sometimes makes the final iterations more difficult to converge
+        # ***
+        # Those help reduce memory consumption in presolve step & speeds up the whole optimisation
         "AggFill": 0,
         "PreDual": 0,
-        "GURO_PAR_BARDENSETHRESH": 200,
+        # ***
         "Seed": 0,
+        "LogFile": str(log_dir("solver.log")),
         **{flag: 1 for flag in flags},
     },
     "mosek": {
-        "MSK_IPAR_NUM_THREADS": 4,
+        "MSK_IPAR_NUM_THREADS": n_threads,
         # "MSK_IPAR_PRESOLVE_USE": "MSK_PRESOLVE_MODE_OFF",
         "MSK_IPAR_OPTIMIZER": "MSK_OPTIMIZER_INTPNT",
         "MSK_DPAR_INTPNT_TOL_PFEAS": eps * 10,
-        "MSK_DPAR_INTPNT_TOL_DFEAS": eps * 10,
+        "MSK_DPAR_INTPNT_TOL_DFEAS": eps,
         "MSK_DPAR_INTPNT_TOL_REL_GAP": eps,
         "MSK_DPAR_INTPNT_TOL_INFEAS": eps / 10,
         **{flag: 1 for flag in flags},
@@ -73,10 +89,14 @@ def add_epsilon_to_optimal_capacities(network, eps_rel=5e-5, eps_abs=1e-2):
         ("Link", "p_nom"),
         ("Store", "e_nom"),
     ]:
-        is_not_virtual = ~network.df(component)["carrier"].isin(virtual_capacities)
-        is_extendable = network.df(component)[f"{nom_attr}_extendable"]
-        network.df(component).loc[is_extendable & is_not_virtual, f"{nom_attr}_opt"] = (
-            network.df(component).loc[is_extendable & is_not_virtual, f"{nom_attr}_opt"]
+        is_not_virtual = ~network.static(component)["carrier"].isin(virtual_capacities)
+        is_extendable = network.static(component)[f"{nom_attr}_extendable"]
+        network.static(component).loc[
+            is_extendable & is_not_virtual, f"{nom_attr}_opt"
+        ] = (
+            network.static(component).loc[
+                is_extendable & is_not_virtual, f"{nom_attr}_opt"
+            ]
             * (1 + eps_rel)
             + eps_abs
         )
@@ -88,29 +108,31 @@ def reset_capacities(network, params):
         ("Link", "p_nom"),
         ("Store", "e_nom"),
     ]:
-        is_to_invest = network.df(component)["technology"].isin(
+        is_to_invest = network.static(component)["technology"].isin(
             params["investment_technologies"]
         )
-        is_to_retire = network.df(component)["technology"].isin(
+        is_to_retire = network.static(component)["technology"].isin(
             params["retirement_technologies"]
         )
-        network.df(component)[f"{nom_attr}_extendable"] = is_to_invest | is_to_retire
+        network.static(component)[f"{nom_attr}_extendable"] = (
+            is_to_invest | is_to_retire
+        )
 
-        is_cumulative = network.df(component)["lifetime"] == 1
-        is_active = network.df(component)["build_year"] == params["year"]
+        is_cumulative = network.static(component)["lifetime"] == 1
+        is_active = network.static(component)["build_year"] == params["year"]
 
         is_to_invest &= ~is_cumulative & is_active
-        network.df(component).loc[is_to_invest, nom_attr] = network.df(component).loc[
-            is_to_invest, f"{nom_attr}_min"
-        ]
+        network.static(component).loc[is_to_invest, nom_attr] = network.static(
+            component
+        ).loc[is_to_invest, f"{nom_attr}_min"]
         is_to_retire &= is_cumulative & is_active
-        network.df(component).loc[is_to_retire, nom_attr] = network.df(component).loc[
-            is_to_retire, f"{nom_attr}_max"
-        ]
+        network.static(component).loc[is_to_retire, nom_attr] = network.static(
+            component
+        ).loc[is_to_retire, f"{nom_attr}_max"]
 
 
 @ignore_future_warnings
-def create_and_solve_model(network, params, fixed_virtual_capacities=False):
+def create_and_solve_model(network, params, log_dir, fixed_virtual_capacities=False):
 
     # Turn single index snapshots into multi-index snapshots with period equal to simulation year
     # This is only necessary if we need max_growth constraint
@@ -123,12 +145,18 @@ def create_and_solve_model(network, params, fixed_virtual_capacities=False):
     )
 
     define_operational_limit_link(network, network.snapshots)
+    define_operational_limit_per_area(network, network.snapshots)
     define_custom_primary_energy_limit(network, network.snapshots)
     define_annual_capacity_utilisation_constraints(network, network.snapshots)
     define_minimum_synchronous_generation(network, network.snapshots)
 
     define_nominal_constraints_per_area_carrier(network, network.snapshots)
     define_parent_children_capacity_constraints(network, network.snapshots)
+    define_proportional_expansion_constraint(network, network.snapshots)
+
+    minimum_bev_charge_level = network.meta.get("minimum_bev_charge_level", 0.0)
+    if minimum_bev_charge_level > 0.0:
+        define_minimum_bev_charge_level_constraint(network, network.snapshots)
 
     if not fixed_virtual_capacities:
         # These constraints might lead to infesibility in dispatch-only optimisation
@@ -160,42 +188,40 @@ def create_and_solve_model(network, params, fixed_virtual_capacities=False):
 
     status, condition = network.optimize.solve_model(
         solver_name=solver,
-        solver_options=solver_options(eps, extra_flags).get(solver, {}),
+        solver_options=solver_options(eps, log_dir, extra_flags).get(solver, {}),
     )
     network.meta["solver_status"] = f"{status}: {condition}"
 
+    # Close the model and free up memory
+    # if solver == "gurobi":
+    #     sm = network.model.solver_model
+    #     sm.dispose()
 
-def optimise_network(network, params):
 
-    # TODO: remove when PyPSA upgraded to 0.28.0
-    # https://github.com/PyPSA/PyPSA/pull/880/commits
-    # ***
-    network.stores["carrier_original"] = network.stores["carrier"]
-    # ***
+def optimise_network(network, params, log_dir):
 
     # Workaround for foreign capacities and constraints
     for component in ["Bus", "Generator", "Link", "Store", "GlobalConstraint"]:
-        is_not_domestic = ~network.df(component)["area"].str.startswith("PL")
+        is_not_domestic = ~network.static(component)["area"].str.startswith("PL")
         if component == "Link":
-            is_not_domestic &= ~network.df(component)["area2"].str.startswith("PL")
+            is_not_domestic &= ~network.static(component)["area_from"].str.startswith(
+                "PL"
+            )
         carrier_col = (
             "carrier" if component != "GlobalConstraint" else "carrier_attribute"
         )
-        network.df(component).loc[is_not_domestic, carrier_col] += (
-            " " + network.df(component).loc[is_not_domestic, "area"]
+        network.static(component).loc[is_not_domestic, carrier_col] += (
+            " " + network.static(component).loc[is_not_domestic, "area"]
         )
 
-    create_and_solve_model(network, params)
+    create_and_solve_model(network, params, log_dir)
     if params["reoptimise_with_fixed_capacities"]:
-        network_non_fixed = network.copy()
-        network_non_fixed.meta = network.meta.copy()
-        for attr in ["objective", "objective_constant"]:
-            if hasattr(network, attr):
-                setattr(network_non_fixed, attr, getattr(network, attr))
+        # If snapshots=None, maximum recursion error appears
+        network_non_fixed = network.copy(snapshots=network.snapshots)
         logging.info("Repeating optimization with optimal capacities fixed...")
         add_epsilon_to_optimal_capacities(network)
         network.optimize.fix_optimal_capacities()
-        create_and_solve_model(network, params, fixed_virtual_capacities=True)
+        create_and_solve_model(network, params, log_dir, fixed_virtual_capacities=True)
         reset_capacities(network, params)
 
     networks = (
@@ -206,20 +232,19 @@ def optimise_network(network, params):
 
         # At the end, for foreign buses keep area code as part of bus carrier
         for component in ["Generator", "Link", "Store", "GlobalConstraint"]:
-            is_not_domestic = ~n.df(component)["area"].str.startswith("PL")
+            is_not_domestic = ~n.static(component)["area"].str.startswith("PL")
             if component == "Link":
-                is_not_domestic &= ~n.df(component)["area2"].str.startswith("PL")
+                is_not_domestic &= ~n.static(component)["area_from"].str.startswith(
+                    "PL"
+                )
             carrier_col = (
                 "carrier" if component != "GlobalConstraint" else "carrier_attribute"
             )
-            assert (n.df(component).loc[is_not_domestic, "area"].str.len() == 2).all()
-            n.df(component).loc[is_not_domestic, carrier_col] = (
-                n.df(component).loc[is_not_domestic, carrier_col].str[:-3]
+            assert (
+                n.static(component).loc[is_not_domestic, "area"].str.len() == 2
+            ).all()
+            n.static(component).loc[is_not_domestic, carrier_col] = (
+                n.static(component).loc[is_not_domestic, carrier_col].str[:-3]
             )
-
-        # ***
-        n.stores["carrier"] = n.stores["carrier_original"]
-        n.stores = n.stores.drop(columns="carrier_original")
-        # ***
 
     return networks

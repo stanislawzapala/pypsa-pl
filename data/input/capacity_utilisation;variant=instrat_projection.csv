@@ -27,20 +27,20 @@ PL,biogas production,public,2035,p_max_pu,0.95
 PL,biogas production,public,2040,p_max_pu,0.95
 PL,biogas production,public,2045,p_max_pu,0.95
 PL,biogas production,public,2050,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2020,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2025,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2030,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2035,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2040,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2045,p_max_pu,0.95
-PL,biogas production,to upgrading bus,2050,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2020,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2025,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2030,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2035,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2040,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2045,p_max_pu,0.95
-PL,biogas upgrading,from upgrading bus,2050,p_max_pu,0.95
+PL,biogas production,,2020,p_max_pu,0.95
+PL,biogas production,,2025,p_max_pu,0.95
+PL,biogas production,,2030,p_max_pu,0.95
+PL,biogas production,,2035,p_max_pu,0.95
+PL,biogas production,,2040,p_max_pu,0.95
+PL,biogas production,,2045,p_max_pu,0.95
+PL,biogas production,,2050,p_max_pu,0.95
+PL,biogas upgrading,,2020,p_max_pu,0.95
+PL,biogas upgrading,,2025,p_max_pu,0.95
+PL,biogas upgrading,,2030,p_max_pu,0.95
+PL,biogas upgrading,,2035,p_max_pu,0.95
+PL,biogas upgrading,,2040,p_max_pu,0.95
+PL,biogas upgrading,,2045,p_max_pu,0.95
+PL,biogas upgrading,,2050,p_max_pu,0.95
 PL,biomass agriculture CHP,public,2020,p_max_pu,0.9
 PL,biomass agriculture CHP,public,2025,p_max_pu,0.9
 PL,biomass agriculture CHP,public,2030,p_max_pu,0.9
@@ -185,13 +185,13 @@ PL,natural gas power peaker,public,2035,p_max_pu,0.95
 PL,natural gas power peaker,public,2040,p_max_pu,0.95
 PL,natural gas power peaker,public,2045,p_max_pu,0.95
 PL,natural gas power peaker,public,2050,p_max_pu,0.95
-PL,natural gas reforming,to natural gas reforming bus,2020,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2025,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2030,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2035,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2040,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2045,p_max_pu,0.9
-PL,natural gas reforming,to natural gas reforming bus,2050,p_max_pu,0.9
+PL,natural gas reforming,,2020,p_max_pu,0.9
+PL,natural gas reforming,,2025,p_max_pu,0.9
+PL,natural gas reforming,,2030,p_max_pu,0.9
+PL,natural gas reforming,,2035,p_max_pu,0.9
+PL,natural gas reforming,,2040,p_max_pu,0.9
+PL,natural gas reforming,,2045,p_max_pu,0.9
+PL,natural gas reforming,,2050,p_max_pu,0.9
 PL,nuclear power large,public,2035,p_max_pu,0.95
 PL,nuclear power large,public,2040,p_max_pu,0.95
 PL,nuclear power large,public,2045,p_max_pu,0.95
@@ -215,3 +215,10 @@ PL,other CHP,industrial,2035,p_set_pu,0.5
 PL,other CHP,industrial,2040,p_set_pu,0.5
 PL,other CHP,industrial,2045,p_set_pu,0.5
 PL,other CHP,industrial,2050,p_set_pu,0.5
+PL,transmission line AC,,2020,s_max_pu,0.65
+PL,transmission line AC,,2025,s_max_pu,0.65
+PL,transmission line AC,,2030,s_max_pu,0.65
+PL,transmission line AC,,2035,s_max_pu,0.65
+PL,transmission line AC,,2040,s_max_pu,0.65
+PL,transmission line AC,,2045,s_max_pu,0.65
+PL,transmission line AC,,2050,s_max_pu,0.65

@@ -1,0 +1,3248 @@
+technology,parameter,technology_year,value
+battery large charger,efficiency,2015,0.9
+battery large charger,efficiency,2020,0.9
+battery large charger,efficiency,2025,0.9
+battery large charger,efficiency,2030,0.9
+battery large charger,efficiency,2035,0.9
+battery large charger,efficiency,2040,0.9
+battery large charger,efficiency,2045,0.9
+battery large charger,efficiency,2050,0.9
+battery large charger,lifetime,2015,20
+battery large charger,lifetime,2020,20
+battery large charger,lifetime,2025,20
+battery large charger,lifetime,2030,20
+battery large charger,lifetime,2035,20
+battery large charger,lifetime,2040,20
+battery large charger,lifetime,2045,20
+battery large charger,lifetime,2050,20
+battery large charger,parent_ratio,2015,0.9
+battery large charger,parent_ratio,2020,0.9
+battery large charger,parent_ratio,2025,0.9
+battery large charger,parent_ratio,2030,0.9
+battery large charger,parent_ratio,2035,0.9
+battery large charger,parent_ratio,2040,0.9
+battery large charger,parent_ratio,2045,0.9
+battery large charger,parent_ratio,2050,0.9
+battery large power,efficiency,2015,1
+battery large power,efficiency,2020,1
+battery large power,efficiency,2025,1
+battery large power,efficiency,2030,1
+battery large power,efficiency,2035,1
+battery large power,efficiency,2040,1
+battery large power,efficiency,2045,1
+battery large power,efficiency,2050,1
+battery large power,fixed_cost,2015,3500
+battery large power,fixed_cost,2020,3500
+battery large power,fixed_cost,2025,3500
+battery large power,fixed_cost,2030,3500
+battery large power,fixed_cost,2035,3500
+battery large power,fixed_cost,2040,3500
+battery large power,fixed_cost,2045,3500
+battery large power,fixed_cost,2050,3500
+battery large power,investment_cost,2015,1900000
+battery large power,investment_cost,2020,1800000
+battery large power,investment_cost,2025,1400000
+battery large power,investment_cost,2030,1000000
+battery large power,investment_cost,2035,850000
+battery large power,investment_cost,2040,650000
+battery large power,investment_cost,2045,520000
+battery large power,investment_cost,2050,390000
+battery large power,lifetime,2015,20
+battery large power,lifetime,2020,20
+battery large power,lifetime,2025,20
+battery large power,lifetime,2030,20
+battery large power,lifetime,2035,20
+battery large power,lifetime,2040,20
+battery large power,lifetime,2045,20
+battery large power,lifetime,2050,20
+battery large power,p_max_pu_annual,2015,0.99
+battery large power,p_max_pu_annual,2020,0.99
+battery large power,p_max_pu_annual,2025,0.99
+battery large power,p_max_pu_annual,2030,0.99
+battery large power,p_max_pu_annual,2035,0.99
+battery large power,p_max_pu_annual,2040,0.99
+battery large power,p_max_pu_annual,2045,0.99
+battery large power,p_max_pu_annual,2050,0.99
+battery large power,variable_cost,2015,13
+battery large power,variable_cost,2020,13
+battery large power,variable_cost,2025,13
+battery large power,variable_cost,2030,13
+battery large power,variable_cost,2035,13
+battery large power,variable_cost,2040,13
+battery large power,variable_cost,2045,13
+battery large power,variable_cost,2050,13
+battery large storage,investment_cost,2015,2700000
+battery large storage,investment_cost,2020,1500000
+battery large storage,investment_cost,2025,1200000
+battery large storage,investment_cost,2030,930000
+battery large storage,investment_cost,2035,770000
+battery large storage,investment_cost,2040,620000
+battery large storage,investment_cost,2045,550000
+battery large storage,investment_cost,2050,490000
+battery large storage,lifetime,2015,20
+battery large storage,lifetime,2020,20
+battery large storage,lifetime,2025,20
+battery large storage,lifetime,2030,20
+battery large storage,lifetime,2035,20
+battery large storage,lifetime,2040,20
+battery large storage,lifetime,2045,20
+battery large storage,lifetime,2050,20
+battery small charger,efficiency,2015,0.9
+battery small charger,efficiency,2020,0.9
+battery small charger,efficiency,2025,0.9
+battery small charger,efficiency,2030,0.9
+battery small charger,efficiency,2035,0.9
+battery small charger,efficiency,2040,0.9
+battery small charger,efficiency,2045,0.9
+battery small charger,efficiency,2050,0.9
+battery small charger,lifetime,2015,20
+battery small charger,lifetime,2020,20
+battery small charger,lifetime,2025,20
+battery small charger,lifetime,2030,20
+battery small charger,lifetime,2035,20
+battery small charger,lifetime,2040,20
+battery small charger,lifetime,2045,20
+battery small charger,lifetime,2050,20
+battery small charger,parent_ratio,2015,0.9
+battery small charger,parent_ratio,2020,0.9
+battery small charger,parent_ratio,2025,0.9
+battery small charger,parent_ratio,2030,0.9
+battery small charger,parent_ratio,2035,0.9
+battery small charger,parent_ratio,2040,0.9
+battery small charger,parent_ratio,2045,0.9
+battery small charger,parent_ratio,2050,0.9
+battery small power,efficiency,2015,1
+battery small power,efficiency,2020,1
+battery small power,efficiency,2025,1
+battery small power,efficiency,2030,1
+battery small power,efficiency,2035,1
+battery small power,efficiency,2040,1
+battery small power,efficiency,2045,1
+battery small power,efficiency,2050,1
+battery small power,fixed_cost,2015,70000
+battery small power,fixed_cost,2020,70000
+battery small power,fixed_cost,2025,70000
+battery small power,fixed_cost,2030,70000
+battery small power,fixed_cost,2035,70000
+battery small power,fixed_cost,2040,70000
+battery small power,fixed_cost,2045,70000
+battery small power,fixed_cost,2050,70000
+battery small power,investment_cost,2015,5000000
+battery small power,investment_cost,2020,5000000
+battery small power,investment_cost,2025,3500000
+battery small power,investment_cost,2030,3000000
+battery small power,investment_cost,2035,2500000
+battery small power,investment_cost,2040,2500000
+battery small power,investment_cost,2045,2500000
+battery small power,investment_cost,2050,2500000
+battery small power,lifetime,2015,20
+battery small power,lifetime,2020,20
+battery small power,lifetime,2025,20
+battery small power,lifetime,2030,20
+battery small power,lifetime,2035,20
+battery small power,lifetime,2040,20
+battery small power,lifetime,2045,20
+battery small power,lifetime,2050,20
+battery small power,variable_cost,2015,10
+battery small power,variable_cost,2020,10
+battery small power,variable_cost,2025,10
+battery small power,variable_cost,2030,10
+battery small power,variable_cost,2035,10
+battery small power,variable_cost,2040,10
+battery small power,variable_cost,2045,10
+battery small power,variable_cost,2050,10
+battery small storage,lifetime,2015,20
+battery small storage,lifetime,2020,20
+battery small storage,lifetime,2025,20
+battery small storage,lifetime,2030,20
+battery small storage,lifetime,2035,20
+battery small storage,lifetime,2040,20
+battery small storage,lifetime,2045,20
+battery small storage,lifetime,2050,20
+battery small storage,parent_ratio,2015,2
+battery small storage,parent_ratio,2020,2
+battery small storage,parent_ratio,2025,2
+battery small storage,parent_ratio,2030,2
+battery small storage,parent_ratio,2035,2
+battery small storage,parent_ratio,2040,2
+battery small storage,parent_ratio,2045,2
+battery small storage,parent_ratio,2050,2
+BEV,efficiency,2015,0.85
+BEV,efficiency,2020,0.85
+BEV,efficiency,2025,0.85
+BEV,efficiency,2030,0.85
+BEV,efficiency,2035,0.85
+BEV,efficiency,2040,0.85
+BEV,efficiency,2045,0.85
+BEV,efficiency,2050,0.85
+BEV,fixed_cost,2015,100000
+BEV,fixed_cost,2020,100000
+BEV,fixed_cost,2025,100000
+BEV,fixed_cost,2030,100000
+BEV,fixed_cost,2035,100000
+BEV,fixed_cost,2040,100000
+BEV,fixed_cost,2045,100000
+BEV,fixed_cost,2050,100000
+BEV,investment_cost,2015,2000000
+BEV,investment_cost,2020,2000000
+BEV,investment_cost,2025,2000000
+BEV,investment_cost,2030,2000000
+BEV,investment_cost,2035,2000000
+BEV,investment_cost,2040,2000000
+BEV,investment_cost,2045,2000000
+BEV,investment_cost,2050,2000000
+BEV,lifetime,2015,20
+BEV,lifetime,2020,20
+BEV,lifetime,2025,20
+BEV,lifetime,2030,20
+BEV,lifetime,2035,20
+BEV,lifetime,2040,20
+BEV,lifetime,2045,20
+BEV,lifetime,2050,20
+BEV battery,lifetime,2015,20
+BEV battery,lifetime,2020,20
+BEV battery,lifetime,2025,20
+BEV battery,lifetime,2030,20
+BEV battery,lifetime,2035,20
+BEV battery,lifetime,2040,20
+BEV battery,lifetime,2045,20
+BEV battery,lifetime,2050,20
+BEV battery,parent_ratio,2015,4.4
+BEV battery,parent_ratio,2020,4.4
+BEV battery,parent_ratio,2025,4.4
+BEV battery,parent_ratio,2030,4.4
+BEV battery,parent_ratio,2035,4.4
+BEV battery,parent_ratio,2040,4.4
+BEV battery,parent_ratio,2045,4.4
+BEV battery,parent_ratio,2050,4.4
+BEV charger,efficiency,2015,0.9
+BEV charger,efficiency,2020,0.9
+BEV charger,efficiency,2025,0.9
+BEV charger,efficiency,2030,0.9
+BEV charger,efficiency,2035,0.9
+BEV charger,efficiency,2040,0.9
+BEV charger,efficiency,2045,0.9
+BEV charger,efficiency,2050,0.9
+BEV charger,lifetime,2015,20
+BEV charger,lifetime,2020,20
+BEV charger,lifetime,2025,20
+BEV charger,lifetime,2030,20
+BEV charger,lifetime,2035,20
+BEV charger,lifetime,2040,20
+BEV charger,lifetime,2045,20
+BEV charger,lifetime,2050,20
+BEV charger,parent_ratio,2015,0.99
+BEV charger,parent_ratio,2020,0.99
+BEV charger,parent_ratio,2025,0.99
+BEV charger,parent_ratio,2030,0.99
+BEV charger,parent_ratio,2035,0.99
+BEV charger,parent_ratio,2040,0.99
+BEV charger,parent_ratio,2045,0.99
+BEV charger,parent_ratio,2050,0.99
+BEV V2G,efficiency,2015,0.9
+BEV V2G,efficiency,2020,0.9
+BEV V2G,efficiency,2025,0.9
+BEV V2G,efficiency,2030,0.9
+BEV V2G,efficiency,2035,0.9
+BEV V2G,efficiency,2040,0.9
+BEV V2G,efficiency,2045,0.9
+BEV V2G,efficiency,2050,0.9
+BEV V2G,lifetime,2015,20
+BEV V2G,lifetime,2020,20
+BEV V2G,lifetime,2025,20
+BEV V2G,lifetime,2030,20
+BEV V2G,lifetime,2035,20
+BEV V2G,lifetime,2040,20
+BEV V2G,lifetime,2045,20
+BEV V2G,lifetime,2050,20
+BEV V2G,parent_ratio,2015,1.1
+BEV V2G,parent_ratio,2020,1.1
+BEV V2G,parent_ratio,2025,1.1
+BEV V2G,parent_ratio,2030,1.1
+BEV V2G,parent_ratio,2035,1.1
+BEV V2G,parent_ratio,2040,1.1
+BEV V2G,parent_ratio,2045,1.1
+BEV V2G,parent_ratio,2050,1.1
+BEV V2G,variable_cost,2015,52
+BEV V2G,variable_cost,2020,52
+BEV V2G,variable_cost,2025,52
+BEV V2G,variable_cost,2030,52
+BEV V2G,variable_cost,2035,52
+BEV V2G,variable_cost,2040,52
+BEV V2G,variable_cost,2045,52
+BEV V2G,variable_cost,2050,52
+biogas CHP,efficiency,2015,0.41
+biogas CHP,efficiency,2020,0.41
+biogas CHP,efficiency,2025,0.41
+biogas CHP,efficiency,2030,0.41
+biogas CHP,efficiency,2035,0.41
+biogas CHP,efficiency,2040,0.41
+biogas CHP,efficiency,2045,0.41
+biogas CHP,efficiency,2050,0.41
+biogas CHP,efficiency2,2015,0.48
+biogas CHP,efficiency2,2020,0.48
+biogas CHP,efficiency2,2025,0.48
+biogas CHP,efficiency2,2030,0.48
+biogas CHP,efficiency2,2035,0.48
+biogas CHP,efficiency2,2040,0.48
+biogas CHP,efficiency2,2045,0.48
+biogas CHP,efficiency2,2050,0.48
+biogas CHP,fixed_cost,2015,65000
+biogas CHP,fixed_cost,2020,64000
+biogas CHP,fixed_cost,2025,62000
+biogas CHP,fixed_cost,2030,61000
+biogas CHP,fixed_cost,2035,60000
+biogas CHP,fixed_cost,2040,58000
+biogas CHP,fixed_cost,2045,57000
+biogas CHP,fixed_cost,2050,56000
+biogas CHP,investment_cost,2015,6500000
+biogas CHP,investment_cost,2020,6200000
+biogas CHP,investment_cost,2025,6100000
+biogas CHP,investment_cost,2030,5900000
+biogas CHP,investment_cost,2035,5800000
+biogas CHP,investment_cost,2040,5700000
+biogas CHP,investment_cost,2045,5700000
+biogas CHP,investment_cost,2050,5600000
+biogas CHP,lifetime,2015,25
+biogas CHP,lifetime,2020,25
+biogas CHP,lifetime,2025,25
+biogas CHP,lifetime,2030,25
+biogas CHP,lifetime,2035,25
+biogas CHP,lifetime,2040,25
+biogas CHP,lifetime,2045,25
+biogas CHP,lifetime,2050,25
+biogas CHP,p_max_pu_annual,2015,0.95
+biogas CHP,p_max_pu_annual,2020,0.95
+biogas CHP,p_max_pu_annual,2025,0.95
+biogas CHP,p_max_pu_annual,2030,0.95
+biogas CHP,p_max_pu_annual,2035,0.95
+biogas CHP,p_max_pu_annual,2040,0.95
+biogas CHP,p_max_pu_annual,2045,0.95
+biogas CHP,p_max_pu_annual,2050,0.95
+biogas CHP,variable_cost,2015,49
+biogas CHP,variable_cost,2020,49
+biogas CHP,variable_cost,2025,49
+biogas CHP,variable_cost,2030,49
+biogas CHP,variable_cost,2035,49
+biogas CHP,variable_cost,2040,49
+biogas CHP,variable_cost,2045,49
+biogas CHP,variable_cost,2050,49
+biogas production,efficiency,2015,0.9
+biogas production,efficiency,2020,0.9
+biogas production,efficiency,2025,0.9
+biogas production,efficiency,2030,0.9
+biogas production,efficiency,2035,0.9
+biogas production,efficiency,2040,0.9
+biogas production,efficiency,2045,0.9
+biogas production,efficiency,2050,0.9
+biogas production,fixed_cost,2015,360000
+biogas production,fixed_cost,2020,360000
+biogas production,fixed_cost,2025,380000
+biogas production,fixed_cost,2030,330000
+biogas production,fixed_cost,2035,330000
+biogas production,fixed_cost,2040,320000
+biogas production,fixed_cost,2045,310000
+biogas production,fixed_cost,2050,300000
+biogas production,investment_cost,2015,7400000
+biogas production,investment_cost,2020,7400000
+biogas production,investment_cost,2025,7800000
+biogas production,investment_cost,2030,6800000
+biogas production,investment_cost,2035,6700000
+biogas production,investment_cost,2040,6600000
+biogas production,investment_cost,2045,6400000
+biogas production,investment_cost,2050,6200000
+biogas production,lifetime,2015,20
+biogas production,lifetime,2020,20
+biogas production,lifetime,2025,20
+biogas production,lifetime,2030,20
+biogas production,lifetime,2035,20
+biogas production,lifetime,2040,20
+biogas production,lifetime,2045,20
+biogas production,lifetime,2050,20
+biogas production,p_max_pu_annual,2015,0.95
+biogas production,p_max_pu_annual,2020,0.95
+biogas production,p_max_pu_annual,2025,0.95
+biogas production,p_max_pu_annual,2030,0.95
+biogas production,p_max_pu_annual,2035,0.95
+biogas production,p_max_pu_annual,2040,0.95
+biogas production,p_max_pu_annual,2045,0.95
+biogas production,p_max_pu_annual,2050,0.95
+biogas production,variable_cost,2015,2.2
+biogas production,variable_cost,2020,2.2
+biogas production,variable_cost,2025,2.2
+biogas production,variable_cost,2030,2.2
+biogas production,variable_cost,2035,2.2
+biogas production,variable_cost,2040,2.2
+biogas production,variable_cost,2045,2.2
+biogas production,variable_cost,2050,2.2
+biogas substrate supply,variable_cost,2020,200
+biogas substrate supply,variable_cost,2021,200
+biogas substrate supply,variable_cost,2022,200
+biogas substrate supply,variable_cost,2023,200
+biogas substrate supply,variable_cost,2024,200
+biogas substrate supply,variable_cost,2025,200
+biogas substrate supply,variable_cost,2030,200
+biogas substrate supply,variable_cost,2035,220
+biogas substrate supply,variable_cost,2040,240
+biogas substrate supply,variable_cost,2045,260
+biogas substrate supply,variable_cost,2050,280
+biogas upgrading,co2_emissions,2015,-0.12
+biogas upgrading,co2_emissions,2020,-0.12
+biogas upgrading,co2_emissions,2025,-0.12
+biogas upgrading,co2_emissions,2030,-0.12
+biogas upgrading,co2_emissions,2035,-0.12
+biogas upgrading,co2_emissions,2040,-0.12
+biogas upgrading,co2_emissions,2045,-0.12
+biogas upgrading,co2_emissions,2050,-0.12
+biogas upgrading,efficiency,2015,0.9
+biogas upgrading,efficiency,2020,0.9
+biogas upgrading,efficiency,2025,0.9
+biogas upgrading,efficiency,2030,0.9
+biogas upgrading,efficiency,2035,0.9
+biogas upgrading,efficiency,2040,0.9
+biogas upgrading,efficiency,2045,0.9
+biogas upgrading,efficiency,2050,0.9
+biogas upgrading,fixed_cost,2015,36000
+biogas upgrading,fixed_cost,2020,36000
+biogas upgrading,fixed_cost,2025,39000
+biogas upgrading,fixed_cost,2030,32000
+biogas upgrading,fixed_cost,2035,30000
+biogas upgrading,fixed_cost,2040,27000
+biogas upgrading,fixed_cost,2045,25000
+biogas upgrading,fixed_cost,2050,24000
+biogas upgrading,investment_cost,2015,820000
+biogas upgrading,investment_cost,2020,820000
+biogas upgrading,investment_cost,2025,870000
+biogas upgrading,investment_cost,2030,720000
+biogas upgrading,investment_cost,2035,660000
+biogas upgrading,investment_cost,2040,600000
+biogas upgrading,investment_cost,2045,560000
+biogas upgrading,investment_cost,2050,530000
+biogas upgrading,lifetime,2015,20
+biogas upgrading,lifetime,2020,20
+biogas upgrading,lifetime,2025,20
+biogas upgrading,lifetime,2030,20
+biogas upgrading,lifetime,2035,20
+biogas upgrading,lifetime,2040,20
+biogas upgrading,lifetime,2045,20
+biogas upgrading,lifetime,2050,20
+biogas upgrading,p_max_pu_annual,2015,0.95
+biogas upgrading,p_max_pu_annual,2020,0.95
+biogas upgrading,p_max_pu_annual,2025,0.95
+biogas upgrading,p_max_pu_annual,2030,0.95
+biogas upgrading,p_max_pu_annual,2035,0.95
+biogas upgrading,p_max_pu_annual,2040,0.95
+biogas upgrading,p_max_pu_annual,2045,0.95
+biogas upgrading,p_max_pu_annual,2050,0.95
+biogas upgrading,variable_cost,2015,46
+biogas upgrading,variable_cost,2020,46
+biogas upgrading,variable_cost,2025,46
+biogas upgrading,variable_cost,2030,46
+biogas upgrading,variable_cost,2035,46
+biogas upgrading,variable_cost,2040,46
+biogas upgrading,variable_cost,2045,46
+biogas upgrading,variable_cost,2050,46
+biomass agriculture CHP,efficiency,2015,0.3
+biomass agriculture CHP,efficiency,2020,0.3
+biomass agriculture CHP,efficiency,2025,0.3
+biomass agriculture CHP,efficiency,2030,0.3
+biomass agriculture CHP,efficiency,2035,0.3
+biomass agriculture CHP,efficiency,2040,0.3
+biomass agriculture CHP,efficiency,2045,0.3
+biomass agriculture CHP,efficiency,2050,0.3
+biomass agriculture CHP,efficiency2,2015,0.39
+biomass agriculture CHP,efficiency2,2020,0.39
+biomass agriculture CHP,efficiency2,2025,0.39
+biomass agriculture CHP,efficiency2,2030,0.39
+biomass agriculture CHP,efficiency2,2035,0.39
+biomass agriculture CHP,efficiency2,2040,0.39
+biomass agriculture CHP,efficiency2,2045,0.39
+biomass agriculture CHP,efficiency2,2050,0.39
+biomass agriculture CHP,fixed_cost,2015,960000
+biomass agriculture CHP,fixed_cost,2020,940000
+biomass agriculture CHP,fixed_cost,2025,910000
+biomass agriculture CHP,fixed_cost,2030,880000
+biomass agriculture CHP,fixed_cost,2035,860000
+biomass agriculture CHP,fixed_cost,2040,850000
+biomass agriculture CHP,fixed_cost,2045,830000
+biomass agriculture CHP,fixed_cost,2050,810000
+biomass agriculture CHP,investment_cost,2015,24000000
+biomass agriculture CHP,investment_cost,2020,23000000
+biomass agriculture CHP,investment_cost,2025,23000000
+biomass agriculture CHP,investment_cost,2030,22000000
+biomass agriculture CHP,investment_cost,2035,22000000
+biomass agriculture CHP,investment_cost,2040,22000000
+biomass agriculture CHP,investment_cost,2045,21000000
+biomass agriculture CHP,investment_cost,2050,21000000
+biomass agriculture CHP,lifetime,2015,25
+biomass agriculture CHP,lifetime,2020,25
+biomass agriculture CHP,lifetime,2025,25
+biomass agriculture CHP,lifetime,2030,25
+biomass agriculture CHP,lifetime,2035,25
+biomass agriculture CHP,lifetime,2040,25
+biomass agriculture CHP,lifetime,2045,25
+biomass agriculture CHP,lifetime,2050,25
+biomass agriculture CHP,p_max_pu_annual,2015,0.88
+biomass agriculture CHP,p_max_pu_annual,2020,0.88
+biomass agriculture CHP,p_max_pu_annual,2025,0.88
+biomass agriculture CHP,p_max_pu_annual,2030,0.88
+biomass agriculture CHP,p_max_pu_annual,2035,0.88
+biomass agriculture CHP,p_max_pu_annual,2040,0.88
+biomass agriculture CHP,p_max_pu_annual,2045,0.88
+biomass agriculture CHP,p_max_pu_annual,2050,0.88
+biomass agriculture CHP,variable_cost,2015,14
+biomass agriculture CHP,variable_cost,2020,14
+biomass agriculture CHP,variable_cost,2025,14
+biomass agriculture CHP,variable_cost,2030,14
+biomass agriculture CHP,variable_cost,2035,14
+biomass agriculture CHP,variable_cost,2040,14
+biomass agriculture CHP,variable_cost,2045,14
+biomass agriculture CHP,variable_cost,2050,14
+biomass agriculture CHP CC,co2_emissions,2015,-0.36
+biomass agriculture CHP CC,co2_emissions,2020,-0.36
+biomass agriculture CHP CC,co2_emissions,2025,-0.36
+biomass agriculture CHP CC,co2_emissions,2030,-0.36
+biomass agriculture CHP CC,co2_emissions,2035,-0.36
+biomass agriculture CHP CC,co2_emissions,2040,-0.36
+biomass agriculture CHP CC,co2_emissions,2045,-0.36
+biomass agriculture CHP CC,co2_emissions,2050,-0.36
+biomass agriculture CHP CC,efficiency,2015,0.29
+biomass agriculture CHP CC,efficiency,2020,0.29
+biomass agriculture CHP CC,efficiency,2025,0.29
+biomass agriculture CHP CC,efficiency,2030,0.29
+biomass agriculture CHP CC,efficiency,2035,0.29
+biomass agriculture CHP CC,efficiency,2040,0.29
+biomass agriculture CHP CC,efficiency,2045,0.29
+biomass agriculture CHP CC,efficiency,2050,0.29
+biomass agriculture CHP CC,efficiency2,2015,0.39
+biomass agriculture CHP CC,efficiency2,2020,0.39
+biomass agriculture CHP CC,efficiency2,2025,0.39
+biomass agriculture CHP CC,efficiency2,2030,0.39
+biomass agriculture CHP CC,efficiency2,2035,0.39
+biomass agriculture CHP CC,efficiency2,2040,0.39
+biomass agriculture CHP CC,efficiency2,2045,0.39
+biomass agriculture CHP CC,efficiency2,2050,0.39
+biomass agriculture CHP CC,fixed_cost,2015,3000000
+biomass agriculture CHP CC,fixed_cost,2020,2900000
+biomass agriculture CHP CC,fixed_cost,2025,2400000
+biomass agriculture CHP CC,fixed_cost,2030,2000000
+biomass agriculture CHP CC,fixed_cost,2035,1900000
+biomass agriculture CHP CC,fixed_cost,2040,1700000
+biomass agriculture CHP CC,fixed_cost,2045,1700000
+biomass agriculture CHP CC,fixed_cost,2050,1700000
+biomass agriculture CHP CC,investment_cost,2015,89000000
+biomass agriculture CHP CC,investment_cost,2020,87000000
+biomass agriculture CHP CC,investment_cost,2025,73000000
+biomass agriculture CHP CC,investment_cost,2030,60000000
+biomass agriculture CHP CC,investment_cost,2035,57000000
+biomass agriculture CHP CC,investment_cost,2040,54000000
+biomass agriculture CHP CC,investment_cost,2045,52000000
+biomass agriculture CHP CC,investment_cost,2050,50000000
+biomass agriculture CHP CC,lifetime,2015,25
+biomass agriculture CHP CC,lifetime,2020,25
+biomass agriculture CHP CC,lifetime,2025,25
+biomass agriculture CHP CC,lifetime,2030,25
+biomass agriculture CHP CC,lifetime,2035,25
+biomass agriculture CHP CC,lifetime,2040,25
+biomass agriculture CHP CC,lifetime,2045,25
+biomass agriculture CHP CC,lifetime,2050,25
+biomass agriculture CHP CC,p_max_pu_annual,2015,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2020,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2025,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2030,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2035,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2040,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2045,0.88
+biomass agriculture CHP CC,p_max_pu_annual,2050,0.88
+biomass agriculture CHP CC,variable_cost,2015,330
+biomass agriculture CHP CC,variable_cost,2020,330
+biomass agriculture CHP CC,variable_cost,2025,330
+biomass agriculture CHP CC,variable_cost,2030,330
+biomass agriculture CHP CC,variable_cost,2035,330
+biomass agriculture CHP CC,variable_cost,2040,330
+biomass agriculture CHP CC,variable_cost,2045,330
+biomass agriculture CHP CC,variable_cost,2050,330
+biomass agriculture heat,efficiency,2015,0.85
+biomass agriculture heat,efficiency,2020,0.85
+biomass agriculture heat,efficiency,2025,0.85
+biomass agriculture heat,efficiency,2030,0.85
+biomass agriculture heat,efficiency,2035,0.85
+biomass agriculture heat,efficiency,2040,0.85
+biomass agriculture heat,efficiency,2045,0.85
+biomass agriculture heat,efficiency,2050,0.85
+biomass agriculture heat,fixed_cost,2015,340000
+biomass agriculture heat,fixed_cost,2020,330000
+biomass agriculture heat,fixed_cost,2025,320000
+biomass agriculture heat,fixed_cost,2030,310000
+biomass agriculture heat,fixed_cost,2035,310000
+biomass agriculture heat,fixed_cost,2040,300000
+biomass agriculture heat,fixed_cost,2045,290000
+biomass agriculture heat,fixed_cost,2050,280000
+biomass agriculture heat,investment_cost,2015,5900000
+biomass agriculture heat,investment_cost,2020,5800000
+biomass agriculture heat,investment_cost,2025,5600000
+biomass agriculture heat,investment_cost,2030,5400000
+biomass agriculture heat,investment_cost,2035,5300000
+biomass agriculture heat,investment_cost,2040,5200000
+biomass agriculture heat,investment_cost,2045,5000000
+biomass agriculture heat,investment_cost,2050,4900000
+biomass agriculture heat,lifetime,2015,25
+biomass agriculture heat,lifetime,2020,25
+biomass agriculture heat,lifetime,2025,25
+biomass agriculture heat,lifetime,2030,25
+biomass agriculture heat,lifetime,2035,25
+biomass agriculture heat,lifetime,2040,25
+biomass agriculture heat,lifetime,2045,25
+biomass agriculture heat,lifetime,2050,25
+biomass agriculture heat,p_max_pu_annual,2015,0.88
+biomass agriculture heat,p_max_pu_annual,2020,0.88
+biomass agriculture heat,p_max_pu_annual,2025,0.88
+biomass agriculture heat,p_max_pu_annual,2030,0.88
+biomass agriculture heat,p_max_pu_annual,2035,0.88
+biomass agriculture heat,p_max_pu_annual,2040,0.88
+biomass agriculture heat,p_max_pu_annual,2045,0.88
+biomass agriculture heat,p_max_pu_annual,2050,0.88
+biomass agriculture heat,variable_cost,2015,14
+biomass agriculture heat,variable_cost,2020,14
+biomass agriculture heat,variable_cost,2025,14
+biomass agriculture heat,variable_cost,2030,14
+biomass agriculture heat,variable_cost,2035,14
+biomass agriculture heat,variable_cost,2040,14
+biomass agriculture heat,variable_cost,2045,14
+biomass agriculture heat,variable_cost,2050,14
+biomass agriculture supply,variable_cost,2020,200
+biomass agriculture supply,variable_cost,2021,200
+biomass agriculture supply,variable_cost,2022,200
+biomass agriculture supply,variable_cost,2023,200
+biomass agriculture supply,variable_cost,2024,200
+biomass agriculture supply,variable_cost,2025,200
+biomass agriculture supply,variable_cost,2030,200
+biomass agriculture supply,variable_cost,2035,220
+biomass agriculture supply,variable_cost,2040,240
+biomass agriculture supply,variable_cost,2045,260
+biomass agriculture supply,variable_cost,2050,280
+biomass wood boiler,efficiency,2015,0.75
+biomass wood boiler,efficiency,2020,0.75
+biomass wood boiler,efficiency,2025,0.75
+biomass wood boiler,efficiency,2030,0.75
+biomass wood boiler,efficiency,2035,0.75
+biomass wood boiler,efficiency,2040,0.75
+biomass wood boiler,efficiency,2045,0.75
+biomass wood boiler,efficiency,2050,0.75
+biomass wood boiler,fixed_cost,2015,230000
+biomass wood boiler,fixed_cost,2020,230000
+biomass wood boiler,fixed_cost,2025,230000
+biomass wood boiler,fixed_cost,2030,230000
+biomass wood boiler,fixed_cost,2035,230000
+biomass wood boiler,fixed_cost,2040,230000
+biomass wood boiler,fixed_cost,2045,230000
+biomass wood boiler,fixed_cost,2050,230000
+biomass wood boiler,investment_cost,2015,3000000
+biomass wood boiler,investment_cost,2020,3000000
+biomass wood boiler,investment_cost,2025,3000000
+biomass wood boiler,investment_cost,2030,3000000
+biomass wood boiler,investment_cost,2035,3000000
+biomass wood boiler,investment_cost,2040,3000000
+biomass wood boiler,investment_cost,2045,3000000
+biomass wood boiler,investment_cost,2050,3000000
+biomass wood boiler,lifetime,2015,20
+biomass wood boiler,lifetime,2020,20
+biomass wood boiler,lifetime,2025,20
+biomass wood boiler,lifetime,2030,20
+biomass wood boiler,lifetime,2035,20
+biomass wood boiler,lifetime,2040,20
+biomass wood boiler,lifetime,2045,20
+biomass wood boiler,lifetime,2050,20
+biomass wood CHP,efficiency,2015,0.26
+biomass wood CHP,efficiency,2020,0.26
+biomass wood CHP,efficiency,2025,0.26
+biomass wood CHP,efficiency,2030,0.26
+biomass wood CHP,efficiency,2035,0.26
+biomass wood CHP,efficiency,2040,0.26
+biomass wood CHP,efficiency,2045,0.26
+biomass wood CHP,efficiency,2050,0.26
+biomass wood CHP,efficiency2,2015,0.45
+biomass wood CHP,efficiency2,2020,0.45
+biomass wood CHP,efficiency2,2025,0.45
+biomass wood CHP,efficiency2,2030,0.45
+biomass wood CHP,efficiency2,2035,0.45
+biomass wood CHP,efficiency2,2040,0.45
+biomass wood CHP,efficiency2,2045,0.45
+biomass wood CHP,efficiency2,2050,0.45
+biomass wood CHP,fixed_cost,2015,980000
+biomass wood CHP,fixed_cost,2020,980000
+biomass wood CHP,fixed_cost,2025,980000
+biomass wood CHP,fixed_cost,2030,980000
+biomass wood CHP,fixed_cost,2035,980000
+biomass wood CHP,fixed_cost,2040,980000
+biomass wood CHP,fixed_cost,2045,980000
+biomass wood CHP,fixed_cost,2050,980000
+biomass wood CHP,investment_cost,2015,23000000
+biomass wood CHP,investment_cost,2020,23000000
+biomass wood CHP,investment_cost,2025,23000000
+biomass wood CHP,investment_cost,2030,23000000
+biomass wood CHP,investment_cost,2035,23000000
+biomass wood CHP,investment_cost,2040,23000000
+biomass wood CHP,investment_cost,2045,23000000
+biomass wood CHP,investment_cost,2050,23000000
+biomass wood CHP,lifetime,2015,25
+biomass wood CHP,lifetime,2020,25
+biomass wood CHP,lifetime,2025,25
+biomass wood CHP,lifetime,2030,25
+biomass wood CHP,lifetime,2035,25
+biomass wood CHP,lifetime,2040,25
+biomass wood CHP,lifetime,2045,25
+biomass wood CHP,lifetime,2050,25
+biomass wood CHP,p_max_pu_annual,2015,0.91
+biomass wood CHP,p_max_pu_annual,2020,0.91
+biomass wood CHP,p_max_pu_annual,2025,0.91
+biomass wood CHP,p_max_pu_annual,2030,0.91
+biomass wood CHP,p_max_pu_annual,2035,0.91
+biomass wood CHP,p_max_pu_annual,2040,0.91
+biomass wood CHP,p_max_pu_annual,2045,0.91
+biomass wood CHP,p_max_pu_annual,2050,0.91
+biomass wood CHP,variable_cost,2015,29
+biomass wood CHP,variable_cost,2020,29
+biomass wood CHP,variable_cost,2025,29
+biomass wood CHP,variable_cost,2030,29
+biomass wood CHP,variable_cost,2035,29
+biomass wood CHP,variable_cost,2040,29
+biomass wood CHP,variable_cost,2045,29
+biomass wood CHP,variable_cost,2050,29
+biomass wood heat,efficiency,2015,0.85
+biomass wood heat,efficiency,2020,0.85
+biomass wood heat,efficiency,2025,0.85
+biomass wood heat,efficiency,2030,0.85
+biomass wood heat,efficiency,2035,0.85
+biomass wood heat,efficiency,2040,0.85
+biomass wood heat,efficiency,2045,0.85
+biomass wood heat,efficiency,2050,0.85
+biomass wood heat,fixed_cost,2015,230000
+biomass wood heat,fixed_cost,2020,230000
+biomass wood heat,fixed_cost,2025,230000
+biomass wood heat,fixed_cost,2030,230000
+biomass wood heat,fixed_cost,2035,230000
+biomass wood heat,fixed_cost,2040,230000
+biomass wood heat,fixed_cost,2045,230000
+biomass wood heat,fixed_cost,2050,230000
+biomass wood heat,investment_cost,2015,2900000
+biomass wood heat,investment_cost,2020,2900000
+biomass wood heat,investment_cost,2025,2900000
+biomass wood heat,investment_cost,2030,2900000
+biomass wood heat,investment_cost,2035,2900000
+biomass wood heat,investment_cost,2040,2900000
+biomass wood heat,investment_cost,2045,2900000
+biomass wood heat,investment_cost,2050,2900000
+biomass wood heat,lifetime,2015,25
+biomass wood heat,lifetime,2020,25
+biomass wood heat,lifetime,2025,25
+biomass wood heat,lifetime,2030,25
+biomass wood heat,lifetime,2035,25
+biomass wood heat,lifetime,2040,25
+biomass wood heat,lifetime,2045,25
+biomass wood heat,lifetime,2050,25
+biomass wood heat,p_max_pu_annual,2015,0.93
+biomass wood heat,p_max_pu_annual,2020,0.93
+biomass wood heat,p_max_pu_annual,2025,0.93
+biomass wood heat,p_max_pu_annual,2030,0.93
+biomass wood heat,p_max_pu_annual,2035,0.93
+biomass wood heat,p_max_pu_annual,2040,0.93
+biomass wood heat,p_max_pu_annual,2045,0.93
+biomass wood heat,p_max_pu_annual,2050,0.93
+biomass wood heat,variable_cost,2015,18
+biomass wood heat,variable_cost,2020,18
+biomass wood heat,variable_cost,2025,18
+biomass wood heat,variable_cost,2030,18
+biomass wood heat,variable_cost,2035,18
+biomass wood heat,variable_cost,2040,18
+biomass wood heat,variable_cost,2045,18
+biomass wood heat,variable_cost,2050,18
+biomass wood power,efficiency,2015,0.32
+biomass wood power,efficiency,2020,0.32
+biomass wood power,efficiency,2025,0.32
+biomass wood power,efficiency,2030,0.32
+biomass wood power,efficiency,2035,0.32
+biomass wood power,efficiency,2040,0.32
+biomass wood power,efficiency,2045,0.32
+biomass wood power,efficiency,2050,0.32
+biomass wood power,fixed_cost,2015,620000
+biomass wood power,fixed_cost,2020,620000
+biomass wood power,fixed_cost,2025,620000
+biomass wood power,fixed_cost,2030,620000
+biomass wood power,fixed_cost,2035,620000
+biomass wood power,fixed_cost,2040,620000
+biomass wood power,fixed_cost,2045,620000
+biomass wood power,fixed_cost,2050,620000
+biomass wood power,investment_cost,2015,22000000
+biomass wood power,investment_cost,2020,22000000
+biomass wood power,investment_cost,2025,22000000
+biomass wood power,investment_cost,2030,22000000
+biomass wood power,investment_cost,2035,22000000
+biomass wood power,investment_cost,2040,22000000
+biomass wood power,investment_cost,2045,22000000
+biomass wood power,investment_cost,2050,22000000
+biomass wood power,lifetime,2015,25
+biomass wood power,lifetime,2020,25
+biomass wood power,lifetime,2025,25
+biomass wood power,lifetime,2030,25
+biomass wood power,lifetime,2035,25
+biomass wood power,lifetime,2040,25
+biomass wood power,lifetime,2045,25
+biomass wood power,lifetime,2050,25
+biomass wood power,p_max_pu_annual,2015,0.91
+biomass wood power,p_max_pu_annual,2020,0.91
+biomass wood power,p_max_pu_annual,2025,0.91
+biomass wood power,p_max_pu_annual,2030,0.91
+biomass wood power,p_max_pu_annual,2035,0.91
+biomass wood power,p_max_pu_annual,2040,0.91
+biomass wood power,p_max_pu_annual,2045,0.91
+biomass wood power,p_max_pu_annual,2050,0.91
+biomass wood power,variable_cost,2015,29
+biomass wood power,variable_cost,2020,29
+biomass wood power,variable_cost,2025,29
+biomass wood power,variable_cost,2030,29
+biomass wood power,variable_cost,2035,29
+biomass wood power,variable_cost,2040,29
+biomass wood power,variable_cost,2045,29
+biomass wood power,variable_cost,2050,29
+biomass wood supply,variable_cost,2020,83
+biomass wood supply,variable_cost,2021,85
+biomass wood supply,variable_cost,2022,180
+biomass wood supply,variable_cost,2023,180
+biomass wood supply,variable_cost,2024,180
+biomass wood supply,variable_cost,2025,180
+biomass wood supply,variable_cost,2030,180
+biomass wood supply,variable_cost,2035,180
+biomass wood supply,variable_cost,2040,180
+biomass wood supply,variable_cost,2045,180
+biomass wood supply,variable_cost,2050,180
+building retrofits,investment_cost,2015,13000000
+building retrofits,investment_cost,2020,13000000
+building retrofits,investment_cost,2025,13000000
+building retrofits,investment_cost,2030,13000000
+building retrofits,investment_cost,2035,13000000
+building retrofits,investment_cost,2040,13000000
+building retrofits,investment_cost,2045,13000000
+building retrofits,investment_cost,2050,13000000
+building retrofits,lifetime,2015,50
+building retrofits,lifetime,2020,50
+building retrofits,lifetime,2025,50
+building retrofits,lifetime,2030,50
+building retrofits,lifetime,2035,50
+building retrofits,lifetime,2040,50
+building retrofits,lifetime,2045,50
+building retrofits,lifetime,2050,50
+co2 emissions,co2_cost,2020,170
+co2 emissions,co2_cost,2021,350
+co2 emissions,co2_cost,2022,430
+co2 emissions,co2_cost,2023,390
+co2 emissions,co2_cost,2024,280
+co2 emissions,co2_cost,2025,320
+co2 emissions,co2_cost,2030,620
+co2 emissions,co2_cost,2035,860
+co2 emissions,co2_cost,2040,1100
+co2 emissions,co2_cost,2045,1300
+co2 emissions,co2_cost,2050,1500
+connection HMV-vRES,lifetime,2015,40
+connection HMV-vRES,lifetime,2020,40
+connection HMV-vRES,lifetime,2025,40
+connection HMV-vRES,lifetime,2030,40
+connection HMV-vRES,lifetime,2035,40
+connection HMV-vRES,lifetime,2040,40
+connection HMV-vRES,lifetime,2045,40
+connection HMV-vRES,lifetime,2050,40
+connection HMV-vRES,investment_cost,2015,1000000
+connection HMV-vRES,investment_cost,2020,1000000
+connection HMV-vRES,investment_cost,2025,1000000
+connection HMV-vRES,investment_cost,2030,1000000
+connection HMV-vRES,investment_cost,2035,1000000
+connection HMV-vRES,investment_cost,2040,1000000
+connection HMV-vRES,investment_cost,2045,1000000
+connection HMV-vRES,investment_cost,2050,1000000
+connection HMV-vRES,fixed_cost,2015,31000
+connection HMV-vRES,fixed_cost,2020,31000
+connection HMV-vRES,fixed_cost,2025,31000
+connection HMV-vRES,fixed_cost,2030,31000
+connection HMV-vRES,fixed_cost,2035,31000
+connection HMV-vRES,fixed_cost,2040,31000
+connection HMV-vRES,fixed_cost,2045,31000
+connection HMV-vRES,fixed_cost,2050,31000
+connection vRES-HMV,parent_ratio,2015,1
+connection vRES-HMV,parent_ratio,2020,1
+connection vRES-HMV,parent_ratio,2025,1
+connection vRES-HMV,parent_ratio,2030,1
+connection vRES-HMV,parent_ratio,2035,1
+connection vRES-HMV,parent_ratio,2040,1
+connection vRES-HMV,parent_ratio,2045,1
+connection vRES-HMV,parent_ratio,2050,1
+connection vRES-HMV,lifetime,2015,40
+connection vRES-HMV,lifetime,2020,40
+connection vRES-HMV,lifetime,2025,40
+connection vRES-HMV,lifetime,2030,40
+connection vRES-HMV,lifetime,2035,40
+connection vRES-HMV,lifetime,2040,40
+connection vRES-HMV,lifetime,2045,40
+connection vRES-HMV,lifetime,2050,40
+distribution HMV,efficiency,2015,0.97
+distribution HMV,efficiency,2020,0.97
+distribution HMV,efficiency,2025,0.97
+distribution HMV,efficiency,2030,0.97
+distribution HMV,efficiency,2035,0.97
+distribution HMV,efficiency,2040,0.97
+distribution HMV,efficiency,2045,0.97
+distribution HMV,efficiency,2050,0.97
+distribution HMV,lifetime,2015,40
+distribution HMV,lifetime,2020,40
+distribution HMV,lifetime,2025,40
+distribution HMV,lifetime,2030,40
+distribution HMV,lifetime,2035,40
+distribution HMV,lifetime,2040,40
+distribution HMV,lifetime,2045,40
+distribution HMV,lifetime,2050,40
+distribution HMV,investment_cost,2015,6000000
+distribution HMV,investment_cost,2020,6000000
+distribution HMV,investment_cost,2025,6000000
+distribution HMV,investment_cost,2030,6000000
+distribution HMV,investment_cost,2035,6000000
+distribution HMV,investment_cost,2040,6000000
+distribution HMV,investment_cost,2045,6000000
+distribution HMV,investment_cost,2050,6000000
+distribution HMV,fixed_cost,2015,180000
+distribution HMV,fixed_cost,2020,180000
+distribution HMV,fixed_cost,2025,180000
+distribution HMV,fixed_cost,2030,180000
+distribution HMV,fixed_cost,2035,180000
+distribution HMV,fixed_cost,2040,180000
+distribution HMV,fixed_cost,2045,180000
+distribution HMV,fixed_cost,2050,180000
+distribution LV,efficiency,2015,0.96
+distribution LV,efficiency,2020,0.96
+distribution LV,efficiency,2025,0.96
+distribution LV,efficiency,2030,0.96
+distribution LV,efficiency,2035,0.96
+distribution LV,efficiency,2040,0.96
+distribution LV,efficiency,2045,0.96
+distribution LV,efficiency,2050,0.96
+distribution LV,lifetime,2015,40
+distribution LV,lifetime,2020,40
+distribution LV,lifetime,2025,40
+distribution LV,lifetime,2030,40
+distribution LV,lifetime,2035,40
+distribution LV,lifetime,2040,40
+distribution LV,lifetime,2045,40
+distribution LV,lifetime,2050,40
+distribution LV,investment_cost,2015,7300000
+distribution LV,investment_cost,2020,7300000
+distribution LV,investment_cost,2025,7300000
+distribution LV,investment_cost,2030,7300000
+distribution LV,investment_cost,2035,7300000
+distribution LV,investment_cost,2040,7300000
+distribution LV,investment_cost,2045,7300000
+distribution LV,investment_cost,2050,7300000
+distribution LV,fixed_cost,2015,220000
+distribution LV,fixed_cost,2020,220000
+distribution LV,fixed_cost,2025,220000
+distribution LV,fixed_cost,2030,220000
+distribution LV,fixed_cost,2035,220000
+distribution LV,fixed_cost,2040,220000
+distribution LV,fixed_cost,2045,220000
+distribution LV,fixed_cost,2050,220000
+district heating,efficiency,2015,0.9
+district heating,efficiency,2020,0.9
+district heating,efficiency,2025,0.9
+district heating,efficiency,2030,0.9
+district heating,efficiency,2035,0.9
+district heating,efficiency,2040,0.9
+district heating,efficiency,2045,0.9
+district heating,efficiency,2050,0.9
+DSR reduction,variable_cost,2015,2000
+DSR reduction,variable_cost,2020,2000
+DSR reduction,variable_cost,2025,2000
+DSR reduction,variable_cost,2030,2000
+DSR reduction,variable_cost,2035,2000
+DSR reduction,variable_cost,2040,2000
+DSR reduction,variable_cost,2045,2000
+DSR reduction,variable_cost,2050,2000
+electricity grid,efficiency,2015,0.93
+electricity grid,efficiency,2020,0.93
+electricity grid,efficiency,2025,0.93
+electricity grid,efficiency,2030,0.93
+electricity grid,efficiency,2035,0.93
+electricity grid,efficiency,2040,0.93
+electricity grid,efficiency,2045,0.93
+electricity grid,efficiency,2050,0.93
+hard coal boiler,efficiency,2015,0.75
+hard coal boiler,efficiency,2020,0.75
+hard coal boiler,efficiency,2025,0.75
+hard coal boiler,efficiency,2030,0.75
+hard coal boiler,efficiency,2035,0.75
+hard coal boiler,efficiency,2040,0.75
+hard coal boiler,efficiency,2045,0.75
+hard coal boiler,efficiency,2050,0.75
+hard coal boiler,fixed_cost,2015,230000
+hard coal boiler,fixed_cost,2020,230000
+hard coal boiler,fixed_cost,2025,230000
+hard coal boiler,fixed_cost,2030,230000
+hard coal boiler,fixed_cost,2035,230000
+hard coal boiler,fixed_cost,2040,230000
+hard coal boiler,fixed_cost,2045,230000
+hard coal boiler,fixed_cost,2050,230000
+hard coal boiler,investment_cost,2015,3000000
+hard coal boiler,investment_cost,2020,3000000
+hard coal boiler,investment_cost,2025,3000000
+hard coal boiler,investment_cost,2030,3000000
+hard coal boiler,investment_cost,2035,3000000
+hard coal boiler,investment_cost,2040,3000000
+hard coal boiler,investment_cost,2045,3000000
+hard coal boiler,investment_cost,2050,3000000
+hard coal boiler,lifetime,2015,20
+hard coal boiler,lifetime,2020,20
+hard coal boiler,lifetime,2025,20
+hard coal boiler,lifetime,2030,20
+hard coal boiler,lifetime,2035,20
+hard coal boiler,lifetime,2040,20
+hard coal boiler,lifetime,2045,20
+hard coal boiler,lifetime,2050,20
+hard coal CHP,efficiency,2015,0.27
+hard coal CHP,efficiency,2020,0.27
+hard coal CHP,efficiency,2025,0.27
+hard coal CHP,efficiency,2030,0.27
+hard coal CHP,efficiency,2035,0.27
+hard coal CHP,efficiency,2040,0.27
+hard coal CHP,efficiency,2045,0.27
+hard coal CHP,efficiency,2050,0.27
+hard coal CHP,efficiency2,2015,0.45
+hard coal CHP,efficiency2,2020,0.45
+hard coal CHP,efficiency2,2025,0.45
+hard coal CHP,efficiency2,2030,0.45
+hard coal CHP,efficiency2,2035,0.45
+hard coal CHP,efficiency2,2040,0.45
+hard coal CHP,efficiency2,2045,0.45
+hard coal CHP,efficiency2,2050,0.45
+hard coal CHP,fixed_cost,2015,220000
+hard coal CHP,fixed_cost,2020,220000
+hard coal CHP,fixed_cost,2025,220000
+hard coal CHP,fixed_cost,2030,220000
+hard coal CHP,fixed_cost,2035,220000
+hard coal CHP,fixed_cost,2040,220000
+hard coal CHP,fixed_cost,2045,220000
+hard coal CHP,fixed_cost,2050,220000
+hard coal CHP,investment_cost,2015,13000000
+hard coal CHP,investment_cost,2020,13000000
+hard coal CHP,investment_cost,2025,13000000
+hard coal CHP,investment_cost,2030,13000000
+hard coal CHP,investment_cost,2035,13000000
+hard coal CHP,investment_cost,2040,13000000
+hard coal CHP,investment_cost,2045,13000000
+hard coal CHP,investment_cost,2050,13000000
+hard coal CHP,lifetime,2015,25
+hard coal CHP,lifetime,2020,25
+hard coal CHP,lifetime,2025,25
+hard coal CHP,lifetime,2030,25
+hard coal CHP,lifetime,2035,25
+hard coal CHP,lifetime,2040,25
+hard coal CHP,lifetime,2045,25
+hard coal CHP,lifetime,2050,25
+hard coal CHP,variable_cost,2015,20
+hard coal CHP,variable_cost,2020,20
+hard coal CHP,variable_cost,2025,20
+hard coal CHP,variable_cost,2030,20
+hard coal CHP,variable_cost,2035,20
+hard coal CHP,variable_cost,2040,20
+hard coal CHP,variable_cost,2045,20
+hard coal CHP,variable_cost,2050,20
+hard coal heat,efficiency,2015,0.85
+hard coal heat,efficiency,2020,0.85
+hard coal heat,efficiency,2025,0.85
+hard coal heat,efficiency,2030,0.85
+hard coal heat,efficiency,2035,0.85
+hard coal heat,efficiency,2040,0.85
+hard coal heat,efficiency,2045,0.85
+hard coal heat,efficiency,2050,0.85
+hard coal heat,fixed_cost,2015,230000
+hard coal heat,fixed_cost,2020,230000
+hard coal heat,fixed_cost,2025,230000
+hard coal heat,fixed_cost,2030,230000
+hard coal heat,fixed_cost,2035,230000
+hard coal heat,fixed_cost,2040,230000
+hard coal heat,fixed_cost,2045,230000
+hard coal heat,fixed_cost,2050,230000
+hard coal heat,investment_cost,2015,2900000
+hard coal heat,investment_cost,2020,2900000
+hard coal heat,investment_cost,2025,2900000
+hard coal heat,investment_cost,2030,2900000
+hard coal heat,investment_cost,2035,2900000
+hard coal heat,investment_cost,2040,2900000
+hard coal heat,investment_cost,2045,2900000
+hard coal heat,investment_cost,2050,2900000
+hard coal heat,lifetime,2015,25
+hard coal heat,lifetime,2020,25
+hard coal heat,lifetime,2025,25
+hard coal heat,lifetime,2030,25
+hard coal heat,lifetime,2035,25
+hard coal heat,lifetime,2040,25
+hard coal heat,lifetime,2045,25
+hard coal heat,lifetime,2050,25
+hard coal heat,p_max_pu_annual,2015,0.93
+hard coal heat,p_max_pu_annual,2020,0.93
+hard coal heat,p_max_pu_annual,2025,0.93
+hard coal heat,p_max_pu_annual,2030,0.93
+hard coal heat,p_max_pu_annual,2035,0.93
+hard coal heat,p_max_pu_annual,2040,0.93
+hard coal heat,p_max_pu_annual,2045,0.93
+hard coal heat,p_max_pu_annual,2050,0.93
+hard coal heat,variable_cost,2015,18
+hard coal heat,variable_cost,2020,18
+hard coal heat,variable_cost,2025,18
+hard coal heat,variable_cost,2030,18
+hard coal heat,variable_cost,2035,18
+hard coal heat,variable_cost,2040,18
+hard coal heat,variable_cost,2045,18
+hard coal heat,variable_cost,2050,18
+hard coal power old,efficiency,2015,0.33
+hard coal power old,efficiency,2020,0.33
+hard coal power old,efficiency,2025,0.33
+hard coal power old,efficiency,2030,0.33
+hard coal power old,efficiency,2035,0.33
+hard coal power old,efficiency,2040,0.33
+hard coal power old,efficiency,2045,0.33
+hard coal power old,efficiency,2050,0.33
+hard coal power old,fixed_cost,2015,220000
+hard coal power old,fixed_cost,2020,220000
+hard coal power old,fixed_cost,2025,220000
+hard coal power old,fixed_cost,2030,220000
+hard coal power old,fixed_cost,2035,220000
+hard coal power old,fixed_cost,2040,220000
+hard coal power old,fixed_cost,2045,220000
+hard coal power old,fixed_cost,2050,220000
+hard coal power old,lifetime,2015,25
+hard coal power old,lifetime,2020,25
+hard coal power old,lifetime,2025,25
+hard coal power old,lifetime,2030,25
+hard coal power old,lifetime,2035,25
+hard coal power old,lifetime,2040,25
+hard coal power old,lifetime,2045,25
+hard coal power old,lifetime,2050,25
+hard coal power old,variable_cost,2015,20
+hard coal power old,variable_cost,2020,20
+hard coal power old,variable_cost,2025,20
+hard coal power old,variable_cost,2030,20
+hard coal power old,variable_cost,2035,20
+hard coal power old,variable_cost,2040,20
+hard coal power old,variable_cost,2045,20
+hard coal power old,variable_cost,2050,20
+hard coal power SC,efficiency,2015,0.43
+hard coal power SC,efficiency,2020,0.43
+hard coal power SC,efficiency,2025,0.43
+hard coal power SC,efficiency,2030,0.43
+hard coal power SC,efficiency,2035,0.43
+hard coal power SC,efficiency,2040,0.43
+hard coal power SC,efficiency,2045,0.43
+hard coal power SC,efficiency,2050,0.43
+hard coal power SC,fixed_cost,2015,220000
+hard coal power SC,fixed_cost,2020,220000
+hard coal power SC,fixed_cost,2025,220000
+hard coal power SC,fixed_cost,2030,220000
+hard coal power SC,fixed_cost,2035,220000
+hard coal power SC,fixed_cost,2040,220000
+hard coal power SC,fixed_cost,2045,220000
+hard coal power SC,fixed_cost,2050,220000
+hard coal power SC,investment_cost,2015,13000000
+hard coal power SC,investment_cost,2020,13000000
+hard coal power SC,investment_cost,2025,13000000
+hard coal power SC,investment_cost,2030,13000000
+hard coal power SC,investment_cost,2035,13000000
+hard coal power SC,investment_cost,2040,13000000
+hard coal power SC,investment_cost,2045,13000000
+hard coal power SC,investment_cost,2050,13000000
+hard coal power SC,lifetime,2015,25
+hard coal power SC,lifetime,2020,25
+hard coal power SC,lifetime,2025,25
+hard coal power SC,lifetime,2030,25
+hard coal power SC,lifetime,2035,25
+hard coal power SC,lifetime,2040,25
+hard coal power SC,lifetime,2045,25
+hard coal power SC,lifetime,2050,25
+hard coal power SC,variable_cost,2015,20
+hard coal power SC,variable_cost,2020,20
+hard coal power SC,variable_cost,2025,20
+hard coal power SC,variable_cost,2030,20
+hard coal power SC,variable_cost,2035,20
+hard coal power SC,variable_cost,2040,20
+hard coal power SC,variable_cost,2045,20
+hard coal power SC,variable_cost,2050,20
+hard coal supply,co2_emissions,2015,0.34
+hard coal supply,co2_emissions,2020,0.34
+hard coal supply,co2_emissions,2021,0.34
+hard coal supply,co2_emissions,2022,0.34
+hard coal supply,co2_emissions,2023,0.34
+hard coal supply,co2_emissions,2024,0.34
+hard coal supply,co2_emissions,2025,0.34
+hard coal supply,co2_emissions,2030,0.34
+hard coal supply,co2_emissions,2035,0.34
+hard coal supply,co2_emissions,2040,0.34
+hard coal supply,co2_emissions,2045,0.34
+hard coal supply,co2_emissions,2050,0.34
+hard coal supply,variable_cost,2020,62
+hard coal supply,variable_cost,2021,58
+hard coal supply,variable_cost,2022,120
+hard coal supply,variable_cost,2023,140
+hard coal supply,variable_cost,2024,84
+hard coal supply,variable_cost,2025,84
+hard coal supply,variable_cost,2030,84
+hard coal supply,variable_cost,2035,84
+hard coal supply,variable_cost,2040,84
+hard coal supply,variable_cost,2045,84
+hard coal supply,variable_cost,2050,84
+heat pump large AW,efficiency,2015,3.2
+heat pump large AW,efficiency,2020,3.2
+heat pump large AW,efficiency,2025,3.2
+heat pump large AW,efficiency,2030,3.2
+heat pump large AW,efficiency,2035,3.2
+heat pump large AW,efficiency,2040,3.2
+heat pump large AW,efficiency,2045,3.2
+heat pump large AW,efficiency,2050,3.2
+heat pump large AW,fixed_cost,2015,13000
+heat pump large AW,fixed_cost,2020,13000
+heat pump large AW,fixed_cost,2025,13000
+heat pump large AW,fixed_cost,2030,13000
+heat pump large AW,fixed_cost,2035,13000
+heat pump large AW,fixed_cost,2040,13000
+heat pump large AW,fixed_cost,2045,13000
+heat pump large AW,fixed_cost,2050,13000
+heat pump large AW,investment_cost,2015,5600000
+heat pump large AW,investment_cost,2020,5600000
+heat pump large AW,investment_cost,2025,5600000
+heat pump large AW,investment_cost,2030,5000000
+heat pump large AW,investment_cost,2035,5000000
+heat pump large AW,investment_cost,2040,5000000
+heat pump large AW,investment_cost,2045,5000000
+heat pump large AW,investment_cost,2050,5000000
+heat pump large AW,lifetime,2015,25
+heat pump large AW,lifetime,2020,25
+heat pump large AW,lifetime,2025,25
+heat pump large AW,lifetime,2030,25
+heat pump large AW,lifetime,2035,25
+heat pump large AW,lifetime,2040,25
+heat pump large AW,lifetime,2045,25
+heat pump large AW,lifetime,2050,25
+heat pump large AW,p_max_pu_annual,2015,0.98
+heat pump large AW,p_max_pu_annual,2020,0.98
+heat pump large AW,p_max_pu_annual,2025,0.98
+heat pump large AW,p_max_pu_annual,2030,0.98
+heat pump large AW,p_max_pu_annual,2035,0.98
+heat pump large AW,p_max_pu_annual,2040,0.98
+heat pump large AW,p_max_pu_annual,2045,0.98
+heat pump large AW,p_max_pu_annual,2050,0.98
+heat pump large AW,variable_cost,2015,11
+heat pump large AW,variable_cost,2020,11
+heat pump large AW,variable_cost,2025,11
+heat pump large AW,variable_cost,2030,11
+heat pump large AW,variable_cost,2035,11
+heat pump large AW,variable_cost,2040,11
+heat pump large AW,variable_cost,2045,11
+heat pump large AW,variable_cost,2050,11
+heat pump large WW,efficiency,2015,4.5
+heat pump large WW,efficiency,2020,4.5
+heat pump large WW,efficiency,2025,4.5
+heat pump large WW,efficiency,2030,4.5
+heat pump large WW,efficiency,2035,4.5
+heat pump large WW,efficiency,2040,4.5
+heat pump large WW,efficiency,2045,4.5
+heat pump large WW,efficiency,2050,4.5
+heat pump large WW,fixed_cost,2015,13000
+heat pump large WW,fixed_cost,2020,13000
+heat pump large WW,fixed_cost,2025,13000
+heat pump large WW,fixed_cost,2030,13000
+heat pump large WW,fixed_cost,2035,13000
+heat pump large WW,fixed_cost,2040,13000
+heat pump large WW,fixed_cost,2045,13000
+heat pump large WW,fixed_cost,2050,13000
+heat pump large WW,investment_cost,2015,4400000
+heat pump large WW,investment_cost,2020,4400000
+heat pump large WW,investment_cost,2025,4400000
+heat pump large WW,investment_cost,2030,3700000
+heat pump large WW,investment_cost,2035,3700000
+heat pump large WW,investment_cost,2040,3700000
+heat pump large WW,investment_cost,2045,3700000
+heat pump large WW,investment_cost,2050,3700000
+heat pump large WW,lifetime,2015,25
+heat pump large WW,lifetime,2020,25
+heat pump large WW,lifetime,2025,25
+heat pump large WW,lifetime,2030,25
+heat pump large WW,lifetime,2035,25
+heat pump large WW,lifetime,2040,25
+heat pump large WW,lifetime,2045,25
+heat pump large WW,lifetime,2050,25
+heat pump large WW,p_max_pu_annual,2015,0.98
+heat pump large WW,p_max_pu_annual,2020,0.98
+heat pump large WW,p_max_pu_annual,2025,0.98
+heat pump large WW,p_max_pu_annual,2030,0.98
+heat pump large WW,p_max_pu_annual,2035,0.98
+heat pump large WW,p_max_pu_annual,2040,0.98
+heat pump large WW,p_max_pu_annual,2045,0.98
+heat pump large WW,p_max_pu_annual,2050,0.98
+heat pump large WW,variable_cost,2015,11
+heat pump large WW,variable_cost,2020,11
+heat pump large WW,variable_cost,2025,11
+heat pump large WW,variable_cost,2030,11
+heat pump large WW,variable_cost,2035,11
+heat pump large WW,variable_cost,2040,11
+heat pump large WW,variable_cost,2045,11
+heat pump large WW,variable_cost,2050,11
+heat pump small AW,efficiency,2015,5
+heat pump small AW,efficiency,2020,5
+heat pump small AW,efficiency,2025,5
+heat pump small AW,efficiency,2030,5
+heat pump small AW,efficiency,2035,5
+heat pump small AW,efficiency,2040,5
+heat pump small AW,efficiency,2045,5
+heat pump small AW,efficiency,2050,5
+heat pump small AW,fixed_cost,2015,160000
+heat pump small AW,fixed_cost,2020,160000
+heat pump small AW,fixed_cost,2025,110000
+heat pump small AW,fixed_cost,2030,110000
+heat pump small AW,fixed_cost,2035,110000
+heat pump small AW,fixed_cost,2040,110000
+heat pump small AW,fixed_cost,2045,110000
+heat pump small AW,fixed_cost,2050,110000
+heat pump small AW,investment_cost,2015,3600000
+heat pump small AW,investment_cost,2020,3600000
+heat pump small AW,investment_cost,2025,3400000
+heat pump small AW,investment_cost,2030,3200000
+heat pump small AW,investment_cost,2035,3100000
+heat pump small AW,investment_cost,2040,3000000
+heat pump small AW,investment_cost,2045,2900000
+heat pump small AW,investment_cost,2050,2800000
+heat pump small AW,lifetime,2015,20
+heat pump small AW,lifetime,2020,20
+heat pump small AW,lifetime,2025,20
+heat pump small AW,lifetime,2030,20
+heat pump small AW,lifetime,2035,20
+heat pump small AW,lifetime,2040,20
+heat pump small AW,lifetime,2045,20
+heat pump small AW,lifetime,2050,20
+heat pump small GW,efficiency,2015,5
+heat pump small GW,efficiency,2020,5
+heat pump small GW,efficiency,2025,5
+heat pump small GW,efficiency,2030,5
+heat pump small GW,efficiency,2035,5
+heat pump small GW,efficiency,2040,5
+heat pump small GW,efficiency,2045,5
+heat pump small GW,efficiency,2050,5
+heat pump small GW,fixed_cost,2015,210000
+heat pump small GW,fixed_cost,2020,210000
+heat pump small GW,fixed_cost,2025,150000
+heat pump small GW,fixed_cost,2030,140000
+heat pump small GW,fixed_cost,2035,140000
+heat pump small GW,fixed_cost,2040,140000
+heat pump small GW,fixed_cost,2045,140000
+heat pump small GW,fixed_cost,2050,130000
+heat pump small GW,investment_cost,2015,7400000
+heat pump small GW,investment_cost,2020,7400000
+heat pump small GW,investment_cost,2025,7000000
+heat pump small GW,investment_cost,2030,6600000
+heat pump small GW,investment_cost,2035,6500000
+heat pump small GW,investment_cost,2040,6300000
+heat pump small GW,investment_cost,2045,6100000
+heat pump small GW,investment_cost,2050,6000000
+heat pump small GW,lifetime,2015,20
+heat pump small GW,lifetime,2020,20
+heat pump small GW,lifetime,2025,20
+heat pump small GW,lifetime,2030,20
+heat pump small GW,lifetime,2035,20
+heat pump small GW,lifetime,2040,20
+heat pump small GW,lifetime,2045,20
+heat pump small GW,lifetime,2050,20
+heat storage large seasonal,fixed_cost,2015,20
+heat storage large seasonal,fixed_cost,2020,20
+heat storage large seasonal,fixed_cost,2025,20
+heat storage large seasonal,fixed_cost,2030,20
+heat storage large seasonal,fixed_cost,2035,20
+heat storage large seasonal,fixed_cost,2040,20
+heat storage large seasonal,fixed_cost,2045,20
+heat storage large seasonal,fixed_cost,2050,20
+heat storage large seasonal,investment_cost,2015,3800
+heat storage large seasonal,investment_cost,2020,3800
+heat storage large seasonal,investment_cost,2025,3800
+heat storage large seasonal,investment_cost,2030,3800
+heat storage large seasonal,investment_cost,2035,3800
+heat storage large seasonal,investment_cost,2040,3800
+heat storage large seasonal,investment_cost,2045,3800
+heat storage large seasonal,investment_cost,2050,3800
+heat storage large seasonal,lifetime,2015,20
+heat storage large seasonal,lifetime,2020,20
+heat storage large seasonal,lifetime,2025,20
+heat storage large seasonal,lifetime,2030,20
+heat storage large seasonal,lifetime,2035,20
+heat storage large seasonal,lifetime,2040,20
+heat storage large seasonal,lifetime,2045,20
+heat storage large seasonal,lifetime,2050,20
+heat storage large seasonal,standing_loss,2015,0.0001
+heat storage large seasonal,standing_loss,2020,0.0001
+heat storage large seasonal,standing_loss,2025,0.0001
+heat storage large seasonal,standing_loss,2030,0.0001
+heat storage large seasonal,standing_loss,2035,0.0001
+heat storage large seasonal,standing_loss,2040,0.0001
+heat storage large seasonal,standing_loss,2045,0.0001
+heat storage large seasonal,standing_loss,2050,0.0001
+heat storage large tank,fixed_cost,2015,780
+heat storage large tank,fixed_cost,2020,780
+heat storage large tank,fixed_cost,2025,780
+heat storage large tank,fixed_cost,2030,780
+heat storage large tank,fixed_cost,2035,780
+heat storage large tank,fixed_cost,2040,780
+heat storage large tank,fixed_cost,2045,780
+heat storage large tank,fixed_cost,2050,780
+heat storage large tank,investment_cost,2015,39000
+heat storage large tank,investment_cost,2020,39000
+heat storage large tank,investment_cost,2025,39000
+heat storage large tank,investment_cost,2030,39000
+heat storage large tank,investment_cost,2035,39000
+heat storage large tank,investment_cost,2040,39000
+heat storage large tank,investment_cost,2045,39000
+heat storage large tank,investment_cost,2050,39000
+heat storage large tank,lifetime,2015,25
+heat storage large tank,lifetime,2020,25
+heat storage large tank,lifetime,2025,25
+heat storage large tank,lifetime,2030,25
+heat storage large tank,lifetime,2035,25
+heat storage large tank,lifetime,2040,25
+heat storage large tank,lifetime,2045,25
+heat storage large tank,lifetime,2050,25
+heat storage large tank,parent_ratio,2015,6
+heat storage large tank,parent_ratio,2020,6
+heat storage large tank,parent_ratio,2025,6
+heat storage large tank,parent_ratio,2030,6
+heat storage large tank,parent_ratio,2035,6
+heat storage large tank,parent_ratio,2040,6
+heat storage large tank,parent_ratio,2045,6
+heat storage large tank,parent_ratio,2050,6
+heat storage large tank,standing_loss,2015,0.002
+heat storage large tank,standing_loss,2020,0.002
+heat storage large tank,standing_loss,2025,0.002
+heat storage large tank,standing_loss,2030,0.002
+heat storage large tank,standing_loss,2035,0.002
+heat storage large tank,standing_loss,2040,0.002
+heat storage large tank,standing_loss,2045,0.002
+heat storage large tank,standing_loss,2050,0.002
+heat storage large tank charge,efficiency,2015,0.99
+heat storage large tank charge,efficiency,2020,0.99
+heat storage large tank charge,efficiency,2025,0.99
+heat storage large tank charge,efficiency,2030,0.99
+heat storage large tank charge,efficiency,2035,0.99
+heat storage large tank charge,efficiency,2040,0.99
+heat storage large tank charge,efficiency,2045,0.99
+heat storage large tank charge,efficiency,2050,0.99
+heat storage large tank charge,lifetime,2015,25
+heat storage large tank charge,lifetime,2020,25
+heat storage large tank charge,lifetime,2025,25
+heat storage large tank charge,lifetime,2030,25
+heat storage large tank charge,lifetime,2035,25
+heat storage large tank charge,lifetime,2040,25
+heat storage large tank charge,lifetime,2045,25
+heat storage large tank charge,lifetime,2050,25
+heat storage large tank charge,parent_ratio,2015,0.99
+heat storage large tank charge,parent_ratio,2020,0.99
+heat storage large tank charge,parent_ratio,2025,0.99
+heat storage large tank charge,parent_ratio,2030,0.99
+heat storage large tank charge,parent_ratio,2035,0.99
+heat storage large tank charge,parent_ratio,2040,0.99
+heat storage large tank charge,parent_ratio,2045,0.99
+heat storage large tank charge,parent_ratio,2050,0.99
+heat storage large tank discharge,efficiency,2015,1
+heat storage large tank discharge,efficiency,2020,1
+heat storage large tank discharge,efficiency,2025,1
+heat storage large tank discharge,efficiency,2030,1
+heat storage large tank discharge,efficiency,2035,1
+heat storage large tank discharge,efficiency,2040,1
+heat storage large tank discharge,efficiency,2045,1
+heat storage large tank discharge,efficiency,2050,1
+heat storage large tank discharge,lifetime,2015,25
+heat storage large tank discharge,lifetime,2020,25
+heat storage large tank discharge,lifetime,2025,25
+heat storage large tank discharge,lifetime,2030,25
+heat storage large tank discharge,lifetime,2035,25
+heat storage large tank discharge,lifetime,2040,25
+heat storage large tank discharge,lifetime,2045,25
+heat storage large tank discharge,lifetime,2050,25
+heat storage small,fixed_cost,2015,15000
+heat storage small,fixed_cost,2020,15000
+heat storage small,fixed_cost,2025,15000
+heat storage small,fixed_cost,2030,15000
+heat storage small,fixed_cost,2035,15000
+heat storage small,fixed_cost,2040,15000
+heat storage small,fixed_cost,2045,15000
+heat storage small,fixed_cost,2050,15000
+heat storage small,investment_cost,2015,300000
+heat storage small,investment_cost,2020,300000
+heat storage small,investment_cost,2025,300000
+heat storage small,investment_cost,2030,300000
+heat storage small,investment_cost,2035,300000
+heat storage small,investment_cost,2040,300000
+heat storage small,investment_cost,2045,300000
+heat storage small,investment_cost,2050,300000
+heat storage small,lifetime,2015,20
+heat storage small,lifetime,2020,20
+heat storage small,lifetime,2025,20
+heat storage small,lifetime,2030,20
+heat storage small,lifetime,2035,20
+heat storage small,lifetime,2040,20
+heat storage small,lifetime,2045,20
+heat storage small,lifetime,2050,20
+heat storage small,parent_ratio,2015,2
+heat storage small,parent_ratio,2020,2
+heat storage small,parent_ratio,2025,2
+heat storage small,parent_ratio,2030,2
+heat storage small,parent_ratio,2035,2
+heat storage small,parent_ratio,2040,2
+heat storage small,parent_ratio,2045,2
+heat storage small,parent_ratio,2050,2
+heat storage small,standing_loss,2015,0.02
+heat storage small,standing_loss,2020,0.02
+heat storage small,standing_loss,2025,0.02
+heat storage small,standing_loss,2030,0.02
+heat storage small,standing_loss,2035,0.02
+heat storage small,standing_loss,2040,0.02
+heat storage small,standing_loss,2045,0.02
+heat storage small,standing_loss,2050,0.02
+heat storage small charge,efficiency,2015,0.99
+heat storage small charge,efficiency,2020,0.99
+heat storage small charge,efficiency,2025,0.99
+heat storage small charge,efficiency,2030,0.99
+heat storage small charge,efficiency,2035,0.99
+heat storage small charge,efficiency,2040,0.99
+heat storage small charge,efficiency,2045,0.99
+heat storage small charge,efficiency,2050,0.99
+heat storage small charge,lifetime,2015,20
+heat storage small charge,lifetime,2020,20
+heat storage small charge,lifetime,2025,20
+heat storage small charge,lifetime,2030,20
+heat storage small charge,lifetime,2035,20
+heat storage small charge,lifetime,2040,20
+heat storage small charge,lifetime,2045,20
+heat storage small charge,lifetime,2050,20
+heat storage small charge,parent_ratio,2015,1
+heat storage small charge,parent_ratio,2020,1
+heat storage small charge,parent_ratio,2025,1
+heat storage small charge,parent_ratio,2030,1
+heat storage small charge,parent_ratio,2035,1
+heat storage small charge,parent_ratio,2040,1
+heat storage small charge,parent_ratio,2045,1
+heat storage small charge,parent_ratio,2050,1
+heat storage small discharge,efficiency,2015,1
+heat storage small discharge,efficiency,2020,1
+heat storage small discharge,efficiency,2025,1
+heat storage small discharge,efficiency,2030,1
+heat storage small discharge,efficiency,2035,1
+heat storage small discharge,efficiency,2040,1
+heat storage small discharge,efficiency,2045,1
+heat storage small discharge,efficiency,2050,1
+heat storage small discharge,lifetime,2015,20
+heat storage small discharge,lifetime,2020,20
+heat storage small discharge,lifetime,2025,20
+heat storage small discharge,lifetime,2030,20
+heat storage small discharge,lifetime,2035,20
+heat storage small discharge,lifetime,2040,20
+heat storage small discharge,lifetime,2045,20
+heat storage small discharge,lifetime,2050,20
+heat storage small discharge,parent_ratio,2015,0.25
+heat storage small discharge,parent_ratio,2020,0.25
+heat storage small discharge,parent_ratio,2025,0.25
+heat storage small discharge,parent_ratio,2030,0.25
+heat storage small discharge,parent_ratio,2035,0.25
+heat storage small discharge,parent_ratio,2040,0.25
+heat storage small discharge,parent_ratio,2045,0.25
+heat storage small discharge,parent_ratio,2050,0.25
+hydro PSH power,efficiency,2015,1
+hydro PSH power,efficiency,2020,1
+hydro PSH power,efficiency,2025,1
+hydro PSH power,efficiency,2030,1
+hydro PSH power,efficiency,2035,1
+hydro PSH power,efficiency,2040,1
+hydro PSH power,efficiency,2045,1
+hydro PSH power,efficiency,2050,1
+hydro PSH power,fixed_cost,2015,52000
+hydro PSH power,fixed_cost,2020,52000
+hydro PSH power,fixed_cost,2025,52000
+hydro PSH power,fixed_cost,2030,52000
+hydro PSH power,fixed_cost,2035,52000
+hydro PSH power,fixed_cost,2040,52000
+hydro PSH power,fixed_cost,2045,52000
+hydro PSH power,fixed_cost,2050,52000
+hydro PSH power,investment_cost,2015,7000000
+hydro PSH power,investment_cost,2020,7000000
+hydro PSH power,investment_cost,2025,7000000
+hydro PSH power,investment_cost,2030,7000000
+hydro PSH power,investment_cost,2035,7000000
+hydro PSH power,investment_cost,2040,7000000
+hydro PSH power,investment_cost,2045,7000000
+hydro PSH power,investment_cost,2050,7000000
+hydro PSH power,lifetime,2015,50
+hydro PSH power,lifetime,2020,50
+hydro PSH power,lifetime,2025,50
+hydro PSH power,lifetime,2030,50
+hydro PSH power,lifetime,2035,50
+hydro PSH power,lifetime,2040,50
+hydro PSH power,lifetime,2045,50
+hydro PSH power,lifetime,2050,50
+hydro PSH power,variable_cost,2015,10
+hydro PSH power,variable_cost,2020,10
+hydro PSH power,variable_cost,2025,10
+hydro PSH power,variable_cost,2030,10
+hydro PSH power,variable_cost,2035,10
+hydro PSH power,variable_cost,2040,10
+hydro PSH power,variable_cost,2045,10
+hydro PSH power,variable_cost,2050,10
+hydro PSH pump,efficiency,2015,0.7
+hydro PSH pump,efficiency,2020,0.7
+hydro PSH pump,efficiency,2025,0.75
+hydro PSH pump,efficiency,2030,0.75
+hydro PSH pump,efficiency,2035,0.75
+hydro PSH pump,efficiency,2040,0.75
+hydro PSH pump,efficiency,2045,0.75
+hydro PSH pump,efficiency,2050,0.75
+hydro PSH pump,lifetime,2015,50
+hydro PSH pump,lifetime,2020,50
+hydro PSH pump,lifetime,2025,50
+hydro PSH pump,lifetime,2030,50
+hydro PSH pump,lifetime,2035,50
+hydro PSH pump,lifetime,2040,50
+hydro PSH pump,lifetime,2045,50
+hydro PSH pump,lifetime,2050,50
+hydro PSH pump,parent_ratio,2015,0.63
+hydro PSH pump,parent_ratio,2020,0.63
+hydro PSH pump,parent_ratio,2025,0.68
+hydro PSH pump,parent_ratio,2030,0.68
+hydro PSH pump,parent_ratio,2035,0.68
+hydro PSH pump,parent_ratio,2040,0.68
+hydro PSH pump,parent_ratio,2045,0.68
+hydro PSH pump,parent_ratio,2050,0.68
+hydro PSH storage,lifetime,2015,50
+hydro PSH storage,lifetime,2020,50
+hydro PSH storage,lifetime,2025,50
+hydro PSH storage,lifetime,2030,50
+hydro PSH storage,lifetime,2035,50
+hydro PSH storage,lifetime,2040,50
+hydro PSH storage,lifetime,2045,50
+hydro PSH storage,lifetime,2050,50
+hydro PSH storage,parent_ratio,2015,5
+hydro PSH storage,parent_ratio,2020,5
+hydro PSH storage,parent_ratio,2025,5
+hydro PSH storage,parent_ratio,2030,5
+hydro PSH storage,parent_ratio,2035,5
+hydro PSH storage,parent_ratio,2040,5
+hydro PSH storage,parent_ratio,2045,5
+hydro PSH storage,parent_ratio,2050,5
+hydrogen CHP CCGT,efficiency,2015,0.52
+hydrogen CHP CCGT,efficiency,2020,0.52
+hydrogen CHP CCGT,efficiency,2025,0.52
+hydrogen CHP CCGT,efficiency,2030,0.52
+hydrogen CHP CCGT,efficiency,2035,0.52
+hydrogen CHP CCGT,efficiency,2040,0.52
+hydrogen CHP CCGT,efficiency,2045,0.52
+hydrogen CHP CCGT,efficiency,2050,0.52
+hydrogen CHP CCGT,efficiency2,2015,0.31
+hydrogen CHP CCGT,efficiency2,2020,0.31
+hydrogen CHP CCGT,efficiency2,2025,0.31
+hydrogen CHP CCGT,efficiency2,2030,0.31
+hydrogen CHP CCGT,efficiency2,2035,0.31
+hydrogen CHP CCGT,efficiency2,2040,0.31
+hydrogen CHP CCGT,efficiency2,2045,0.31
+hydrogen CHP CCGT,efficiency2,2050,0.31
+hydrogen CHP CCGT,fixed_cost,2015,290000
+hydrogen CHP CCGT,fixed_cost,2020,290000
+hydrogen CHP CCGT,fixed_cost,2025,290000
+hydrogen CHP CCGT,fixed_cost,2030,290000
+hydrogen CHP CCGT,fixed_cost,2035,290000
+hydrogen CHP CCGT,fixed_cost,2040,290000
+hydrogen CHP CCGT,fixed_cost,2045,290000
+hydrogen CHP CCGT,fixed_cost,2050,290000
+hydrogen CHP CCGT,investment_cost,2015,8600000
+hydrogen CHP CCGT,investment_cost,2020,8600000
+hydrogen CHP CCGT,investment_cost,2025,8600000
+hydrogen CHP CCGT,investment_cost,2030,8600000
+hydrogen CHP CCGT,investment_cost,2035,8600000
+hydrogen CHP CCGT,investment_cost,2040,8600000
+hydrogen CHP CCGT,investment_cost,2045,8600000
+hydrogen CHP CCGT,investment_cost,2050,8600000
+hydrogen CHP CCGT,lifetime,2015,25
+hydrogen CHP CCGT,lifetime,2020,25
+hydrogen CHP CCGT,lifetime,2025,25
+hydrogen CHP CCGT,lifetime,2030,25
+hydrogen CHP CCGT,lifetime,2035,25
+hydrogen CHP CCGT,lifetime,2040,25
+hydrogen CHP CCGT,lifetime,2045,25
+hydrogen CHP CCGT,lifetime,2050,25
+hydrogen CHP CCGT,p_max_pu_annual,2015,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2020,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2025,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2030,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2035,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2040,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2045,0.93
+hydrogen CHP CCGT,p_max_pu_annual,2050,0.93
+hydrogen CHP CCGT,variable_cost,2015,29
+hydrogen CHP CCGT,variable_cost,2020,29
+hydrogen CHP CCGT,variable_cost,2025,29
+hydrogen CHP CCGT,variable_cost,2030,29
+hydrogen CHP CCGT,variable_cost,2035,29
+hydrogen CHP CCGT,variable_cost,2040,29
+hydrogen CHP CCGT,variable_cost,2045,29
+hydrogen CHP CCGT,variable_cost,2050,29
+hydrogen electrolysis,efficiency,2015,0.55
+hydrogen electrolysis,efficiency,2020,0.55
+hydrogen electrolysis,efficiency,2025,0.57
+hydrogen electrolysis,efficiency,2030,0.6
+hydrogen electrolysis,efficiency,2035,0.62
+hydrogen electrolysis,efficiency,2040,0.63
+hydrogen electrolysis,efficiency,2045,0.66
+hydrogen electrolysis,efficiency,2050,0.68
+hydrogen electrolysis,fixed_cost,2015,410000
+hydrogen electrolysis,fixed_cost,2020,410000
+hydrogen electrolysis,fixed_cost,2025,290000
+hydrogen electrolysis,fixed_cost,2030,180000
+hydrogen electrolysis,fixed_cost,2035,150000
+hydrogen electrolysis,fixed_cost,2040,130000
+hydrogen electrolysis,fixed_cost,2045,110000
+hydrogen electrolysis,fixed_cost,2050,85000
+hydrogen electrolysis,investment_cost,2015,14000000
+hydrogen electrolysis,investment_cost,2020,14000000
+hydrogen electrolysis,investment_cost,2025,10000000
+hydrogen electrolysis,investment_cost,2030,6100000
+hydrogen electrolysis,investment_cost,2035,5300000
+hydrogen electrolysis,investment_cost,2040,4500000
+hydrogen electrolysis,investment_cost,2045,3700000
+hydrogen electrolysis,investment_cost,2050,2900000
+hydrogen electrolysis,lifetime,2015,25
+hydrogen electrolysis,lifetime,2020,25
+hydrogen electrolysis,lifetime,2025,25
+hydrogen electrolysis,lifetime,2030,25
+hydrogen electrolysis,lifetime,2035,25
+hydrogen electrolysis,lifetime,2040,25
+hydrogen electrolysis,lifetime,2045,25
+hydrogen electrolysis,lifetime,2050,25
+hydrogen electrolysis,p_max_pu_annual,2015,0.94
+hydrogen electrolysis,p_max_pu_annual,2020,0.94
+hydrogen electrolysis,p_max_pu_annual,2025,0.94
+hydrogen electrolysis,p_max_pu_annual,2030,0.94
+hydrogen electrolysis,p_max_pu_annual,2035,0.94
+hydrogen electrolysis,p_max_pu_annual,2040,0.94
+hydrogen electrolysis,p_max_pu_annual,2045,0.94
+hydrogen electrolysis,p_max_pu_annual,2050,0.94
+hydrogen heat,efficiency,2015,0.9
+hydrogen heat,efficiency,2020,0.9
+hydrogen heat,efficiency,2025,0.9
+hydrogen heat,efficiency,2030,0.9
+hydrogen heat,efficiency,2035,0.9
+hydrogen heat,efficiency,2040,0.9
+hydrogen heat,efficiency,2045,0.9
+hydrogen heat,efficiency,2050,0.9
+hydrogen heat,fixed_cost,2015,19000
+hydrogen heat,fixed_cost,2020,19000
+hydrogen heat,fixed_cost,2025,19000
+hydrogen heat,fixed_cost,2030,19000
+hydrogen heat,fixed_cost,2035,19000
+hydrogen heat,fixed_cost,2040,19000
+hydrogen heat,fixed_cost,2045,19000
+hydrogen heat,fixed_cost,2050,19000
+hydrogen heat,investment_cost,2015,590000
+hydrogen heat,investment_cost,2020,590000
+hydrogen heat,investment_cost,2025,590000
+hydrogen heat,investment_cost,2030,590000
+hydrogen heat,investment_cost,2035,590000
+hydrogen heat,investment_cost,2040,590000
+hydrogen heat,investment_cost,2045,590000
+hydrogen heat,investment_cost,2050,590000
+hydrogen heat,lifetime,2015,25
+hydrogen heat,lifetime,2020,25
+hydrogen heat,lifetime,2025,25
+hydrogen heat,lifetime,2030,25
+hydrogen heat,lifetime,2035,25
+hydrogen heat,lifetime,2040,25
+hydrogen heat,lifetime,2045,25
+hydrogen heat,lifetime,2050,25
+hydrogen heat,p_max_pu_annual,2015,0.98
+hydrogen heat,p_max_pu_annual,2020,0.98
+hydrogen heat,p_max_pu_annual,2025,0.98
+hydrogen heat,p_max_pu_annual,2030,0.98
+hydrogen heat,p_max_pu_annual,2035,0.98
+hydrogen heat,p_max_pu_annual,2040,0.98
+hydrogen heat,p_max_pu_annual,2045,0.98
+hydrogen heat,p_max_pu_annual,2050,0.98
+hydrogen heat,variable_cost,2015,7.2
+hydrogen heat,variable_cost,2020,7.2
+hydrogen heat,variable_cost,2025,7.2
+hydrogen heat,variable_cost,2030,7.2
+hydrogen heat,variable_cost,2035,7.2
+hydrogen heat,variable_cost,2040,7.2
+hydrogen heat,variable_cost,2045,7.2
+hydrogen heat,variable_cost,2050,7.2
+hydrogen power CCGT,efficiency,2015,0.56
+hydrogen power CCGT,efficiency,2020,0.56
+hydrogen power CCGT,efficiency,2025,0.56
+hydrogen power CCGT,efficiency,2030,0.56
+hydrogen power CCGT,efficiency,2035,0.56
+hydrogen power CCGT,efficiency,2040,0.56
+hydrogen power CCGT,efficiency,2045,0.56
+hydrogen power CCGT,efficiency,2050,0.56
+hydrogen power CCGT,fixed_cost,2015,230000
+hydrogen power CCGT,fixed_cost,2020,230000
+hydrogen power CCGT,fixed_cost,2025,230000
+hydrogen power CCGT,fixed_cost,2030,230000
+hydrogen power CCGT,fixed_cost,2035,230000
+hydrogen power CCGT,fixed_cost,2040,230000
+hydrogen power CCGT,fixed_cost,2045,230000
+hydrogen power CCGT,fixed_cost,2050,230000
+hydrogen power CCGT,investment_cost,2015,6900000
+hydrogen power CCGT,investment_cost,2020,6900000
+hydrogen power CCGT,investment_cost,2025,6900000
+hydrogen power CCGT,investment_cost,2030,6900000
+hydrogen power CCGT,investment_cost,2035,6900000
+hydrogen power CCGT,investment_cost,2040,6900000
+hydrogen power CCGT,investment_cost,2045,6900000
+hydrogen power CCGT,investment_cost,2050,6900000
+hydrogen power CCGT,lifetime,2015,25
+hydrogen power CCGT,lifetime,2020,25
+hydrogen power CCGT,lifetime,2025,25
+hydrogen power CCGT,lifetime,2030,25
+hydrogen power CCGT,lifetime,2035,25
+hydrogen power CCGT,lifetime,2040,25
+hydrogen power CCGT,lifetime,2045,25
+hydrogen power CCGT,lifetime,2050,25
+hydrogen power CCGT,p_max_pu_annual,2015,0.93
+hydrogen power CCGT,p_max_pu_annual,2020,0.93
+hydrogen power CCGT,p_max_pu_annual,2025,0.93
+hydrogen power CCGT,p_max_pu_annual,2030,0.93
+hydrogen power CCGT,p_max_pu_annual,2035,0.93
+hydrogen power CCGT,p_max_pu_annual,2040,0.93
+hydrogen power CCGT,p_max_pu_annual,2045,0.93
+hydrogen power CCGT,p_max_pu_annual,2050,0.93
+hydrogen power CCGT,variable_cost,2015,29
+hydrogen power CCGT,variable_cost,2020,29
+hydrogen power CCGT,variable_cost,2025,29
+hydrogen power CCGT,variable_cost,2030,29
+hydrogen power CCGT,variable_cost,2035,29
+hydrogen power CCGT,variable_cost,2040,29
+hydrogen power CCGT,variable_cost,2045,29
+hydrogen power CCGT,variable_cost,2050,29
+hydrogen power peaker,efficiency,2015,0.43
+hydrogen power peaker,efficiency,2020,0.43
+hydrogen power peaker,efficiency,2025,0.43
+hydrogen power peaker,efficiency,2030,0.43
+hydrogen power peaker,efficiency,2035,0.43
+hydrogen power peaker,efficiency,2040,0.43
+hydrogen power peaker,efficiency,2045,0.43
+hydrogen power peaker,efficiency,2050,0.43
+hydrogen power peaker,fixed_cost,2015,72000
+hydrogen power peaker,fixed_cost,2020,72000
+hydrogen power peaker,fixed_cost,2025,72000
+hydrogen power peaker,fixed_cost,2030,72000
+hydrogen power peaker,fixed_cost,2035,72000
+hydrogen power peaker,fixed_cost,2040,72000
+hydrogen power peaker,fixed_cost,2045,72000
+hydrogen power peaker,fixed_cost,2050,72000
+hydrogen power peaker,investment_cost,2015,4600000
+hydrogen power peaker,investment_cost,2020,4600000
+hydrogen power peaker,investment_cost,2025,4600000
+hydrogen power peaker,investment_cost,2030,4600000
+hydrogen power peaker,investment_cost,2035,4600000
+hydrogen power peaker,investment_cost,2040,4600000
+hydrogen power peaker,investment_cost,2045,4600000
+hydrogen power peaker,investment_cost,2050,4600000
+hydrogen power peaker,lifetime,2015,25
+hydrogen power peaker,lifetime,2020,25
+hydrogen power peaker,lifetime,2025,25
+hydrogen power peaker,lifetime,2030,25
+hydrogen power peaker,lifetime,2035,25
+hydrogen power peaker,lifetime,2040,25
+hydrogen power peaker,lifetime,2045,25
+hydrogen power peaker,lifetime,2050,25
+hydrogen power peaker,p_max_pu_annual,2015,0.99
+hydrogen power peaker,p_max_pu_annual,2020,0.99
+hydrogen power peaker,p_max_pu_annual,2025,0.99
+hydrogen power peaker,p_max_pu_annual,2030,0.99
+hydrogen power peaker,p_max_pu_annual,2035,0.99
+hydrogen power peaker,p_max_pu_annual,2040,0.99
+hydrogen power peaker,p_max_pu_annual,2045,0.99
+hydrogen power peaker,p_max_pu_annual,2050,0.99
+hydrogen power peaker,variable_cost,2015,34
+hydrogen power peaker,variable_cost,2020,34
+hydrogen power peaker,variable_cost,2025,34
+hydrogen power peaker,variable_cost,2030,34
+hydrogen power peaker,variable_cost,2035,34
+hydrogen power peaker,variable_cost,2040,34
+hydrogen power peaker,variable_cost,2045,34
+hydrogen power peaker,variable_cost,2050,34
+hydrogen storage,investment_cost,2015,20000
+hydrogen storage,investment_cost,2020,20000
+hydrogen storage,investment_cost,2025,20000
+hydrogen storage,investment_cost,2030,20000
+hydrogen storage,investment_cost,2035,20000
+hydrogen storage,investment_cost,2040,20000
+hydrogen storage,investment_cost,2045,20000
+hydrogen storage,investment_cost,2050,20000
+hydrogen storage,lifetime,2015,100
+hydrogen storage,lifetime,2020,100
+hydrogen storage,lifetime,2025,100
+hydrogen storage,lifetime,2030,100
+hydrogen storage,lifetime,2035,100
+hydrogen storage,lifetime,2040,100
+hydrogen storage,lifetime,2045,100
+hydrogen storage,lifetime,2050,100
+ICE vehicle,efficiency,2015,0.25
+ICE vehicle,efficiency,2020,0.25
+ICE vehicle,efficiency,2025,0.25
+ICE vehicle,efficiency,2030,0.25
+ICE vehicle,efficiency,2035,0.25
+ICE vehicle,efficiency,2040,0.25
+ICE vehicle,efficiency,2045,0.25
+ICE vehicle,efficiency,2050,0.25
+ICE vehicle,fixed_cost,2015,100000
+ICE vehicle,fixed_cost,2020,100000
+ICE vehicle,fixed_cost,2025,100000
+ICE vehicle,fixed_cost,2030,100000
+ICE vehicle,fixed_cost,2035,100000
+ICE vehicle,fixed_cost,2040,100000
+ICE vehicle,fixed_cost,2045,100000
+ICE vehicle,fixed_cost,2050,100000
+ICE vehicle,investment_cost,2015,2000000
+ICE vehicle,investment_cost,2020,2000000
+ICE vehicle,investment_cost,2025,2000000
+ICE vehicle,investment_cost,2030,2000000
+ICE vehicle,investment_cost,2035,2000000
+ICE vehicle,investment_cost,2040,2000000
+ICE vehicle,investment_cost,2045,2000000
+ICE vehicle,investment_cost,2050,2000000
+ICE vehicle,lifetime,2015,20
+ICE vehicle,lifetime,2020,20
+ICE vehicle,lifetime,2025,20
+ICE vehicle,lifetime,2030,20
+ICE vehicle,lifetime,2035,20
+ICE vehicle,lifetime,2040,20
+ICE vehicle,lifetime,2045,20
+ICE vehicle,lifetime,2050,20
+ICE vehicle fuel supply,co2_emissions,2015,0.25
+ICE vehicle fuel supply,co2_emissions,2020,0.25
+ICE vehicle fuel supply,co2_emissions,2021,0.25
+ICE vehicle fuel supply,co2_emissions,2022,0.25
+ICE vehicle fuel supply,co2_emissions,2023,0.25
+ICE vehicle fuel supply,co2_emissions,2024,0.25
+ICE vehicle fuel supply,co2_emissions,2025,0.25
+ICE vehicle fuel supply,co2_emissions,2030,0.25
+ICE vehicle fuel supply,co2_emissions,2035,0.25
+ICE vehicle fuel supply,co2_emissions,2040,0.25
+ICE vehicle fuel supply,co2_emissions,2045,0.25
+ICE vehicle fuel supply,co2_emissions,2050,0.25
+ICE vehicle fuel supply,variable_cost,2020,180
+ICE vehicle fuel supply,variable_cost,2021,180
+ICE vehicle fuel supply,variable_cost,2022,180
+ICE vehicle fuel supply,variable_cost,2023,180
+ICE vehicle fuel supply,variable_cost,2024,180
+ICE vehicle fuel supply,variable_cost,2025,180
+ICE vehicle fuel supply,variable_cost,2030,180
+ICE vehicle fuel supply,variable_cost,2035,180
+ICE vehicle fuel supply,variable_cost,2040,180
+ICE vehicle fuel supply,variable_cost,2045,180
+ICE vehicle fuel supply,variable_cost,2050,180
+lignite power old,efficiency,2015,0.33
+lignite power old,efficiency,2020,0.33
+lignite power old,efficiency,2025,0.33
+lignite power old,efficiency,2030,0.33
+lignite power old,efficiency,2035,0.33
+lignite power old,efficiency,2040,0.33
+lignite power old,efficiency,2045,0.33
+lignite power old,efficiency,2050,0.33
+lignite power old,fixed_cost,2015,660000
+lignite power old,fixed_cost,2020,660000
+lignite power old,fixed_cost,2025,660000
+lignite power old,fixed_cost,2030,660000
+lignite power old,fixed_cost,2035,660000
+lignite power old,fixed_cost,2040,660000
+lignite power old,fixed_cost,2045,660000
+lignite power old,fixed_cost,2050,660000
+lignite power old,lifetime,2015,25
+lignite power old,lifetime,2020,25
+lignite power old,lifetime,2025,25
+lignite power old,lifetime,2030,25
+lignite power old,lifetime,2035,25
+lignite power old,lifetime,2040,25
+lignite power old,lifetime,2045,25
+lignite power old,lifetime,2050,25
+lignite power old,variable_cost,2015,20
+lignite power old,variable_cost,2020,20
+lignite power old,variable_cost,2025,20
+lignite power old,variable_cost,2030,20
+lignite power old,variable_cost,2035,20
+lignite power old,variable_cost,2040,20
+lignite power old,variable_cost,2045,20
+lignite power old,variable_cost,2050,20
+lignite power SC,efficiency,2015,0.4
+lignite power SC,efficiency,2020,0.4
+lignite power SC,efficiency,2025,0.4
+lignite power SC,efficiency,2030,0.4
+lignite power SC,efficiency,2035,0.4
+lignite power SC,efficiency,2040,0.4
+lignite power SC,efficiency,2045,0.4
+lignite power SC,efficiency,2050,0.4
+lignite power SC,fixed_cost,2015,580000
+lignite power SC,fixed_cost,2020,580000
+lignite power SC,fixed_cost,2025,580000
+lignite power SC,fixed_cost,2030,580000
+lignite power SC,fixed_cost,2035,580000
+lignite power SC,fixed_cost,2040,580000
+lignite power SC,fixed_cost,2045,580000
+lignite power SC,fixed_cost,2050,580000
+lignite power SC,investment_cost,2015,13000000
+lignite power SC,investment_cost,2020,13000000
+lignite power SC,investment_cost,2025,13000000
+lignite power SC,investment_cost,2030,13000000
+lignite power SC,investment_cost,2035,13000000
+lignite power SC,investment_cost,2040,13000000
+lignite power SC,investment_cost,2045,13000000
+lignite power SC,investment_cost,2050,13000000
+lignite power SC,lifetime,2015,25
+lignite power SC,lifetime,2020,25
+lignite power SC,lifetime,2025,25
+lignite power SC,lifetime,2030,25
+lignite power SC,lifetime,2035,25
+lignite power SC,lifetime,2040,25
+lignite power SC,lifetime,2045,25
+lignite power SC,lifetime,2050,25
+lignite power SC,variable_cost,2015,20
+lignite power SC,variable_cost,2020,20
+lignite power SC,variable_cost,2025,20
+lignite power SC,variable_cost,2030,20
+lignite power SC,variable_cost,2035,20
+lignite power SC,variable_cost,2040,20
+lignite power SC,variable_cost,2045,20
+lignite power SC,variable_cost,2050,20
+lignite supply,co2_emissions,2015,0.4
+lignite supply,co2_emissions,2020,0.4
+lignite supply,co2_emissions,2021,0.4
+lignite supply,co2_emissions,2022,0.4
+lignite supply,co2_emissions,2023,0.4
+lignite supply,co2_emissions,2024,0.4
+lignite supply,co2_emissions,2025,0.4
+lignite supply,co2_emissions,2030,0.4
+lignite supply,co2_emissions,2035,0.4
+lignite supply,co2_emissions,2040,0.4
+lignite supply,co2_emissions,2045,0.4
+lignite supply,co2_emissions,2050,0.4
+lignite supply,variable_cost,2020,13
+lignite supply,variable_cost,2021,14
+lignite supply,variable_cost,2022,11
+lignite supply,variable_cost,2023,16
+lignite supply,variable_cost,2024,14
+lignite supply,variable_cost,2025,14
+lignite supply,variable_cost,2030,14
+lignite supply,variable_cost,2035,14
+lignite supply,variable_cost,2040,14
+lignite supply,variable_cost,2045,14
+lignite supply,variable_cost,2050,14
+lulucf supply,co2_emissions,2015,-1
+lulucf supply,co2_emissions,2020,-1
+lulucf supply,co2_emissions,2021,-1
+lulucf supply,co2_emissions,2022,-1
+lulucf supply,co2_emissions,2023,-1
+lulucf supply,co2_emissions,2024,-1
+lulucf supply,co2_emissions,2025,-1
+lulucf supply,co2_emissions,2030,-1
+lulucf supply,co2_emissions,2035,-1
+lulucf supply,co2_emissions,2040,-1
+lulucf supply,co2_emissions,2045,-1
+lulucf supply,co2_emissions,2050,-1
+natural gas boiler,efficiency,2015,0.85
+natural gas boiler,efficiency,2020,0.85
+natural gas boiler,efficiency,2025,0.85
+natural gas boiler,efficiency,2030,0.85
+natural gas boiler,efficiency,2035,0.85
+natural gas boiler,efficiency,2040,0.85
+natural gas boiler,efficiency,2045,0.85
+natural gas boiler,efficiency,2050,0.85
+natural gas boiler,fixed_cost,2015,84000
+natural gas boiler,fixed_cost,2020,84000
+natural gas boiler,fixed_cost,2025,84000
+natural gas boiler,fixed_cost,2030,84000
+natural gas boiler,fixed_cost,2035,84000
+natural gas boiler,fixed_cost,2040,84000
+natural gas boiler,fixed_cost,2045,84000
+natural gas boiler,fixed_cost,2050,84000
+natural gas boiler,investment_cost,2015,1700000
+natural gas boiler,investment_cost,2020,1700000
+natural gas boiler,investment_cost,2025,1700000
+natural gas boiler,investment_cost,2030,1700000
+natural gas boiler,investment_cost,2035,1700000
+natural gas boiler,investment_cost,2040,1700000
+natural gas boiler,investment_cost,2045,1700000
+natural gas boiler,investment_cost,2050,1700000
+natural gas boiler,lifetime,2015,20
+natural gas boiler,lifetime,2020,20
+natural gas boiler,lifetime,2025,20
+natural gas boiler,lifetime,2030,20
+natural gas boiler,lifetime,2035,20
+natural gas boiler,lifetime,2040,20
+natural gas boiler,lifetime,2045,20
+natural gas boiler,lifetime,2050,20
+natural gas CHP CCGT,efficiency,2015,0.52
+natural gas CHP CCGT,efficiency,2020,0.52
+natural gas CHP CCGT,efficiency,2025,0.52
+natural gas CHP CCGT,efficiency,2030,0.52
+natural gas CHP CCGT,efficiency,2035,0.52
+natural gas CHP CCGT,efficiency,2040,0.52
+natural gas CHP CCGT,efficiency,2045,0.52
+natural gas CHP CCGT,efficiency,2050,0.52
+natural gas CHP CCGT,efficiency2,2015,0.31
+natural gas CHP CCGT,efficiency2,2020,0.31
+natural gas CHP CCGT,efficiency2,2025,0.31
+natural gas CHP CCGT,efficiency2,2030,0.31
+natural gas CHP CCGT,efficiency2,2035,0.31
+natural gas CHP CCGT,efficiency2,2040,0.31
+natural gas CHP CCGT,efficiency2,2045,0.31
+natural gas CHP CCGT,efficiency2,2050,0.31
+natural gas CHP CCGT,fixed_cost,2015,190000
+natural gas CHP CCGT,fixed_cost,2020,190000
+natural gas CHP CCGT,fixed_cost,2025,190000
+natural gas CHP CCGT,fixed_cost,2030,190000
+natural gas CHP CCGT,fixed_cost,2035,190000
+natural gas CHP CCGT,fixed_cost,2040,190000
+natural gas CHP CCGT,fixed_cost,2045,190000
+natural gas CHP CCGT,fixed_cost,2050,190000
+natural gas CHP CCGT,investment_cost,2015,5800000
+natural gas CHP CCGT,investment_cost,2020,5800000
+natural gas CHP CCGT,investment_cost,2025,5800000
+natural gas CHP CCGT,investment_cost,2030,5800000
+natural gas CHP CCGT,investment_cost,2035,5800000
+natural gas CHP CCGT,investment_cost,2040,5800000
+natural gas CHP CCGT,investment_cost,2045,5800000
+natural gas CHP CCGT,investment_cost,2050,5800000
+natural gas CHP CCGT,lifetime,2015,25
+natural gas CHP CCGT,lifetime,2020,25
+natural gas CHP CCGT,lifetime,2025,25
+natural gas CHP CCGT,lifetime,2030,25
+natural gas CHP CCGT,lifetime,2035,25
+natural gas CHP CCGT,lifetime,2040,25
+natural gas CHP CCGT,lifetime,2045,25
+natural gas CHP CCGT,lifetime,2050,25
+natural gas CHP CCGT,p_max_pu_annual,2015,0.93
+natural gas CHP CCGT,p_max_pu_annual,2020,0.93
+natural gas CHP CCGT,p_max_pu_annual,2025,0.93
+natural gas CHP CCGT,p_max_pu_annual,2030,0.93
+natural gas CHP CCGT,p_max_pu_annual,2035,0.93
+natural gas CHP CCGT,p_max_pu_annual,2040,0.93
+natural gas CHP CCGT,p_max_pu_annual,2045,0.93
+natural gas CHP CCGT,p_max_pu_annual,2050,0.93
+natural gas CHP CCGT,variable_cost,2015,29
+natural gas CHP CCGT,variable_cost,2020,29
+natural gas CHP CCGT,variable_cost,2025,29
+natural gas CHP CCGT,variable_cost,2030,29
+natural gas CHP CCGT,variable_cost,2035,29
+natural gas CHP CCGT,variable_cost,2040,29
+natural gas CHP CCGT,variable_cost,2045,29
+natural gas CHP CCGT,variable_cost,2050,29
+natural gas CHP CCGT old,efficiency,2015,0.52
+natural gas CHP CCGT old,efficiency,2020,0.52
+natural gas CHP CCGT old,efficiency,2025,0.52
+natural gas CHP CCGT old,efficiency,2030,0.52
+natural gas CHP CCGT old,efficiency,2035,0.52
+natural gas CHP CCGT old,efficiency,2040,0.52
+natural gas CHP CCGT old,efficiency,2045,0.52
+natural gas CHP CCGT old,efficiency,2050,0.52
+natural gas CHP CCGT old,efficiency2,2015,0.31
+natural gas CHP CCGT old,efficiency2,2020,0.31
+natural gas CHP CCGT old,efficiency2,2025,0.31
+natural gas CHP CCGT old,efficiency2,2030,0.31
+natural gas CHP CCGT old,efficiency2,2035,0.31
+natural gas CHP CCGT old,efficiency2,2040,0.31
+natural gas CHP CCGT old,efficiency2,2045,0.31
+natural gas CHP CCGT old,efficiency2,2050,0.31
+natural gas CHP CCGT old,fixed_cost,2015,190000
+natural gas CHP CCGT old,fixed_cost,2020,190000
+natural gas CHP CCGT old,fixed_cost,2025,190000
+natural gas CHP CCGT old,fixed_cost,2030,190000
+natural gas CHP CCGT old,fixed_cost,2035,190000
+natural gas CHP CCGT old,fixed_cost,2040,190000
+natural gas CHP CCGT old,fixed_cost,2045,190000
+natural gas CHP CCGT old,fixed_cost,2050,190000
+natural gas CHP CCGT old,lifetime,2015,25
+natural gas CHP CCGT old,lifetime,2020,25
+natural gas CHP CCGT old,lifetime,2025,25
+natural gas CHP CCGT old,lifetime,2030,25
+natural gas CHP CCGT old,lifetime,2035,25
+natural gas CHP CCGT old,lifetime,2040,25
+natural gas CHP CCGT old,lifetime,2045,25
+natural gas CHP CCGT old,lifetime,2050,25
+natural gas CHP CCGT old,p_max_pu_annual,2015,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2020,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2025,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2030,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2035,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2040,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2045,0.93
+natural gas CHP CCGT old,p_max_pu_annual,2050,0.93
+natural gas CHP CCGT old,variable_cost,2015,29
+natural gas CHP CCGT old,variable_cost,2020,29
+natural gas CHP CCGT old,variable_cost,2025,29
+natural gas CHP CCGT old,variable_cost,2030,29
+natural gas CHP CCGT old,variable_cost,2035,29
+natural gas CHP CCGT old,variable_cost,2040,29
+natural gas CHP CCGT old,variable_cost,2045,29
+natural gas CHP CCGT old,variable_cost,2050,29
+natural gas CHP old,efficiency,2015,0.43
+natural gas CHP old,efficiency,2020,0.43
+natural gas CHP old,efficiency,2025,0.43
+natural gas CHP old,efficiency,2030,0.43
+natural gas CHP old,efficiency,2035,0.43
+natural gas CHP old,efficiency,2040,0.43
+natural gas CHP old,efficiency,2045,0.43
+natural gas CHP old,efficiency,2050,0.43
+natural gas CHP old,efficiency2,2015,0.2
+natural gas CHP old,efficiency2,2020,0.2
+natural gas CHP old,efficiency2,2025,0.2
+natural gas CHP old,efficiency2,2030,0.2
+natural gas CHP old,efficiency2,2035,0.2
+natural gas CHP old,efficiency2,2040,0.2
+natural gas CHP old,efficiency2,2045,0.2
+natural gas CHP old,efficiency2,2050,0.2
+natural gas CHP old,fixed_cost,2015,190000
+natural gas CHP old,fixed_cost,2020,190000
+natural gas CHP old,fixed_cost,2025,190000
+natural gas CHP old,fixed_cost,2030,190000
+natural gas CHP old,fixed_cost,2035,190000
+natural gas CHP old,fixed_cost,2040,190000
+natural gas CHP old,fixed_cost,2045,190000
+natural gas CHP old,fixed_cost,2050,190000
+natural gas CHP old,lifetime,2015,25
+natural gas CHP old,lifetime,2020,25
+natural gas CHP old,lifetime,2025,25
+natural gas CHP old,lifetime,2030,25
+natural gas CHP old,lifetime,2035,25
+natural gas CHP old,lifetime,2040,25
+natural gas CHP old,lifetime,2045,25
+natural gas CHP old,lifetime,2050,25
+natural gas CHP old,p_max_pu_annual,2015,0.93
+natural gas CHP old,p_max_pu_annual,2020,0.93
+natural gas CHP old,p_max_pu_annual,2025,0.93
+natural gas CHP old,p_max_pu_annual,2030,0.93
+natural gas CHP old,p_max_pu_annual,2035,0.93
+natural gas CHP old,p_max_pu_annual,2040,0.93
+natural gas CHP old,p_max_pu_annual,2045,0.93
+natural gas CHP old,p_max_pu_annual,2050,0.93
+natural gas CHP old,variable_cost,2015,29
+natural gas CHP old,variable_cost,2020,29
+natural gas CHP old,variable_cost,2025,29
+natural gas CHP old,variable_cost,2030,29
+natural gas CHP old,variable_cost,2035,29
+natural gas CHP old,variable_cost,2040,29
+natural gas CHP old,variable_cost,2045,29
+natural gas CHP old,variable_cost,2050,29
+natural gas heat,efficiency,2015,0.9
+natural gas heat,efficiency,2020,0.9
+natural gas heat,efficiency,2025,0.9
+natural gas heat,efficiency,2030,0.9
+natural gas heat,efficiency,2035,0.9
+natural gas heat,efficiency,2040,0.9
+natural gas heat,efficiency,2045,0.9
+natural gas heat,efficiency,2050,0.9
+natural gas heat,fixed_cost,2015,13000
+natural gas heat,fixed_cost,2020,13000
+natural gas heat,fixed_cost,2025,13000
+natural gas heat,fixed_cost,2030,13000
+natural gas heat,fixed_cost,2035,13000
+natural gas heat,fixed_cost,2040,13000
+natural gas heat,fixed_cost,2045,13000
+natural gas heat,fixed_cost,2050,13000
+natural gas heat,investment_cost,2015,390000
+natural gas heat,investment_cost,2020,390000
+natural gas heat,investment_cost,2025,390000
+natural gas heat,investment_cost,2030,390000
+natural gas heat,investment_cost,2035,390000
+natural gas heat,investment_cost,2040,390000
+natural gas heat,investment_cost,2045,390000
+natural gas heat,investment_cost,2050,390000
+natural gas heat,lifetime,2015,25
+natural gas heat,lifetime,2020,25
+natural gas heat,lifetime,2025,25
+natural gas heat,lifetime,2030,25
+natural gas heat,lifetime,2035,25
+natural gas heat,lifetime,2040,25
+natural gas heat,lifetime,2045,25
+natural gas heat,lifetime,2050,25
+natural gas heat,p_max_pu_annual,2015,0.98
+natural gas heat,p_max_pu_annual,2020,0.98
+natural gas heat,p_max_pu_annual,2025,0.98
+natural gas heat,p_max_pu_annual,2030,0.98
+natural gas heat,p_max_pu_annual,2035,0.98
+natural gas heat,p_max_pu_annual,2040,0.98
+natural gas heat,p_max_pu_annual,2045,0.98
+natural gas heat,p_max_pu_annual,2050,0.98
+natural gas heat,variable_cost,2015,7.2
+natural gas heat,variable_cost,2020,7.2
+natural gas heat,variable_cost,2025,7.2
+natural gas heat,variable_cost,2030,7.2
+natural gas heat,variable_cost,2035,7.2
+natural gas heat,variable_cost,2040,7.2
+natural gas heat,variable_cost,2045,7.2
+natural gas heat,variable_cost,2050,7.2
+natural gas power CCGT,efficiency,2015,0.56
+natural gas power CCGT,efficiency,2020,0.56
+natural gas power CCGT,efficiency,2025,0.56
+natural gas power CCGT,efficiency,2030,0.56
+natural gas power CCGT,efficiency,2035,0.56
+natural gas power CCGT,efficiency,2040,0.56
+natural gas power CCGT,efficiency,2045,0.56
+natural gas power CCGT,efficiency,2050,0.56
+natural gas power CCGT,fixed_cost,2015,150000
+natural gas power CCGT,fixed_cost,2020,150000
+natural gas power CCGT,fixed_cost,2025,150000
+natural gas power CCGT,fixed_cost,2030,150000
+natural gas power CCGT,fixed_cost,2035,150000
+natural gas power CCGT,fixed_cost,2040,150000
+natural gas power CCGT,fixed_cost,2045,150000
+natural gas power CCGT,fixed_cost,2050,150000
+natural gas power CCGT,investment_cost,2015,4600000
+natural gas power CCGT,investment_cost,2020,4600000
+natural gas power CCGT,investment_cost,2025,4600000
+natural gas power CCGT,investment_cost,2030,4600000
+natural gas power CCGT,investment_cost,2035,4600000
+natural gas power CCGT,investment_cost,2040,4600000
+natural gas power CCGT,investment_cost,2045,4600000
+natural gas power CCGT,investment_cost,2050,4600000
+natural gas power CCGT,lifetime,2015,25
+natural gas power CCGT,lifetime,2020,25
+natural gas power CCGT,lifetime,2025,25
+natural gas power CCGT,lifetime,2030,25
+natural gas power CCGT,lifetime,2035,25
+natural gas power CCGT,lifetime,2040,25
+natural gas power CCGT,lifetime,2045,25
+natural gas power CCGT,lifetime,2050,25
+natural gas power CCGT,p_max_pu_annual,2015,0.93
+natural gas power CCGT,p_max_pu_annual,2020,0.93
+natural gas power CCGT,p_max_pu_annual,2025,0.93
+natural gas power CCGT,p_max_pu_annual,2030,0.93
+natural gas power CCGT,p_max_pu_annual,2035,0.93
+natural gas power CCGT,p_max_pu_annual,2040,0.93
+natural gas power CCGT,p_max_pu_annual,2045,0.93
+natural gas power CCGT,p_max_pu_annual,2050,0.93
+natural gas power CCGT,variable_cost,2015,29
+natural gas power CCGT,variable_cost,2020,29
+natural gas power CCGT,variable_cost,2025,29
+natural gas power CCGT,variable_cost,2030,29
+natural gas power CCGT,variable_cost,2035,29
+natural gas power CCGT,variable_cost,2040,29
+natural gas power CCGT,variable_cost,2045,29
+natural gas power CCGT,variable_cost,2050,29
+natural gas power peaker,efficiency,2015,0.43
+natural gas power peaker,efficiency,2020,0.43
+natural gas power peaker,efficiency,2025,0.43
+natural gas power peaker,efficiency,2030,0.43
+natural gas power peaker,efficiency,2035,0.43
+natural gas power peaker,efficiency,2040,0.43
+natural gas power peaker,efficiency,2045,0.43
+natural gas power peaker,efficiency,2050,0.43
+natural gas power peaker,fixed_cost,2015,48000
+natural gas power peaker,fixed_cost,2020,48000
+natural gas power peaker,fixed_cost,2025,48000
+natural gas power peaker,fixed_cost,2030,48000
+natural gas power peaker,fixed_cost,2035,48000
+natural gas power peaker,fixed_cost,2040,48000
+natural gas power peaker,fixed_cost,2045,48000
+natural gas power peaker,fixed_cost,2050,48000
+natural gas power peaker,investment_cost,2015,3100000
+natural gas power peaker,investment_cost,2020,3100000
+natural gas power peaker,investment_cost,2025,3100000
+natural gas power peaker,investment_cost,2030,3100000
+natural gas power peaker,investment_cost,2035,3100000
+natural gas power peaker,investment_cost,2040,3100000
+natural gas power peaker,investment_cost,2045,3100000
+natural gas power peaker,investment_cost,2050,3100000
+natural gas power peaker,lifetime,2015,25
+natural gas power peaker,lifetime,2020,25
+natural gas power peaker,lifetime,2025,25
+natural gas power peaker,lifetime,2030,25
+natural gas power peaker,lifetime,2035,25
+natural gas power peaker,lifetime,2040,25
+natural gas power peaker,lifetime,2045,25
+natural gas power peaker,lifetime,2050,25
+natural gas power peaker,p_max_pu_annual,2015,0.99
+natural gas power peaker,p_max_pu_annual,2020,0.99
+natural gas power peaker,p_max_pu_annual,2025,0.99
+natural gas power peaker,p_max_pu_annual,2030,0.99
+natural gas power peaker,p_max_pu_annual,2035,0.99
+natural gas power peaker,p_max_pu_annual,2040,0.99
+natural gas power peaker,p_max_pu_annual,2045,0.99
+natural gas power peaker,p_max_pu_annual,2050,0.99
+natural gas power peaker,variable_cost,2015,34
+natural gas power peaker,variable_cost,2020,34
+natural gas power peaker,variable_cost,2025,34
+natural gas power peaker,variable_cost,2030,34
+natural gas power peaker,variable_cost,2035,34
+natural gas power peaker,variable_cost,2040,34
+natural gas power peaker,variable_cost,2045,34
+natural gas power peaker,variable_cost,2050,34
+natural gas reforming,efficiency,2015,0.7
+natural gas reforming,efficiency,2020,0.7
+natural gas reforming,efficiency,2025,0.7
+natural gas reforming,efficiency,2030,0.7
+natural gas reforming,efficiency,2035,0.7
+natural gas reforming,efficiency,2040,0.7
+natural gas reforming,efficiency,2045,0.7
+natural gas reforming,efficiency,2050,0.7
+natural gas reforming,fixed_cost,2015,250000
+natural gas reforming,fixed_cost,2020,250000
+natural gas reforming,fixed_cost,2025,250000
+natural gas reforming,fixed_cost,2030,250000
+natural gas reforming,fixed_cost,2035,250000
+natural gas reforming,fixed_cost,2040,250000
+natural gas reforming,fixed_cost,2045,250000
+natural gas reforming,fixed_cost,2050,250000
+natural gas reforming,investment_cost,2015,5500000
+natural gas reforming,investment_cost,2020,5500000
+natural gas reforming,investment_cost,2025,5500000
+natural gas reforming,investment_cost,2030,5500000
+natural gas reforming,investment_cost,2035,5500000
+natural gas reforming,investment_cost,2040,5500000
+natural gas reforming,investment_cost,2045,5500000
+natural gas reforming,investment_cost,2050,5500000
+natural gas reforming,lifetime,2015,25
+natural gas reforming,lifetime,2020,25
+natural gas reforming,lifetime,2025,25
+natural gas reforming,lifetime,2030,25
+natural gas reforming,lifetime,2035,25
+natural gas reforming,lifetime,2040,25
+natural gas reforming,lifetime,2045,25
+natural gas reforming,lifetime,2050,25
+natural gas reforming,p_max_pu_annual,2015,0.9
+natural gas reforming,p_max_pu_annual,2020,0.9
+natural gas reforming,p_max_pu_annual,2025,0.9
+natural gas reforming,p_max_pu_annual,2030,0.9
+natural gas reforming,p_max_pu_annual,2035,0.9
+natural gas reforming,p_max_pu_annual,2040,0.9
+natural gas reforming,p_max_pu_annual,2045,0.9
+natural gas reforming,p_max_pu_annual,2050,0.9
+natural gas reforming,variable_cost,2015,31
+natural gas reforming,variable_cost,2020,31
+natural gas reforming,variable_cost,2025,31
+natural gas reforming,variable_cost,2030,31
+natural gas reforming,variable_cost,2035,31
+natural gas reforming,variable_cost,2040,31
+natural gas reforming,variable_cost,2045,31
+natural gas reforming,variable_cost,2050,31
+natural gas supply,co2_emissions,2015,0.2
+natural gas supply,co2_emissions,2020,0.2
+natural gas supply,co2_emissions,2021,0.2
+natural gas supply,co2_emissions,2022,0.2
+natural gas supply,co2_emissions,2023,0.2
+natural gas supply,co2_emissions,2024,0.2
+natural gas supply,co2_emissions,2025,0.2
+natural gas supply,co2_emissions,2030,0.2
+natural gas supply,co2_emissions,2035,0.2
+natural gas supply,co2_emissions,2040,0.2
+natural gas supply,co2_emissions,2045,0.2
+natural gas supply,co2_emissions,2050,0.2
+natural gas supply,variable_cost,2020,110
+natural gas supply,variable_cost,2021,190
+natural gas supply,variable_cost,2022,420
+natural gas supply,variable_cost,2023,360
+natural gas supply,variable_cost,2024,200
+natural gas supply,variable_cost,2025,200
+natural gas supply,variable_cost,2030,200
+natural gas supply,variable_cost,2035,200
+natural gas supply,variable_cost,2040,200
+natural gas supply,variable_cost,2045,200
+natural gas supply,variable_cost,2050,200
+nuclear power large,efficiency,2015,0.32
+nuclear power large,efficiency,2020,0.32
+nuclear power large,efficiency,2025,0.32
+nuclear power large,efficiency,2030,0.32
+nuclear power large,efficiency,2035,0.32
+nuclear power large,efficiency,2040,0.32
+nuclear power large,efficiency,2045,0.32
+nuclear power large,efficiency,2050,0.32
+nuclear power large,fixed_cost,2015,1100000
+nuclear power large,fixed_cost,2020,1100000
+nuclear power large,fixed_cost,2025,1100000
+nuclear power large,fixed_cost,2030,1100000
+nuclear power large,fixed_cost,2035,1100000
+nuclear power large,fixed_cost,2040,1100000
+nuclear power large,fixed_cost,2045,1100000
+nuclear power large,fixed_cost,2050,1100000
+nuclear power large,investment_cost,2015,47000000
+nuclear power large,investment_cost,2020,47000000
+nuclear power large,investment_cost,2025,47000000
+nuclear power large,investment_cost,2030,47000000
+nuclear power large,investment_cost,2035,47000000
+nuclear power large,investment_cost,2040,47000000
+nuclear power large,investment_cost,2045,47000000
+nuclear power large,investment_cost,2050,47000000
+nuclear power large,lifetime,2015,60
+nuclear power large,lifetime,2020,60
+nuclear power large,lifetime,2025,60
+nuclear power large,lifetime,2030,60
+nuclear power large,lifetime,2035,60
+nuclear power large,lifetime,2040,60
+nuclear power large,lifetime,2045,60
+nuclear power large,lifetime,2050,60
+nuclear power large,p_max_pu_annual,2015,0.9
+nuclear power large,p_max_pu_annual,2020,0.9
+nuclear power large,p_max_pu_annual,2025,0.9
+nuclear power large,p_max_pu_annual,2030,0.9
+nuclear power large,p_max_pu_annual,2035,0.9
+nuclear power large,p_max_pu_annual,2040,0.9
+nuclear power large,p_max_pu_annual,2045,0.9
+nuclear power large,p_max_pu_annual,2050,0.9
+nuclear power large,variable_cost,2015,36
+nuclear power large,variable_cost,2020,36
+nuclear power large,variable_cost,2025,36
+nuclear power large,variable_cost,2030,36
+nuclear power large,variable_cost,2035,36
+nuclear power large,variable_cost,2040,36
+nuclear power large,variable_cost,2045,36
+nuclear power large,variable_cost,2050,36
+nuclear power small,efficiency,2015,0.27
+nuclear power small,efficiency,2020,0.27
+nuclear power small,efficiency,2025,0.27
+nuclear power small,efficiency,2030,0.27
+nuclear power small,efficiency,2035,0.27
+nuclear power small,efficiency,2040,0.27
+nuclear power small,efficiency,2045,0.27
+nuclear power small,efficiency,2050,0.27
+nuclear power small,fixed_cost,2015,1200000
+nuclear power small,fixed_cost,2020,1200000
+nuclear power small,fixed_cost,2025,1200000
+nuclear power small,fixed_cost,2030,1200000
+nuclear power small,fixed_cost,2035,1200000
+nuclear power small,fixed_cost,2040,1200000
+nuclear power small,fixed_cost,2045,1200000
+nuclear power small,fixed_cost,2050,1200000
+nuclear power small,investment_cost,2015,50000000
+nuclear power small,investment_cost,2020,50000000
+nuclear power small,investment_cost,2025,50000000
+nuclear power small,investment_cost,2030,50000000
+nuclear power small,investment_cost,2035,50000000
+nuclear power small,investment_cost,2040,50000000
+nuclear power small,investment_cost,2045,50000000
+nuclear power small,investment_cost,2050,50000000
+nuclear power small,lifetime,2015,60
+nuclear power small,lifetime,2020,60
+nuclear power small,lifetime,2025,60
+nuclear power small,lifetime,2030,60
+nuclear power small,lifetime,2035,60
+nuclear power small,lifetime,2040,60
+nuclear power small,lifetime,2045,60
+nuclear power small,lifetime,2050,60
+nuclear power small,p_max_pu_annual,2015,0.9
+nuclear power small,p_max_pu_annual,2020,0.9
+nuclear power small,p_max_pu_annual,2025,0.9
+nuclear power small,p_max_pu_annual,2030,0.9
+nuclear power small,p_max_pu_annual,2035,0.9
+nuclear power small,p_max_pu_annual,2040,0.9
+nuclear power small,p_max_pu_annual,2045,0.9
+nuclear power small,p_max_pu_annual,2050,0.9
+nuclear power small,variable_cost,2015,39
+nuclear power small,variable_cost,2020,39
+nuclear power small,variable_cost,2025,39
+nuclear power small,variable_cost,2030,39
+nuclear power small,variable_cost,2035,39
+nuclear power small,variable_cost,2040,39
+nuclear power small,variable_cost,2045,39
+nuclear power small,variable_cost,2050,39
+other boiler,efficiency,2015,0.85
+other boiler,efficiency,2020,0.85
+other boiler,efficiency,2025,0.85
+other boiler,efficiency,2030,0.85
+other boiler,efficiency,2035,0.85
+other boiler,efficiency,2040,0.85
+other boiler,efficiency,2045,0.85
+other boiler,efficiency,2050,0.85
+other boiler,fixed_cost,2015,84000
+other boiler,fixed_cost,2020,84000
+other boiler,fixed_cost,2025,84000
+other boiler,fixed_cost,2030,84000
+other boiler,fixed_cost,2035,84000
+other boiler,fixed_cost,2040,84000
+other boiler,fixed_cost,2045,84000
+other boiler,fixed_cost,2050,84000
+other boiler,investment_cost,2015,1700000
+other boiler,investment_cost,2020,1700000
+other boiler,investment_cost,2025,1700000
+other boiler,investment_cost,2030,1700000
+other boiler,investment_cost,2035,1700000
+other boiler,investment_cost,2040,1700000
+other boiler,investment_cost,2045,1700000
+other boiler,investment_cost,2050,1700000
+other boiler,lifetime,2015,20
+other boiler,lifetime,2020,20
+other boiler,lifetime,2025,20
+other boiler,lifetime,2030,20
+other boiler,lifetime,2035,20
+other boiler,lifetime,2040,20
+other boiler,lifetime,2045,20
+other boiler,lifetime,2050,20
+other CHP,efficiency,2015,0.34
+other CHP,efficiency,2020,0.34
+other CHP,efficiency,2025,0.34
+other CHP,efficiency,2030,0.34
+other CHP,efficiency,2035,0.34
+other CHP,efficiency,2040,0.34
+other CHP,efficiency,2045,0.34
+other CHP,efficiency,2050,0.34
+other CHP,efficiency2,2015,0.36
+other CHP,efficiency2,2020,0.36
+other CHP,efficiency2,2025,0.36
+other CHP,efficiency2,2030,0.36
+other CHP,efficiency2,2035,0.36
+other CHP,efficiency2,2040,0.36
+other CHP,efficiency2,2045,0.36
+other CHP,efficiency2,2050,0.36
+other CHP,fixed_cost,2015,890000
+other CHP,fixed_cost,2020,890000
+other CHP,fixed_cost,2025,890000
+other CHP,fixed_cost,2030,890000
+other CHP,fixed_cost,2035,890000
+other CHP,fixed_cost,2040,890000
+other CHP,fixed_cost,2045,890000
+other CHP,fixed_cost,2050,890000
+other CHP,investment_cost,2015,33000000
+other CHP,investment_cost,2020,33000000
+other CHP,investment_cost,2025,33000000
+other CHP,investment_cost,2030,33000000
+other CHP,investment_cost,2035,33000000
+other CHP,investment_cost,2040,33000000
+other CHP,investment_cost,2045,33000000
+other CHP,investment_cost,2050,33000000
+other CHP,lifetime,2015,25
+other CHP,lifetime,2020,25
+other CHP,lifetime,2025,25
+other CHP,lifetime,2030,25
+other CHP,lifetime,2035,25
+other CHP,lifetime,2040,25
+other CHP,lifetime,2045,25
+other CHP,lifetime,2050,25
+other CHP,p_max_pu_annual,2015,0.94
+other CHP,p_max_pu_annual,2020,0.94
+other CHP,p_max_pu_annual,2025,0.94
+other CHP,p_max_pu_annual,2030,0.94
+other CHP,p_max_pu_annual,2035,0.94
+other CHP,p_max_pu_annual,2040,0.94
+other CHP,p_max_pu_annual,2045,0.94
+other CHP,p_max_pu_annual,2050,0.94
+other CHP,variable_cost,2015,100
+other CHP,variable_cost,2020,100
+other CHP,variable_cost,2025,100
+other CHP,variable_cost,2030,100
+other CHP,variable_cost,2035,100
+other CHP,variable_cost,2040,100
+other CHP,variable_cost,2045,100
+other CHP,variable_cost,2050,100
+other fuel supply,co2_emissions,2015,0.27
+other fuel supply,co2_emissions,2020,0.27
+other fuel supply,co2_emissions,2021,0.27
+other fuel supply,co2_emissions,2022,0.27
+other fuel supply,co2_emissions,2023,0.27
+other fuel supply,co2_emissions,2024,0.27
+other fuel supply,co2_emissions,2025,0.27
+other fuel supply,co2_emissions,2030,0.27
+other fuel supply,co2_emissions,2035,0.27
+other fuel supply,co2_emissions,2040,0.27
+other fuel supply,co2_emissions,2045,0.27
+other fuel supply,co2_emissions,2050,0.27
+other fuel supply,variable_cost,2020,180
+other fuel supply,variable_cost,2021,180
+other fuel supply,variable_cost,2022,180
+other fuel supply,variable_cost,2023,180
+other fuel supply,variable_cost,2024,180
+other fuel supply,variable_cost,2025,180
+other fuel supply,variable_cost,2030,180
+other fuel supply,variable_cost,2035,180
+other fuel supply,variable_cost,2040,180
+other fuel supply,variable_cost,2045,180
+other fuel supply,variable_cost,2050,180
+other heat,efficiency,2015,0.9
+other heat,efficiency,2020,0.9
+other heat,efficiency,2025,0.9
+other heat,efficiency,2030,0.9
+other heat,efficiency,2035,0.9
+other heat,efficiency,2040,0.9
+other heat,efficiency,2045,0.9
+other heat,efficiency,2050,0.9
+other heat,fixed_cost,2015,260000
+other heat,fixed_cost,2020,260000
+other heat,fixed_cost,2025,260000
+other heat,fixed_cost,2030,260000
+other heat,fixed_cost,2035,260000
+other heat,fixed_cost,2040,260000
+other heat,fixed_cost,2045,260000
+other heat,fixed_cost,2050,260000
+other heat,investment_cost,2015,5900000
+other heat,investment_cost,2020,5900000
+other heat,investment_cost,2025,5900000
+other heat,investment_cost,2030,5900000
+other heat,investment_cost,2035,5900000
+other heat,investment_cost,2040,5900000
+other heat,investment_cost,2045,5900000
+other heat,investment_cost,2050,5900000
+other heat,lifetime,2015,25
+other heat,lifetime,2020,25
+other heat,lifetime,2025,25
+other heat,lifetime,2030,25
+other heat,lifetime,2035,25
+other heat,lifetime,2040,25
+other heat,lifetime,2045,25
+other heat,lifetime,2050,25
+other heat,p_max_pu_annual,2015,0.96
+other heat,p_max_pu_annual,2020,0.96
+other heat,p_max_pu_annual,2025,0.96
+other heat,p_max_pu_annual,2030,0.96
+other heat,p_max_pu_annual,2035,0.96
+other heat,p_max_pu_annual,2040,0.96
+other heat,p_max_pu_annual,2045,0.96
+other heat,p_max_pu_annual,2050,0.96
+other heat,variable_cost,2015,28
+other heat,variable_cost,2020,28
+other heat,variable_cost,2025,28
+other heat,variable_cost,2030,28
+other heat,variable_cost,2035,28
+other heat,variable_cost,2040,28
+other heat,variable_cost,2045,28
+other heat,variable_cost,2050,28
+process emissions supply,co2_emissions,2015,1
+process emissions supply,co2_emissions,2020,1
+process emissions supply,co2_emissions,2021,1
+process emissions supply,co2_emissions,2022,1
+process emissions supply,co2_emissions,2023,1
+process emissions supply,co2_emissions,2024,1
+process emissions supply,co2_emissions,2025,1
+process emissions supply,co2_emissions,2030,1
+process emissions supply,co2_emissions,2035,1
+process emissions supply,co2_emissions,2040,1
+process emissions supply,co2_emissions,2045,1
+process emissions supply,co2_emissions,2050,1
+resistive heater large,efficiency,2015,1
+resistive heater large,efficiency,2020,1
+resistive heater large,efficiency,2025,1
+resistive heater large,efficiency,2030,1
+resistive heater large,efficiency,2035,1
+resistive heater large,efficiency,2040,1
+resistive heater large,efficiency,2045,1
+resistive heater large,efficiency,2050,1
+resistive heater large,fixed_cost,2015,7000
+resistive heater large,fixed_cost,2020,7000
+resistive heater large,fixed_cost,2025,7000
+resistive heater large,fixed_cost,2030,7000
+resistive heater large,fixed_cost,2035,7000
+resistive heater large,fixed_cost,2040,7000
+resistive heater large,fixed_cost,2045,7000
+resistive heater large,fixed_cost,2050,7000
+resistive heater large,investment_cost,2015,460000
+resistive heater large,investment_cost,2020,460000
+resistive heater large,investment_cost,2025,460000
+resistive heater large,investment_cost,2030,460000
+resistive heater large,investment_cost,2035,460000
+resistive heater large,investment_cost,2040,460000
+resistive heater large,investment_cost,2045,460000
+resistive heater large,investment_cost,2050,460000
+resistive heater large,lifetime,2015,25
+resistive heater large,lifetime,2020,25
+resistive heater large,lifetime,2025,25
+resistive heater large,lifetime,2030,25
+resistive heater large,lifetime,2035,25
+resistive heater large,lifetime,2040,25
+resistive heater large,lifetime,2045,25
+resistive heater large,lifetime,2050,25
+resistive heater large,p_max_pu_annual,2015,0.99
+resistive heater large,p_max_pu_annual,2020,0.99
+resistive heater large,p_max_pu_annual,2025,0.99
+resistive heater large,p_max_pu_annual,2030,0.99
+resistive heater large,p_max_pu_annual,2035,0.99
+resistive heater large,p_max_pu_annual,2040,0.99
+resistive heater large,p_max_pu_annual,2045,0.99
+resistive heater large,p_max_pu_annual,2050,0.99
+resistive heater large,variable_cost,2015,5.9
+resistive heater large,variable_cost,2020,5.9
+resistive heater large,variable_cost,2025,5.9
+resistive heater large,variable_cost,2030,5.9
+resistive heater large,variable_cost,2035,5.9
+resistive heater large,variable_cost,2040,5.9
+resistive heater large,variable_cost,2045,5.9
+resistive heater large,variable_cost,2050,5.9
+resistive heater small,efficiency,2015,1
+resistive heater small,efficiency,2020,1
+resistive heater small,efficiency,2025,1
+resistive heater small,efficiency,2030,1
+resistive heater small,efficiency,2035,1
+resistive heater small,efficiency,2040,1
+resistive heater small,efficiency,2045,1
+resistive heater small,efficiency,2050,1
+resistive heater small,lifetime,2015,20
+resistive heater small,lifetime,2020,20
+resistive heater small,lifetime,2025,20
+resistive heater small,lifetime,2030,20
+resistive heater small,lifetime,2035,20
+resistive heater small,lifetime,2040,20
+resistive heater small,lifetime,2045,20
+resistive heater small,lifetime,2050,20
+resistive heater small,parent_ratio,2015,1
+resistive heater small,parent_ratio,2020,1
+resistive heater small,parent_ratio,2025,1
+resistive heater small,parent_ratio,2030,1
+resistive heater small,parent_ratio,2035,1
+resistive heater small,parent_ratio,2040,1
+resistive heater small,parent_ratio,2045,1
+resistive heater small,parent_ratio,2050,1
+solar PV ground,fixed_cost,2015,62000
+solar PV ground,fixed_cost,2020,55000
+solar PV ground,fixed_cost,2025,51000
+solar PV ground,fixed_cost,2030,47000
+solar PV ground,fixed_cost,2035,43000
+solar PV ground,fixed_cost,2040,40000
+solar PV ground,fixed_cost,2045,38000
+solar PV ground,fixed_cost,2050,36000
+solar PV ground,investment_cost,2015,8900000
+solar PV ground,investment_cost,2020,3500000
+solar PV ground,investment_cost,2025,2900000
+solar PV ground,investment_cost,2030,2400000
+solar PV ground,investment_cost,2035,2200000
+solar PV ground,investment_cost,2040,2000000
+solar PV ground,investment_cost,2045,1900000
+solar PV ground,investment_cost,2050,1800000
+solar PV ground,lifetime,2015,20
+solar PV ground,lifetime,2020,25
+solar PV ground,lifetime,2025,25
+solar PV ground,lifetime,2030,25
+solar PV ground,lifetime,2035,25
+solar PV ground,lifetime,2040,25
+solar PV ground,lifetime,2045,25
+solar PV ground,lifetime,2050,25
+solar PV ground,availability_correction_factor,2015,0.87
+solar PV ground,availability_correction_factor,2020,0.96
+solar PV ground,availability_correction_factor,2025,1
+solar PV ground,availability_correction_factor,2030,1.1
+solar PV ground,availability_correction_factor,2035,1.1
+solar PV ground,availability_correction_factor,2040,1.1
+solar PV ground,availability_correction_factor,2045,1.1
+solar PV ground,availability_correction_factor,2050,1.1
+solar PV ground E,fixed_cost,2015,62000
+solar PV ground E,fixed_cost,2020,55000
+solar PV ground E,fixed_cost,2025,51000
+solar PV ground E,fixed_cost,2030,47000
+solar PV ground E,fixed_cost,2035,43000
+solar PV ground E,fixed_cost,2040,40000
+solar PV ground E,fixed_cost,2045,38000
+solar PV ground E,fixed_cost,2050,36000
+solar PV ground E,investment_cost,2015,8900000
+solar PV ground E,investment_cost,2020,3500000
+solar PV ground E,investment_cost,2025,2900000
+solar PV ground E,investment_cost,2030,2400000
+solar PV ground E,investment_cost,2035,2200000
+solar PV ground E,investment_cost,2040,2000000
+solar PV ground E,investment_cost,2045,1900000
+solar PV ground E,investment_cost,2050,1800000
+solar PV ground E,lifetime,2015,20
+solar PV ground E,lifetime,2020,25
+solar PV ground E,lifetime,2025,25
+solar PV ground E,lifetime,2030,25
+solar PV ground E,lifetime,2035,25
+solar PV ground E,lifetime,2040,25
+solar PV ground E,lifetime,2045,25
+solar PV ground E,lifetime,2050,25
+solar PV ground E,availability_correction_factor,2015,0.87
+solar PV ground E,availability_correction_factor,2020,0.96
+solar PV ground E,availability_correction_factor,2025,1
+solar PV ground E,availability_correction_factor,2030,1.1
+solar PV ground E,availability_correction_factor,2035,1.1
+solar PV ground E,availability_correction_factor,2040,1.1
+solar PV ground E,availability_correction_factor,2045,1.1
+solar PV ground E,availability_correction_factor,2050,1.1
+solar PV ground W,fixed_cost,2015,62000
+solar PV ground W,fixed_cost,2020,55000
+solar PV ground W,fixed_cost,2025,51000
+solar PV ground W,fixed_cost,2030,47000
+solar PV ground W,fixed_cost,2035,43000
+solar PV ground W,fixed_cost,2040,40000
+solar PV ground W,fixed_cost,2045,38000
+solar PV ground W,fixed_cost,2050,36000
+solar PV ground W,investment_cost,2015,8900000
+solar PV ground W,investment_cost,2020,3500000
+solar PV ground W,investment_cost,2025,2900000
+solar PV ground W,investment_cost,2030,2400000
+solar PV ground W,investment_cost,2035,2200000
+solar PV ground W,investment_cost,2040,2000000
+solar PV ground W,investment_cost,2045,1900000
+solar PV ground W,investment_cost,2050,1800000
+solar PV ground W,lifetime,2015,20
+solar PV ground W,lifetime,2020,25
+solar PV ground W,lifetime,2025,25
+solar PV ground W,lifetime,2030,25
+solar PV ground W,lifetime,2035,25
+solar PV ground W,lifetime,2040,25
+solar PV ground W,lifetime,2045,25
+solar PV ground W,lifetime,2050,25
+solar PV ground W,availability_correction_factor,2015,0.87
+solar PV ground W,availability_correction_factor,2020,0.96
+solar PV ground W,availability_correction_factor,2025,1
+solar PV ground W,availability_correction_factor,2030,1.1
+solar PV ground W,availability_correction_factor,2035,1.1
+solar PV ground W,availability_correction_factor,2040,1.1
+solar PV ground W,availability_correction_factor,2045,1.1
+solar PV ground W,availability_correction_factor,2050,1.1
+solar PV roof,fixed_cost,2015,89000
+solar PV roof,fixed_cost,2020,69000
+solar PV roof,fixed_cost,2025,63000
+solar PV roof,fixed_cost,2030,56000
+solar PV roof,fixed_cost,2035,53000
+solar PV roof,fixed_cost,2040,51000
+solar PV roof,fixed_cost,2045,49000
+solar PV roof,fixed_cost,2050,47000
+solar PV roof,investment_cost,2015,6900000
+solar PV roof,investment_cost,2020,4700000
+solar PV roof,investment_cost,2025,3900000
+solar PV roof,investment_cost,2030,3100000
+solar PV roof,investment_cost,2035,2900000
+solar PV roof,investment_cost,2040,2600000
+solar PV roof,investment_cost,2045,2500000
+solar PV roof,investment_cost,2050,2400000
+solar PV roof,lifetime,2015,20
+solar PV roof,lifetime,2020,25
+solar PV roof,lifetime,2025,25
+solar PV roof,lifetime,2030,25
+solar PV roof,lifetime,2035,25
+solar PV roof,lifetime,2040,25
+solar PV roof,lifetime,2045,25
+solar PV roof,lifetime,2050,25
+solar PV roof,availability_correction_factor,2015,0.8
+solar PV roof,availability_correction_factor,2020,0.86
+solar PV roof,availability_correction_factor,2025,0.9
+solar PV roof,availability_correction_factor,2030,0.95
+solar PV roof,availability_correction_factor,2035,0.96
+solar PV roof,availability_correction_factor,2040,0.96
+solar PV roof,availability_correction_factor,2045,0.97
+solar PV roof,availability_correction_factor,2050,0.97
+solar thermal large,efficiency,2015,0.45
+solar thermal large,efficiency,2020,0.45
+solar thermal large,efficiency,2025,0.45
+solar thermal large,efficiency,2030,0.45
+solar thermal large,efficiency,2035,0.45
+solar thermal large,efficiency,2040,0.45
+solar thermal large,efficiency,2045,0.45
+solar thermal large,efficiency,2050,0.45
+solar thermal large,fixed_cost,2015,400
+solar thermal large,fixed_cost,2020,400
+solar thermal large,fixed_cost,2025,400
+solar thermal large,fixed_cost,2030,400
+solar thermal large,fixed_cost,2035,400
+solar thermal large,fixed_cost,2040,400
+solar thermal large,fixed_cost,2045,400
+solar thermal large,fixed_cost,2050,400
+solar thermal large,investment_cost,2015,2000000
+solar thermal large,investment_cost,2020,2000000
+solar thermal large,investment_cost,2025,2000000
+solar thermal large,investment_cost,2030,2000000
+solar thermal large,investment_cost,2035,2000000
+solar thermal large,investment_cost,2040,2000000
+solar thermal large,investment_cost,2045,2000000
+solar thermal large,investment_cost,2050,2000000
+solar thermal large,lifetime,2015,30
+solar thermal large,lifetime,2020,30
+solar thermal large,lifetime,2025,30
+solar thermal large,lifetime,2030,30
+solar thermal large,lifetime,2035,30
+solar thermal large,lifetime,2040,30
+solar thermal large,lifetime,2045,30
+solar thermal large,lifetime,2050,30
+solar thermal large,variable_cost,2015,1.4
+solar thermal large,variable_cost,2020,1.4
+solar thermal large,variable_cost,2025,1.4
+solar thermal large,variable_cost,2030,1.4
+solar thermal large,variable_cost,2035,1.4
+solar thermal large,variable_cost,2040,1.4
+solar thermal large,variable_cost,2045,1.4
+solar thermal large,variable_cost,2050,1.4
+transformation EHV-HMV,efficiency,2015,0.97
+transformation EHV-HMV,efficiency,2020,0.97
+transformation EHV-HMV,efficiency,2025,0.97
+transformation EHV-HMV,efficiency,2030,0.97
+transformation EHV-HMV,efficiency,2035,0.97
+transformation EHV-HMV,efficiency,2040,0.97
+transformation EHV-HMV,efficiency,2045,0.97
+transformation EHV-HMV,efficiency,2050,0.97
+transformation EHV-HMV,lifetime,2015,40
+transformation EHV-HMV,lifetime,2020,40
+transformation EHV-HMV,lifetime,2025,40
+transformation EHV-HMV,lifetime,2030,40
+transformation EHV-HMV,lifetime,2035,40
+transformation EHV-HMV,lifetime,2040,40
+transformation EHV-HMV,lifetime,2045,40
+transformation EHV-HMV,lifetime,2050,40
+transformation EHV-HMV,investment_cost,2015,300000
+transformation EHV-HMV,investment_cost,2020,300000
+transformation EHV-HMV,investment_cost,2025,300000
+transformation EHV-HMV,investment_cost,2030,300000
+transformation EHV-HMV,investment_cost,2035,300000
+transformation EHV-HMV,investment_cost,2040,300000
+transformation EHV-HMV,investment_cost,2045,300000
+transformation EHV-HMV,investment_cost,2050,300000
+transformation EHV-HMV,fixed_cost,2015,9000
+transformation EHV-HMV,fixed_cost,2020,9000
+transformation EHV-HMV,fixed_cost,2025,9000
+transformation EHV-HMV,fixed_cost,2030,9000
+transformation EHV-HMV,fixed_cost,2035,9000
+transformation EHV-HMV,fixed_cost,2040,9000
+transformation EHV-HMV,fixed_cost,2045,9000
+transformation EHV-HMV,fixed_cost,2050,9000
+transformation HMV-EHV,parent_ratio,2015,1
+transformation HMV-EHV,parent_ratio,2020,1
+transformation HMV-EHV,parent_ratio,2025,1
+transformation HMV-EHV,parent_ratio,2030,1
+transformation HMV-EHV,parent_ratio,2035,1
+transformation HMV-EHV,parent_ratio,2040,1
+transformation HMV-EHV,parent_ratio,2045,1
+transformation HMV-EHV,parent_ratio,2050,1
+transformation HMV-EHV,efficiency,2015,0.98
+transformation HMV-EHV,efficiency,2020,0.98
+transformation HMV-EHV,efficiency,2025,0.98
+transformation HMV-EHV,efficiency,2030,0.98
+transformation HMV-EHV,efficiency,2035,0.98
+transformation HMV-EHV,efficiency,2040,0.98
+transformation HMV-EHV,efficiency,2045,0.98
+transformation HMV-EHV,efficiency,2050,0.98
+transformation HMV-EHV,lifetime,2015,40
+transformation HMV-EHV,lifetime,2020,40
+transformation HMV-EHV,lifetime,2025,40
+transformation HMV-EHV,lifetime,2030,40
+transformation HMV-EHV,lifetime,2035,40
+transformation HMV-EHV,lifetime,2040,40
+transformation HMV-EHV,lifetime,2045,40
+transformation HMV-EHV,lifetime,2050,40
+transformation HMV-LV,efficiency,2015,0.98
+transformation HMV-LV,efficiency,2020,0.98
+transformation HMV-LV,efficiency,2025,0.98
+transformation HMV-LV,efficiency,2030,0.98
+transformation HMV-LV,efficiency,2035,0.98
+transformation HMV-LV,efficiency,2040,0.98
+transformation HMV-LV,efficiency,2045,0.98
+transformation HMV-LV,efficiency,2050,0.98
+transformation HMV-LV,lifetime,2015,40
+transformation HMV-LV,lifetime,2020,40
+transformation HMV-LV,lifetime,2025,40
+transformation HMV-LV,lifetime,2030,40
+transformation HMV-LV,lifetime,2035,40
+transformation HMV-LV,lifetime,2040,40
+transformation HMV-LV,lifetime,2045,40
+transformation HMV-LV,lifetime,2050,40
+transformation HMV-LV,investment_cost,2015,600000
+transformation HMV-LV,investment_cost,2020,600000
+transformation HMV-LV,investment_cost,2025,600000
+transformation HMV-LV,investment_cost,2030,600000
+transformation HMV-LV,investment_cost,2035,600000
+transformation HMV-LV,investment_cost,2040,600000
+transformation HMV-LV,investment_cost,2045,600000
+transformation HMV-LV,investment_cost,2050,600000
+transformation HMV-LV,fixed_cost,2015,18000
+transformation HMV-LV,fixed_cost,2020,18000
+transformation HMV-LV,fixed_cost,2025,18000
+transformation HMV-LV,fixed_cost,2030,18000
+transformation HMV-LV,fixed_cost,2035,18000
+transformation HMV-LV,fixed_cost,2040,18000
+transformation HMV-LV,fixed_cost,2045,18000
+transformation HMV-LV,fixed_cost,2050,18000
+transformation LV-HMV,parent_ratio,2015,1
+transformation LV-HMV,parent_ratio,2020,1
+transformation LV-HMV,parent_ratio,2025,1
+transformation LV-HMV,parent_ratio,2030,1
+transformation LV-HMV,parent_ratio,2035,1
+transformation LV-HMV,parent_ratio,2040,1
+transformation LV-HMV,parent_ratio,2045,1
+transformation LV-HMV,parent_ratio,2050,1
+transformation LV-HMV,efficiency,2015,0.98
+transformation LV-HMV,efficiency,2020,0.98
+transformation LV-HMV,efficiency,2025,0.98
+transformation LV-HMV,efficiency,2030,0.98
+transformation LV-HMV,efficiency,2035,0.98
+transformation LV-HMV,efficiency,2040,0.98
+transformation LV-HMV,efficiency,2045,0.98
+transformation LV-HMV,efficiency,2050,0.98
+transformation LV-HMV,lifetime,2015,40
+transformation LV-HMV,lifetime,2020,40
+transformation LV-HMV,lifetime,2025,40
+transformation LV-HMV,lifetime,2030,40
+transformation LV-HMV,lifetime,2035,40
+transformation LV-HMV,lifetime,2040,40
+transformation LV-HMV,lifetime,2045,40
+transformation LV-HMV,lifetime,2050,40
+transmission line AC,investment_cost,2015,2900
+transmission line AC,investment_cost,2020,2900
+transmission line AC,investment_cost,2025,2900
+transmission line AC,investment_cost,2030,2900
+transmission line AC,investment_cost,2035,2900
+transmission line AC,investment_cost,2040,2900
+transmission line AC,investment_cost,2045,2900
+transmission line AC,investment_cost,2050,2900
+transmission line AC,fixed_cost,2015,88
+transmission line AC,fixed_cost,2020,88
+transmission line AC,fixed_cost,2025,88
+transmission line AC,fixed_cost,2030,88
+transmission line AC,fixed_cost,2035,88
+transmission line AC,fixed_cost,2040,88
+transmission line AC,fixed_cost,2045,88
+transmission line AC,fixed_cost,2050,88
+transmission line AC,lifetime,2015,40
+transmission line AC,lifetime,2020,40
+transmission line AC,lifetime,2025,40
+transmission line AC,lifetime,2030,40
+transmission line AC,lifetime,2035,40
+transmission line AC,lifetime,2040,40
+transmission line AC,lifetime,2045,40
+transmission line AC,lifetime,2050,40
+transmission line AC,line_type,2015,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2020,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2025,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2030,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2035,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2040,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2045,3x468/24-A1F/UHST-261
+transmission line AC,line_type,2050,3x468/24-A1F/UHST-261
+transmission line DC,investment_cost,2015,1
+transmission line DC,investment_cost,2020,1
+transmission line DC,investment_cost,2025,1
+transmission line DC,investment_cost,2030,1
+transmission line DC,investment_cost,2035,1
+transmission line DC,investment_cost,2040,1
+transmission line DC,investment_cost,2045,1
+transmission line DC,investment_cost,2050,1
+transmission line DC,fixed_cost,2015,1
+transmission line DC,fixed_cost,2020,1
+transmission line DC,fixed_cost,2025,1
+transmission line DC,fixed_cost,2030,1
+transmission line DC,fixed_cost,2035,1
+transmission line DC,fixed_cost,2040,1
+transmission line DC,fixed_cost,2045,1
+transmission line DC,fixed_cost,2050,1
+transmission line DC,lifetime,2015,40
+transmission line DC,lifetime,2020,40
+transmission line DC,lifetime,2025,40
+transmission line DC,lifetime,2030,40
+transmission line DC,lifetime,2035,40
+transmission line DC,lifetime,2040,40
+transmission line DC,lifetime,2045,40
+transmission line DC,lifetime,2050,40
+transmission line DC,efficiency,2015,1
+transmission line DC,efficiency,2020,1
+transmission line DC,efficiency,2025,1
+transmission line DC,efficiency,2030,1
+transmission line DC,efficiency,2035,1
+transmission line DC,efficiency,2040,1
+transmission line DC,efficiency,2045,1
+transmission line DC,efficiency,2050,1
+wind offshore,fixed_cost,2015,310000
+wind offshore,fixed_cost,2020,310000
+wind offshore,fixed_cost,2025,260000
+wind offshore,fixed_cost,2030,240000
+wind offshore,fixed_cost,2035,220000
+wind offshore,fixed_cost,2040,210000
+wind offshore,fixed_cost,2045,210000
+wind offshore,fixed_cost,2050,200000
+wind offshore,investment_cost,2015,21000000
+wind offshore,investment_cost,2020,21000000
+wind offshore,investment_cost,2025,19000000
+wind offshore,investment_cost,2030,18000000
+wind offshore,investment_cost,2035,17000000
+wind offshore,investment_cost,2040,17000000
+wind offshore,investment_cost,2045,16000000
+wind offshore,investment_cost,2050,16000000
+wind offshore,lifetime,2015,25
+wind offshore,lifetime,2020,30
+wind offshore,lifetime,2025,30
+wind offshore,lifetime,2030,30
+wind offshore,lifetime,2035,30
+wind offshore,lifetime,2040,30
+wind offshore,lifetime,2045,30
+wind offshore,lifetime,2050,30
+wind offshore,availability_correction_factor,2015,0.87
+wind offshore,availability_correction_factor,2020,0.87
+wind offshore,availability_correction_factor,2025,0.95
+wind offshore,availability_correction_factor,2030,0.95
+wind offshore,availability_correction_factor,2035,0.96
+wind offshore,availability_correction_factor,2040,0.96
+wind offshore,availability_correction_factor,2045,0.97
+wind offshore,availability_correction_factor,2050,0.97
+wind offshore,variable_cost,2015,31
+wind offshore,variable_cost,2020,31
+wind offshore,variable_cost,2025,31
+wind offshore,variable_cost,2030,31
+wind offshore,variable_cost,2035,31
+wind offshore,variable_cost,2040,31
+wind offshore,variable_cost,2045,31
+wind offshore,variable_cost,2050,31
+wind onshore,fixed_cost,2015,170000
+wind onshore,fixed_cost,2020,100000
+wind onshore,fixed_cost,2025,110000
+wind onshore,fixed_cost,2030,100000
+wind onshore,fixed_cost,2035,100000
+wind onshore,fixed_cost,2040,98000
+wind onshore,fixed_cost,2045,97000
+wind onshore,fixed_cost,2050,96000
+wind onshore,investment_cost,2015,9400000
+wind onshore,investment_cost,2020,7400000
+wind onshore,investment_cost,2025,7900000
+wind onshore,investment_cost,2030,7600000
+wind onshore,investment_cost,2035,7500000
+wind onshore,investment_cost,2040,7400000
+wind onshore,investment_cost,2045,7300000
+wind onshore,investment_cost,2050,7300000
+wind onshore,lifetime,2015,20
+wind onshore,lifetime,2020,25
+wind onshore,lifetime,2025,25
+wind onshore,lifetime,2030,25
+wind onshore,lifetime,2035,25
+wind onshore,lifetime,2040,25
+wind onshore,lifetime,2045,25
+wind onshore,lifetime,2050,25
+wind onshore,availability_correction_factor,2015,0.84
+wind onshore,availability_correction_factor,2020,0.92
+wind onshore,availability_correction_factor,2025,0.94
+wind onshore,availability_correction_factor,2030,0.97
+wind onshore,availability_correction_factor,2035,0.98
+wind onshore,availability_correction_factor,2040,1
+wind onshore,availability_correction_factor,2045,1
+wind onshore,availability_correction_factor,2050,1
+wind onshore,variable_cost,2015,13
+wind onshore,variable_cost,2020,13
+wind onshore,variable_cost,2025,13
+wind onshore,variable_cost,2030,13
+wind onshore,variable_cost,2035,13
+wind onshore,variable_cost,2040,13
+wind onshore,variable_cost,2045,13
+wind onshore,variable_cost,2050,13
+wind onshore old,fixed_cost,2015,170000
+wind onshore old,fixed_cost,2020,170000
+wind onshore old,fixed_cost,2025,170000
+wind onshore old,fixed_cost,2030,170000
+wind onshore old,fixed_cost,2035,170000
+wind onshore old,fixed_cost,2040,170000
+wind onshore old,fixed_cost,2045,170000
+wind onshore old,fixed_cost,2050,170000
+wind onshore old,lifetime,2015,20
+wind onshore old,lifetime,2020,20
+wind onshore old,lifetime,2025,20
+wind onshore old,lifetime,2030,20
+wind onshore old,lifetime,2035,20
+wind onshore old,lifetime,2040,20
+wind onshore old,lifetime,2045,20
+wind onshore old,lifetime,2050,20
+wind onshore old,availability_correction_factor,2015,0.84
+wind onshore old,availability_correction_factor,2020,0.84
+wind onshore old,availability_correction_factor,2025,0.84
+wind onshore old,availability_correction_factor,2030,0.84
+wind onshore old,availability_correction_factor,2035,0.84
+wind onshore old,availability_correction_factor,2040,0.84
+wind onshore old,availability_correction_factor,2045,0.84
+wind onshore old,availability_correction_factor,2050,0.84
+wind onshore old,variable_cost,2015,18
+wind onshore old,variable_cost,2020,18
+wind onshore old,variable_cost,2025,18
+wind onshore old,variable_cost,2030,18
+wind onshore old,variable_cost,2035,18
+wind onshore old,variable_cost,2040,18
+wind onshore old,variable_cost,2045,18
+wind onshore old,variable_cost,2050,18

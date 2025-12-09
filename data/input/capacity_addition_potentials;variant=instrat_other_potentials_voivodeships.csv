@@ -1,0 +1,209 @@
+area,carrier,year,attribute,value
+PL dolnośląskie,BEV,2030,nom_max,21526.0
+PL kujawsko-pomorskie,BEV,2030,nom_max,14297.0
+PL łódzkie,BEV,2030,nom_max,18156.0
+PL lubelskie,BEV,2030,nom_max,14949.0
+PL lubuskie,BEV,2030,nom_max,7828.0
+PL małopolskie,BEV,2030,nom_max,23755.0
+PL mazowieckie,BEV,2030,nom_max,45716.0
+PL opolskie,BEV,2030,nom_max,7067.0
+PL podkarpackie,BEV,2030,nom_max,14297.0
+PL podlaskie,BEV,2030,nom_max,7610.0
+PL pomorskie,BEV,2030,nom_max,16580.0
+PL śląskie,BEV,2030,nom_max,30604.0
+PL świętokrzyskie,BEV,2030,nom_max,8426.0
+PL warmińsko-mazurskie,BEV,2030,nom_max,9187.0
+PL wielkopolskie,BEV,2030,nom_max,27995.0
+PL zachodniopomorskie,BEV,2030,nom_max,11524.0
+PL dolnośląskie,heat pump small,2030,nom_max,7608.0
+PL kujawsko-pomorskie,heat pump small,2030,nom_max,5502.0
+PL łódzkie,heat pump small,2030,nom_max,6575.0
+PL lubelskie,heat pump small,2030,nom_max,5856.0
+PL lubuskie,heat pump small,2030,nom_max,2546.0
+PL małopolskie,heat pump small,2030,nom_max,9406.0
+PL mazowieckie,heat pump small,2030,nom_max,14800.0
+PL opolskie,heat pump small,2030,nom_max,2386.0
+PL podkarpackie,heat pump small,2030,nom_max,5691.0
+PL podlaskie,heat pump small,2030,nom_max,3436.0
+PL pomorskie,heat pump small,2030,nom_max,6210.0
+PL śląskie,heat pump small,2030,nom_max,11798.0
+PL świętokrzyskie,heat pump small,2030,nom_max,3368.0
+PL warmińsko-mazurskie,heat pump small,2030,nom_max,4001.0
+PL wielkopolskie,heat pump small,2030,nom_max,9087.0
+PL zachodniopomorskie,heat pump small,2030,nom_max,4298.0
+PL dolnośląskie,hydro PSH power,2030,nom_max,1000.0
+PL kujawsko-pomorskie,hydro PSH power,2030,nom_max,0.0
+PL łódzkie,hydro PSH power,2030,nom_max,0.0
+PL lubelskie,hydro PSH power,2030,nom_max,0.0
+PL lubuskie,hydro PSH power,2030,nom_max,85.7
+PL małopolskie,hydro PSH power,2030,nom_max,87.7
+PL mazowieckie,hydro PSH power,2030,nom_max,0.0
+PL opolskie,hydro PSH power,2030,nom_max,0.0
+PL podkarpackie,hydro PSH power,2030,nom_max,188.8
+PL podlaskie,hydro PSH power,2030,nom_max,0.0
+PL pomorskie,hydro PSH power,2030,nom_max,743.9
+PL śląskie,hydro PSH power,2030,nom_max,526.4
+PL świętokrzyskie,hydro PSH power,2030,nom_max,0.0
+PL warmińsko-mazurskie,hydro PSH power,2030,nom_max,0.0
+PL wielkopolskie,hydro PSH power,2030,nom_max,0.0
+PL zachodniopomorskie,hydro PSH power,2030,nom_max,157.3
+PL dolnośląskie,natural gas CHP,2030,nom_max,281.3
+PL kujawsko-pomorskie,natural gas CHP,2030,nom_max,745.5
+PL łódzkie,natural gas CHP,2030,nom_max,368.8
+PL lubelskie,natural gas CHP,2030,nom_max,389.5
+PL lubuskie,natural gas CHP,2030,nom_max,534.6
+PL małopolskie,natural gas CHP,2030,nom_max,67.1
+PL mazowieckie,natural gas CHP,2030,nom_max,1798.0
+PL opolskie,natural gas CHP,2030,nom_max,9.0
+PL podkarpackie,natural gas CHP,2030,nom_max,770.1
+PL podlaskie,natural gas CHP,2030,nom_max,1.3
+PL pomorskie,natural gas CHP,2030,nom_max,521.6
+PL śląskie,natural gas CHP,2030,nom_max,19.2
+PL świętokrzyskie,natural gas CHP,2030,nom_max,2.9
+PL warmińsko-mazurskie,natural gas CHP,2030,nom_max,51.4
+PL wielkopolskie,natural gas CHP,2030,nom_max,126.9
+PL zachodniopomorskie,natural gas CHP,2030,nom_max,2.7
+PL dolnośląskie,natural gas power,2030,nom_max,0.0
+PL kujawsko-pomorskie,natural gas power,2030,nom_max,580.0
+PL łódzkie,natural gas power,2030,nom_max,0.0
+PL lubelskie,natural gas power,2030,nom_max,0.0
+PL lubuskie,natural gas power,2030,nom_max,0.0
+PL małopolskie,natural gas power,2030,nom_max,0.0
+PL mazowieckie,natural gas power,2030,nom_max,1504.1
+PL opolskie,natural gas power,2030,nom_max,0.0
+PL podkarpackie,natural gas power,2030,nom_max,0.0
+PL podlaskie,natural gas power,2030,nom_max,0.0
+PL pomorskie,natural gas power,2030,nom_max,0.0
+PL śląskie,natural gas power,2030,nom_max,880.0
+PL świętokrzyskie,natural gas power,2030,nom_max,0.0
+PL warmińsko-mazurskie,natural gas power,2030,nom_max,0.0
+PL wielkopolskie,natural gas power,2030,nom_max,600.0
+PL zachodniopomorskie,natural gas power,2030,nom_max,1365.9
+PL dolnośląskie,nuclear power,2030,nom_max,0.0
+PL kujawsko-pomorskie,nuclear power,2030,nom_max,0.0
+PL łódzkie,nuclear power,2030,nom_max,0.0
+PL lubelskie,nuclear power,2030,nom_max,0.0
+PL lubuskie,nuclear power,2030,nom_max,0.0
+PL małopolskie,nuclear power,2030,nom_max,0.0
+PL mazowieckie,nuclear power,2030,nom_max,0.0
+PL opolskie,nuclear power,2030,nom_max,0.0
+PL podkarpackie,nuclear power,2030,nom_max,0.0
+PL podlaskie,nuclear power,2030,nom_max,0.0
+PL pomorskie,nuclear power,2030,nom_max,0.0
+PL śląskie,nuclear power,2030,nom_max,0.0
+PL świętokrzyskie,nuclear power,2030,nom_max,0.0
+PL warmińsko-mazurskie,nuclear power,2030,nom_max,0.0
+PL wielkopolskie,nuclear power,2030,nom_max,0.0
+PL zachodniopomorskie,nuclear power,2030,nom_max,0.0
+PL dolnośląskie,BEV,2035,nom_max,21853.0
+PL kujawsko-pomorskie,BEV,2035,nom_max,14514.0
+PL łódzkie,BEV,2035,nom_max,18428.0
+PL lubelskie,BEV,2035,nom_max,15166.0
+PL lubuskie,BEV,2035,nom_max,7937.0
+PL małopolskie,BEV,2035,nom_max,24136.0
+PL mazowieckie,BEV,2035,nom_max,46423.0
+PL opolskie,BEV,2035,nom_max,7175.0
+PL podkarpackie,BEV,2035,nom_max,14514.0
+PL podlaskie,BEV,2035,nom_max,7719.0
+PL pomorskie,BEV,2035,nom_max,16851.0
+PL śląskie,BEV,2035,nom_max,31094.0
+PL świętokrzyskie,BEV,2035,nom_max,8589.0
+PL warmińsko-mazurskie,BEV,2035,nom_max,9295.0
+PL wielkopolskie,BEV,2035,nom_max,28484.0
+PL zachodniopomorskie,BEV,2035,nom_max,11687.0
+PL dolnośląskie,heat pump small,2035,nom_max,7169.0
+PL kujawsko-pomorskie,heat pump small,2035,nom_max,5183.0
+PL łódzkie,heat pump small,2035,nom_max,6193.0
+PL lubelskie,heat pump small,2035,nom_max,5514.0
+PL lubuskie,heat pump small,2035,nom_max,2397.0
+PL małopolskie,heat pump small,2035,nom_max,8847.0
+PL mazowieckie,heat pump small,2035,nom_max,13927.0
+PL opolskie,heat pump small,2035,nom_max,2249.0
+PL podkarpackie,heat pump small,2035,nom_max,5354.0
+PL podlaskie,heat pump small,2035,nom_max,3225.0
+PL pomorskie,heat pump small,2035,nom_max,5845.0
+PL śląskie,heat pump small,2035,nom_max,11113.0
+PL świętokrzyskie,heat pump small,2035,nom_max,3168.0
+PL warmińsko-mazurskie,heat pump small,2035,nom_max,3761.0
+PL wielkopolskie,heat pump small,2035,nom_max,8567.0
+PL zachodniopomorskie,heat pump small,2035,nom_max,4047.0
+PL dolnośląskie,hydro PSH power,2035,nom_max,1000.0
+PL kujawsko-pomorskie,hydro PSH power,2035,nom_max,0.0
+PL łódzkie,hydro PSH power,2035,nom_max,0.0
+PL lubelskie,hydro PSH power,2035,nom_max,0.0
+PL lubuskie,hydro PSH power,2035,nom_max,85.7
+PL małopolskie,hydro PSH power,2035,nom_max,1087.7
+PL mazowieckie,hydro PSH power,2035,nom_max,0.0
+PL opolskie,hydro PSH power,2035,nom_max,0.0
+PL podkarpackie,hydro PSH power,2035,nom_max,188.8
+PL podlaskie,hydro PSH power,2035,nom_max,0.0
+PL pomorskie,hydro PSH power,2035,nom_max,743.9
+PL śląskie,hydro PSH power,2035,nom_max,526.4
+PL świętokrzyskie,hydro PSH power,2035,nom_max,0.0
+PL warmińsko-mazurskie,hydro PSH power,2035,nom_max,1000.0
+PL wielkopolskie,hydro PSH power,2035,nom_max,0.0
+PL zachodniopomorskie,hydro PSH power,2035,nom_max,157.3
+PL dolnośląskie,nuclear power,2035,nom_max,0.0
+PL kujawsko-pomorskie,nuclear power,2035,nom_max,0.0
+PL łódzkie,nuclear power,2035,nom_max,0.0
+PL lubelskie,nuclear power,2035,nom_max,0.0
+PL lubuskie,nuclear power,2035,nom_max,0.0
+PL małopolskie,nuclear power,2035,nom_max,0.0
+PL mazowieckie,nuclear power,2035,nom_max,0.0
+PL opolskie,nuclear power,2035,nom_max,0.0
+PL podkarpackie,nuclear power,2035,nom_max,0.0
+PL podlaskie,nuclear power,2035,nom_max,0.0
+PL pomorskie,nuclear power,2035,nom_max,0.0
+PL śląskie,nuclear power,2035,nom_max,0.0
+PL świętokrzyskie,nuclear power,2035,nom_max,0.0
+PL warmińsko-mazurskie,nuclear power,2035,nom_max,0.0
+PL wielkopolskie,nuclear power,2035,nom_max,0.0
+PL zachodniopomorskie,nuclear power,2035,nom_max,0.0
+PL dolnośląskie,BEV,2040,nom_max,21146.0
+PL kujawsko-pomorskie,BEV,2040,nom_max,14025.0
+PL łódzkie,BEV,2040,nom_max,17776.0
+PL lubelskie,BEV,2040,nom_max,14677.0
+PL lubuskie,BEV,2040,nom_max,7665.0
+PL małopolskie,BEV,2040,nom_max,23266.0
+PL mazowieckie,BEV,2040,nom_max,44792.0
+PL opolskie,BEV,2040,nom_max,6904.0
+PL podkarpackie,BEV,2040,nom_max,14025.0
+PL podlaskie,BEV,2040,nom_max,7447.0
+PL pomorskie,BEV,2040,nom_max,16254.0
+PL śląskie,BEV,2040,nom_max,30007.0
+PL świętokrzyskie,BEV,2040,nom_max,8263.0
+PL warmińsko-mazurskie,BEV,2040,nom_max,8969.0
+PL wielkopolskie,BEV,2040,nom_max,27452.0
+PL zachodniopomorskie,BEV,2040,nom_max,11307.0
+PL dolnośląskie,heat pump small,2040,nom_max,6809.0
+PL kujawsko-pomorskie,heat pump small,2040,nom_max,4920.0
+PL łódzkie,heat pump small,2040,nom_max,5885.0
+PL lubelskie,heat pump small,2040,nom_max,5228.0
+PL lubuskie,heat pump small,2040,nom_max,2283.0
+PL małopolskie,heat pump small,2040,nom_max,8402.0
+PL mazowieckie,heat pump small,2040,nom_max,13225.0
+PL opolskie,heat pump small,2040,nom_max,2140.0
+PL podkarpackie,heat pump small,2040,nom_max,5086.0
+PL podlaskie,heat pump small,2040,nom_max,3059.0
+PL pomorskie,heat pump small,2040,nom_max,5554.0
+PL śląskie,heat pump small,2040,nom_max,10559.0
+PL świętokrzyskie,heat pump small,2040,nom_max,3008.0
+PL warmińsko-mazurskie,heat pump small,2040,nom_max,3567.0
+PL wielkopolskie,heat pump small,2040,nom_max,8139.0
+PL zachodniopomorskie,heat pump small,2040,nom_max,3847.0
+PL dolnośląskie,nuclear power,2040,nom_max,0.0
+PL kujawsko-pomorskie,nuclear power,2040,nom_max,300.0
+PL łódzkie,nuclear power,2040,nom_max,0.0
+PL lubelskie,nuclear power,2040,nom_max,0.0
+PL lubuskie,nuclear power,2040,nom_max,0.0
+PL małopolskie,nuclear power,2040,nom_max,300.0
+PL mazowieckie,nuclear power,2040,nom_max,300.0
+PL opolskie,nuclear power,2040,nom_max,0.0
+PL podkarpackie,nuclear power,2040,nom_max,0.0
+PL podlaskie,nuclear power,2040,nom_max,0.0
+PL pomorskie,nuclear power,2040,nom_max,2220.0
+PL śląskie,nuclear power,2040,nom_max,0.0
+PL świętokrzyskie,nuclear power,2040,nom_max,0.0
+PL warmińsko-mazurskie,nuclear power,2040,nom_max,0.0
+PL wielkopolskie,nuclear power,2040,nom_max,0.0
+PL zachodniopomorskie,nuclear power,2040,nom_max,0.0

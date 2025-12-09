@@ -24,6 +24,8 @@ from pypsa_pl.plot_outputs import (
     plot_capacity_additions,
     plot_storage_capacities,
     plot_storage_capacity_additions,
+    plot_grid_capacities,
+    plot_grid_capacity_additions,
     plot_annual_generation,
     plot_energy_balance_at_peak_load,
     plot_curtailed_vres_energy,
@@ -70,7 +72,12 @@ def run_simulation(
     network.export_to_csv_folder(run_dir("input_network"))
     df_attr_t.to_csv(run_dir("input_network", "time_dependent_attributes.csv"))
 
-    networks = optimise_network(network, params)
+    # Remove old solver log if exists
+    solver_log = run_dir("solver.log")
+    if os.path.exists(solver_log):
+        os.remove(solver_log)
+
+    networks = optimise_network(network, params, log_dir=run_dir)
 
     if len(networks) == 1:
         networks[0].export_to_csv_folder(run_dir("output_network"))
@@ -81,7 +88,9 @@ def run_simulation(
         networks[1].export_to_csv_folder(run_dir("output_network"))
         network = networks[1]
 
-    if installed_capacity_variant is not None:
+    solver_status = network.meta.get("solver_status")
+
+    if installed_capacity_variant is not None and solver_status.startswith("ok"):
         df_cap_update = update_installed_capacity_data(
             network,
             variant=installed_capacity_variant,
@@ -163,7 +172,7 @@ def generate_outputs(network, output_plots_dir=None, output_data_dir=None):
             (
                 "electricity",
                 ["electricity in", "electricity out"],
-                ["residual", "vRES"],
+                ["residual", "vRES", "distribution"],
             ),
             (
                 "heat centralised",
@@ -212,6 +221,8 @@ def generate_outputs(network, output_plots_dir=None, output_data_dir=None):
             )
 
     for plot_function in [
+        plot_grid_capacities,
+        plot_grid_capacity_additions,
         plot_curtailed_vres_energy,
         plot_fuel_consumption,
         plot_co2_emissions,

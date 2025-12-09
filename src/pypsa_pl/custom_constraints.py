@@ -1,8 +1,10 @@
 import logging
 
 import pandas as pd
+from pyparsing import col
 from xarray import DataArray
 import numpy as np
+from functools import reduce
 from linopy.expressions import merge
 from pypsa.descriptors import nominal_attrs
 from pypsa.descriptors import get_switchable_as_dense as get_as_dense
@@ -19,9 +21,73 @@ def remove_annual_carrier_demand_constraints(n, carriers):
                 n.model.remove_constraints(constraint)
 
 
+def define_operational_limit_per_area(n, sns):
+    """
+    Based on https://github.com/PyPSA/PyPSA/blob/v0.32.1/pypsa/optimization/global_constraints.py#L319-L384
+
+    Defines operational limit constraints per area and carrier. It applies to generators and links.
+
+    Parameters
+    ----------
+    n : pypsa.Network
+    sns : list-like
+        Set of snapshots to which the constraint should be applied.
+
+    Returns
+    -------
+    None.
+    """
+    m = n.model
+    weightings = n.snapshot_weightings.loc[sns]
+    glcs = n.global_constraints.query('type == "operational_limit_per_area"')
+
+    if n._multi_invest:
+        period_weighting = n.investment_period_weightings.years[sns.unique("period")]
+        weightings = weightings.mul(period_weighting, level=0, axis=0)
+
+    for name, glc in glcs.iterrows():
+        snapshots = (
+            sns
+            if np.isnan(glc.investment_period)
+            else sns[sns.get_loc(glc.investment_period)]
+        )
+        lhs = []
+        rhs = glc.constant
+
+        cond = "(carrier == @glc.carrier_attribute) & (area == @glc.area)"
+
+        # generators
+        gens = n.generators.query(cond)
+        if not gens.empty:
+            p = m["Generator-p"].loc[snapshots, gens.index]
+            w = DataArray(weightings.generators[snapshots])
+            if "dim_0" in w.dims:
+                w = w.rename({"dim_0": "snapshot"})
+            expr = (p * w).sum()
+            lhs.append(expr)
+
+        # links
+        links = n.links.query(cond)
+        if not links.empty:
+            # Negative p0 is positve production at bus0
+            p = -m["Link-p"].loc[snapshots, links.index]
+            w = DataArray(weightings.generators[snapshots])
+            if "dim_0" in w.dims:
+                w = w.rename({"dim_0": "snapshot"})
+            expr = (p * w).sum()
+            lhs.append(expr)
+
+        if not lhs:
+            continue
+
+        lhs = merge(lhs)
+        sign = "=" if glc.sense == "==" else glc.sense
+        m.add_constraints(lhs, sign, rhs, f"GlobalConstraint-{name}")
+
+
 def define_operational_limit_link(n, sns):
     """
-    Based on https://github.com/PyPSA/PyPSA/blob/v0.27.0/pypsa/optimization/global_constraints.py#L312.
+    Based on https://github.com/PyPSA/PyPSA/blob/v0.32.1/pypsa/optimization/global_constraints.py#L319-L384
 
     Defines operational limit constraints. It limits the net production at bus0 of a link.
 
@@ -73,7 +139,7 @@ def define_operational_limit_link(n, sns):
 
 def define_custom_primary_energy_limit(n, sns):
     """
-    Based on https://github.com/PyPSA/PyPSA/blob/v0.27.0/pypsa/optimization/global_constraints.py#L234.
+    Based on https://github.com/PyPSA/PyPSA/blob/v0.32.1/pypsa/optimization/global_constraints.py#L241-L316
     The original version does not include links. This one includes generators and links.
 
     Defines primary energy constraints. It limits the byproducts of primary
@@ -151,7 +217,7 @@ def define_custom_primary_energy_limit(n, sns):
 
 def define_nominal_constraints_per_area_carrier(n, sns):
     """
-    Based on https://github.com/PyPSA/PyPSA/blob/b1e15c7a8244fc00625e0d8c91ba2ebf7de2c8c2/pypsa/optimization/global_constraints.py#L89
+    Based on https://github.com/PyPSA/PyPSA/blob/v0.32.1/pypsa/optimization/global_constraints.py#L94-L175
     Compared to PyPSA's default capacity constraint per bus and carrier it
     (1) works for p_nom at bus0 of links
     (2) includes fixed capacities
@@ -216,20 +282,19 @@ def define_nominal_constraints_per_area_carrier(n, sns):
         ]:
             var = f"{c}-{attr}"
             dim = f"{c}-ext"
-            df = n.df(c)
+            df = n.static(c)
 
-            # TODO: remove when PyPSA upgraded to 0.28.0
-            # https://github.com/PyPSA/PyPSA/pull/880/commits
+            # *** Special case of "PL" area constraints ***
+            # Apply the "PL" area constraints to the summed capacities from all areas with "PL" prefix
+            # This requires that for components in areas with "PL" prefix we have to cerate a duplicate row with area replaced by "PL"
+            df_pl = df[df["area"].str.startswith("PL") & (df["area"] != "PL")].copy()
+            if not df_pl.empty:
+                df_pl["area"] = "PL"
+                df = pd.concat([df, df_pl], axis=0)
             # ***
-            carrier_col = "carrier_original" if c == "Store" else "carrier"
-            # ***
 
-            if carrier_col not in df:
-                continue
-
-            # Fixed capacities
             non_ext_i = n.get_non_extendable_i(c).intersection(
-                df.index[df[carrier_col] == carrier]
+                df.index[df.carrier == carrier]
             )
             if period is not None:
                 non_ext_i = non_ext_i[n.get_active_assets(c, period)[non_ext_i]]
@@ -238,27 +303,55 @@ def define_nominal_constraints_per_area_carrier(n, sns):
             rhs -= nom_fixed.reindex(rhs.index, fill_value=0)
 
             # Extendable capacities
-            ext_i = (
-                n.get_extendable_i(c)
-                .intersection(df.index[df[carrier_col] == carrier])
-                .rename(dim)
-            )
-            if period is not None:
-                ext_i = ext_i[n.get_active_assets(c, period)[ext_i]]
 
-            if ext_i.empty:
-                continue
+            # *** Since mapping is non-unique we need to group by area in two steps
+            for sel in [df["area"] == "PL", df["area"] != "PL"]:
+                df_sel = df[sel]
+                ext_i = (
+                    n.get_extendable_i(c)
+                    .intersection(df_sel.index[df_sel.carrier == carrier])
+                    .rename(dim)
+                )
+                if period is not None:
+                    ext_i = ext_i[n.get_active_assets(c, period)[ext_i]]
 
-            areamap = df.loc[ext_i, "area"].rename(areas.name).to_xarray()
-            expr = m[var].loc[ext_i].groupby(areamap).sum().reindex({areas.name: areas})
-            lhs.append(expr)
+                if ext_i.empty:
+                    continue
+
+                # Create a mapping from index to area
+                areamap = df_sel.loc[ext_i, "area"].rename(areas.name).to_xarray()
+
+                # Group by area and sum the p_nom
+                expr = (
+                    m[var]
+                    .loc[ext_i]
+                    .groupby(areamap)
+                    .sum()
+                    # .reindex({areas.name: areas})
+                )
+                lhs.append(expr)
+            # ***
 
         if not lhs:
             continue
 
+        if col.startswith("nom_max") and (rhs < 0).any():
+            logging.warning(f"Infeasible {col} constraint")
+            logging.warning(rhs[rhs < 0])
+            logging.warning("Setting RHS to 0")
+            rhs.loc[rhs < 0] = 0
+
         lhs = merge(lhs)
-        mask = rhs.notnull()
-        n.model.add_constraints(lhs, sign, rhs, name=f"Area-{col}", mask=mask)
+
+        # *** Apply the constraint only if there are relevant extendable capacities
+        index_lhs = lhs.coords[areas.name].values
+        index_rhs = rhs[rhs.notnull()].index
+        index = index_rhs.intersection(index_lhs)
+        lhs = lhs.reindex({areas.name: index})
+        rhs = rhs.reindex(index)
+        # ***
+
+        n.model.add_constraints(lhs, sign, rhs, name=f"Area-{col}")
 
 
 def define_annual_capacity_utilisation_constraints(n, sns):
@@ -272,8 +365,8 @@ def define_annual_capacity_utilisation_constraints(n, sns):
         attr = f"p_{suffix}_pu"
         attr_annual = f"{attr}_annual"
         for c in ["Generator", "Link"]:
-            components = n.df(c)
-            components_t = n.pnl(c)
+            components = n.static(c)
+            components_t = n.dynamic(c)
 
             if attr_annual not in components.columns:
                 continue
@@ -373,10 +466,10 @@ def define_parent_children_capacity_constraints(n, sns):
         return
     nom = merge(nom, dim=dim_name)
 
-    # Identtify children and formulate constraints
+    # Identify children and formulate constraints
     lhs = []
     for c, nom_attr in nom_attrs.items():
-        components = n.df(c)
+        components = n.static(c)
         children = components[
             components[f"{nom_attr}_extendable"]
             & (components[f"{nom_attr}_max"] > components[f"{nom_attr}_min"])
@@ -423,14 +516,17 @@ def define_fixed_ratios_to_space_heating(n, sns):
     ratios = {}
 
     annual_flows = {
-        carrier: n.global_constraints.loc[
-            n.global_constraints["carrier_attribute"] == f"{carrier} final use",
-            "constant",
-        ].sum()
+        carrier: n.global_constraints[
+            n.global_constraints["carrier_attribute"] == f"{carrier} final use"
+        ]
+        .groupby("area")["constant"]
+        .sum()
         for carrier in ["space heating", "water heating", "other heating"]
     }
-    annual_flows["total heating"] = sum(annual_flows.values())
-    if annual_flows["total heating"] == 0:
+    annual_flows["total heating"] = reduce(
+        lambda a, b: a.add(b, fill_value=0), annual_flows.values()
+    )
+    if (annual_flows["total heating"] == 0).all():
         return
 
     # space heating demand reduction due to building retrofitting
@@ -438,7 +534,9 @@ def define_fixed_ratios_to_space_heating(n, sns):
     retrofits = n.generators[n.generators["carrier"] == "building retrofits"]
     assert (retrofits["p_nom_extendable"] == False).all()
     avoided_space_heating_demand = (
-        n.generators.loc[n.generators["carrier"] == "building retrofits", "p_nom"].sum()
+        n.generators[n.generators["carrier"] == "building retrofits"]
+        .groupby("area")["p_nom"]
+        .sum()
         * n.meta["heat_capacity_utilisation"]
         * 8760
     )
@@ -446,30 +544,33 @@ def define_fixed_ratios_to_space_heating(n, sns):
     # (1a) Water heating - applies to both centralised and decentralised heating
 
     ratios["water heating"] = annual_flows["water heating"] / (
-        annual_flows["space heating"] - avoided_space_heating_demand
+        annual_flows["space heating"].add(-avoided_space_heating_demand, fill_value=0)
     )
 
+    assert ratios["water heating"].notna().all()
+
+    # TODO: the code below is not area-aware; however it is not needed if other heating ratio is not fixed
     # (1b) Other heating - applies to centralised heating only
 
     # If centralised heating share is exogenously specified, use it
     # Otherwise, calculate it from district heating capacity and utilisation
-    centralised_heating_share = n.meta.get("centralised_heating_share", None)
-    if centralised_heating_share is None:
-        centralised_heating = (
-            n.links.loc[n.links["carrier"] == "district heating", "p_nom"].sum()
-            * n.meta["heat_capacity_utilisation"]
-            * 8760
-        )
-        centralised_heating_share = centralised_heating / annual_flows["total heating"]
+    # centralised_heating_share = n.meta.get("centralised_heating_share", None)
+    # if centralised_heating_share is None:
+    #     centralised_heating = (
+    #         n.links.loc[n.links["carrier"] == "district heating", "p_nom"].sum()
+    #         * n.meta["heat_capacity_utilisation"]
+    #         * 8760
+    #     )
+    #     centralised_heating_share = centralised_heating / annual_flows["total heating"]
 
-    centralised_space_and_water_heating = (
-        centralised_heating_share * annual_flows["total heating"]
-        - annual_flows["other heating"]
-    )
-    centralised_space_heating = centralised_space_and_water_heating / (
-        1 + ratios["water heating"]
-    )
-    ratios["other heating"] = annual_flows["other heating"] / centralised_space_heating
+    # centralised_space_and_water_heating = (
+    #     centralised_heating_share * annual_flows["total heating"]
+    #     - annual_flows["other heating"]
+    # )
+    # centralised_space_heating = centralised_space_and_water_heating / (
+    #     1 + ratios["water heating"]
+    # )
+    # ratios["other heating"] = annual_flows["other heating"] / centralised_space_heating
 
     # (2) Apply fixed ratios to heating links
 
@@ -477,55 +578,70 @@ def define_fixed_ratios_to_space_heating(n, sns):
 
     if "Link-p_nom" not in m.variables:
         return
-    
+
     p_nom = m.variables["Link-p_nom"]
 
     parent_techs = {
-        "water heating": ["centralised space heating", "decentralised space heating"],
-        "other heating": ["centralised space heating"],
+        "water heating": [
+            "centralised space heating",
+            "decentralised space heating",
+        ],
+        # "other heating": [
+        #     "centralised space heating",
+        # ],
     }
 
     for carrier in carriers:
 
-        parents = n.links[
-            n.links["technology"].isin(parent_techs[carrier])
-            & n.links["p_nom_extendable"]
-        ].index
-
-        if parents.empty:
-            continue
-
-        def rename_parents_to_children(parents):
-            return parents.str.replace("space heating", carrier)
-
-        children = rename_parents_to_children(parents)
-        assert children.isin(n.links.index).all()
-
-        p_nom_children = p_nom.loc[children]
-        p_nom_parents = p_nom.loc[parents]
-
-        p_nom_parents = p_nom_parents.assign_coords(
-            {"Link-ext": rename_parents_to_children(p_nom_parents.coords["Link-ext"])}
-        )
-
         p_set_pu_annual_parents = n.meta["space_heating_utilisation"]
         p_set_pu_annual_children = n.meta[f"{carrier.replace(' ', '_')}_utilisation"]
 
-        lhs = (
-            p_set_pu_annual_children * p_nom_children
-            - ratios[carrier] * p_set_pu_annual_parents * p_nom_parents
-        )
+        for area, ratio in ratios[carrier].items():
 
-        coord_name = f"Link-ext-{carrier.replace(' ', '_')}"
-        lhs = lhs.rename({"Link-ext": coord_name})
+            parents = n.links[
+                n.links["technology"].isin(parent_techs[carrier])
+                & n.links["p_nom_extendable"]
+                & (n.links["area"] == area)
+            ].index
 
-        m.add_constraints(
-            lhs, "==", 0, name=f"{coord_name}-fixed_ratio_to_space_heating"
-        )
+            if parents.empty:
+                continue
 
-        logging.info(
-            f"Fixed ratio of {carrier} to space heating: {ratios[carrier]:.2f}"
-        )
+            def rename_parents_to_children(parents):
+                return parents.str.replace("space heating", carrier)
+
+            children = rename_parents_to_children(parents)
+            assert children.isin(n.links.index).all()
+
+            p_nom_children = p_nom.loc[children]
+            p_nom_parents = p_nom.loc[parents]
+
+            p_nom_parents = p_nom_parents.assign_coords(
+                {
+                    "Link-ext": rename_parents_to_children(
+                        p_nom_parents.coords["Link-ext"]
+                    )
+                }
+            )
+
+            lhs = (
+                p_set_pu_annual_children * p_nom_children
+                - ratio * p_set_pu_annual_parents * p_nom_parents
+            )
+
+            coord_name = (
+                f"Link-ext-{area.replace(' ', '_')}-{carrier.replace(' ', '_')}"
+            )
+            lhs = lhs.rename({"Link-ext": coord_name})
+
+            m.add_constraints(
+                lhs, "==", 0, name=f"{coord_name}-fixed_ratio_to_space_heating"
+            )
+
+            logging.info(
+                f"Fixed ratio of {carrier} to space heating in {area}: {ratio:.2f}"
+            )
+
         logging.info(f"Removing annual flow constraint for {carrier}")
         remove_annual_carrier_demand_constraints(n, carriers=[carrier])
 
@@ -534,7 +650,6 @@ def define_heating_capacity_utilisation_constraints(n, sns):
 
     assert n.meta["reverse_links"]
 
-    # TODO: including heat decentralised bus for other RES makes the solution infeasible for linopy>=0.3.9
     buses = n.buses[
         n.buses["carrier"].isin(
             [
@@ -596,7 +711,7 @@ def define_heating_capacity_utilisation_constraints(n, sns):
     # TODO: find a non-hard coded solution
     supply = supply[
         ~(
-            supply["qualifier"].str.contains("heat pump bus")
+            supply["bus"].str.contains("heat pump")
             & (
                 supply["technology"].isin(
                     ["resistive heater small", "heat storage small discharge"]
@@ -687,9 +802,13 @@ def define_centralised_heating_share_constraint(n, sns):
 
     assert n.meta["reverse_links"]
 
-    centralised_heating_share = n.meta.get("centralised_heating_share", None)
-    if centralised_heating_share is None:
+    centralised_heating_shares = n.meta.get("centralised_heating_shares", None)
+    if centralised_heating_shares is None:
         return
+
+    centralised_heating_shares = pd.Series(
+        centralised_heating_shares, name="centralised heating share"
+    )
 
     buses = n.buses[n.buses["carrier"] == "heat centralised out"].index
     if buses.empty:
@@ -697,12 +816,19 @@ def define_centralised_heating_share_constraint(n, sns):
 
     # Find heating demand links connected to centralised heat buses
     demand = (n.links[n.links["bus1"].isin(buses)].rename(columns={"bus1": "bus"}))[
-        ["bus", "carrier", "p_nom_extendable"]
+        ["bus", "area", "carrier", "p_nom_extendable"]
     ]
 
     # If heating demand links are non-extendable, this constraint cannot be applied
     if not demand["p_nom_extendable"].all():
         return
+
+    areamap = (
+        demand["area"]
+        .rename("Area-centralised_heating_share")
+        .rename_axis("Link-ext")
+        .to_xarray()
+    )
 
     # (1) Calculate LHS as the total centralised heating output
     lhs = 0
@@ -713,9 +839,14 @@ def define_centralised_heating_share_constraint(n, sns):
 
     m = n.model
     p_nom = m.variables["Link-p_nom"]
-    for carrier in ["space heating", "water heating", "other heating"]:
+    for carrier in [
+        "space heating",
+        "water heating",
+        "other heating",
+    ]:
+        index = demand[carrier].values
         expr = (
-            p_nom.loc[demand[carrier].values].sum()
+            p_nom.loc[index].groupby(areamap.loc[index]).sum()
             * n.meta[f"{carrier.replace(' ', '_')}_utilisation"]
         )
         lhs += expr
@@ -731,29 +862,54 @@ def define_centralised_heating_share_constraint(n, sns):
     # building retrofits need to be exogenously specified
     assert (retrofits["p_nom_extendable"] == False).all()
     if not retrofits.empty:
-        rhs -= retrofits["p_nom"].sum() * n.meta["heat_capacity_utilisation"]
+        rhs -= (
+            retrofits.groupby("area")["p_nom"].sum()
+            * n.meta["heat_capacity_utilisation"]
+        )
 
     # (2) Calculate RHS as the total heating demand times the centralised heating share
-    # Divide by 8760 to have the same units as the LHS
+
     annual_flows = {
-        carrier: n.global_constraints.loc[
-            n.global_constraints["carrier_attribute"] == f"{carrier} final use",
-            "constant",
-        ].sum()
+        carrier: n.global_constraints[
+            n.global_constraints["carrier_attribute"] == f"{carrier} final use"
+        ]
+        .groupby("area")["constant"]
+        .sum()
         for carrier in ["space heating", "water heating", "other heating"]
     }
-    annual_flows["total heating"] = sum(annual_flows.values())
+
+    # *** If we go to voivodeship level, we cannot just sum all the flows, as we leave the model freedom to assign other heating flows to voivodeships
+    # annual_flows["total heating"] = sum(annual_flows.values())
 
     # Centralised heating needs to cover at least the other heating demand
-    min_centralised_heating_share = (
-        annual_flows["other heating"] / annual_flows["total heating"]
-    )
-    assert centralised_heating_share >= min_centralised_heating_share
+    # min_global_centralised_heating_flow = (
+    #     annual_flows["other heating"].sum()
+    # )
 
-    rhs += centralised_heating_share * annual_flows["total heating"] / 8760
+    # assert (centralised_heating_shares * annual_flows["total"]).sum() >= min_global_centralised_heating_flow
+    # ***
+
+    # Divide by 8760 to have the same units as the LHS
+
+    rhs += (
+        centralised_heating_shares
+        * (annual_flows["space heating"] + annual_flows["water heating"])
+        / 8760
+    )
+
+    # (2a) Subtract endogenously determined other heating flows from the LHS
+    index = demand["other heating"].values
+    other_heating_annual_flow = (
+        p_nom.loc[index].groupby(areamap.loc[index]).sum()
+        * n.meta["other_heating_utilisation"]
+        * 8760
+    )
+    lhs -= centralised_heating_shares * other_heating_annual_flow / 8760
 
     # (3) Add constraint
-    m.add_constraints(lhs, "==", rhs, name="centralised_heating_share")
+    rhs.index.name = "Area-centralised_heating_share"
+
+    m.add_constraints(lhs, "==", rhs, name="Area-centralised_heating_share")
 
 
 def define_non_heating_capacity_utilisation_constraints(n, sns):
@@ -948,7 +1104,7 @@ def define_minimum_synchronous_generation(n, sns):
     m = n.model
     # Find components supplying to electricity buses (Stores not included)
     for component, bus in [("Generator", "bus"), ("Link", "bus0")]:
-        df = n.df(component)
+        df = n.static(component)
         df = df[df[bus].isin(buses) & df["carrier"].isin(synchronous_carriers)]
         if component == "Generator":
             sign = 1
@@ -962,3 +1118,98 @@ def define_minimum_synchronous_generation(n, sns):
     m.add_constraints(
         lhs, ">=", p_min_synchronous, name="synchronous_generation_constraint"
     )
+
+
+def define_proportional_expansion_constraint(n, sns, allowed_ratio_deviation=0.01):
+
+    # Expansion of capacities in areas that are not macroareas are proprotional to unused potential
+
+    proportional_expansion = n.meta.get("proportional_expansion", None)
+    if proportional_expansion is None:
+        return
+
+    m = n.model
+    # Constraint works for areas of "PL *" format
+    df_nom_max = n.areas.loc[
+        n.areas.index.str.startswith("PL "),
+        n.areas.columns.str.startswith("nom_max_"),
+    ]
+    name = "Area-proportional_expansion"
+
+    for carrier in proportional_expansion:
+
+        if f"nom_max_{carrier}" not in df_nom_max.columns:
+            continue
+
+        nom_max = df_nom_max[f"nom_max_{carrier}"]
+        # We need potentials per each area
+        if nom_max.isna().any():
+            continue
+
+        nom_existing = 0
+        nom_ext = 0
+
+        for c, attr in [
+            ("Generator", "p_nom"),
+            ("Link", "p_nom"),
+            ("Store", "e_nom"),
+        ]:
+            var = f"{c}-{attr}"
+            dim = f"{c}-ext"
+            df = n.static(c)
+
+            sel = df.carrier == carrier
+
+            non_ext_i = n.get_non_extendable_i(c).intersection(df.index[sel])
+            nom_existing += (
+                df.loc[non_ext_i]
+                .groupby("area")[attr]
+                .sum()
+                .reindex(nom_max.index, fill_value=0)
+            )
+
+            ext_i = n.get_extendable_i(c).intersection(df.index[sel]).rename(dim)
+            if ext_i.empty:
+                continue
+
+            areamap = df.loc[ext_i, "area"].rename(name).to_xarray()
+            nom_ext += m[var].loc[ext_i].groupby(areamap).sum()
+
+        nom_available = (nom_max - nom_existing).rename(name).rename_axis(name)
+
+        if (nom_available < 0).any():
+            logging.warning(
+                f"Potential of {carrier} in some areas is exceeded, setting potential to 0."
+            )
+            nom_available.loc[nom_available < 0] = 0
+
+        ratios = nom_available / nom_available.sum()
+        ratios_min = np.maximum(ratios - allowed_ratio_deviation, 0)
+        ratios_max = np.minimum(ratios + allowed_ratio_deviation, 1)
+
+        # # Define reference area for normalisation as the one with the largest potential
+        # area_ref = nom_available.idxmax()
+        # # Set the ratios min/max of capacities in other areas to the reference area
+        # ratios_to_ref_min = ratios_min / ratios_max[area_ref]
+        # ratios_to_ref_max = ratios_max / ratios_min[area_ref]
+
+        nom_ext_sum = nom_ext.sum()
+
+        for sign, ratios in [
+            (">=", ratios_min),
+            ("<=", ratios_max),
+        ]:
+            lhs = nom_ext - ratios.to_xarray() * nom_ext_sum
+            # Drop constraints for reference area and areas with ratio zero or one
+            index = ratios[
+                (ratios != 0) & (ratios != 1)
+                # & (ratios.index != area_ref)
+            ].index
+            lhs = lhs.reindex({name: index})
+
+            m.add_constraints(
+                lhs,
+                sign,
+                0,
+                name=f"Area-proportional_expansion-{'min' if sign == '>=' else 'max'}-{carrier}",
+            )

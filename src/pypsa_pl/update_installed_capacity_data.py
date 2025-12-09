@@ -27,45 +27,83 @@ def update_installed_capacity_data(
         ("Generator", "p_nom"),
         ("Link", "p_nom"),
         ("Store", "e_nom"),
+        ("Line", "s_nom"),
     ]:
         df_c = (
             network.df(component)
             .reset_index(names=["name_in_network"])
             .rename(columns={f"{nom_attr}_opt": "nom_opt"})
         )
-        df_c = df_c[df_c[f"{nom_attr}_extendable"]]
+        # df_c = df_c[df_c[f"{nom_attr}_extendable"]]
         df_c["cumulative"] = df_c["lifetime"] == 1
         df_c = df_c[
             [
                 "name_in_network",
-                "area",
-                "technology",
-                "qualifier",
-                "build_year",
-                "cumulative",
+                # "area",
+                # "technology",
+                # "qualifier",
+                # "bus_qualifier",
+                # "bus_from_qualifier",
+                # "bus2_qualifier",
+                # "build_year",
+                # "cumulative",
                 "nom_opt",
+                # "length",
             ]
         ]
         dfs.append(df_c)
 
     df_c = pd.concat(dfs)
-    for attr in ["qualifier"]:
-        df[attr] = df[attr].fillna("")
-        df_c[attr] = df_c[attr].fillna("")
+    # for attr in [
+    #     "qualifier",
+    #     # "bus_qualifier",
+    #     # "bus_from_qualifier",
+    #     # "bus2_qualifier",
+    #     # "length",
+    # ]:
+    #     df[attr] = df[attr].fillna("")
+    #     df_c[attr] = df_c[attr].fillna("")
 
-    df_c["qualifier"] = df_c["qualifier"].replace("prosumer", "")
+    # df_c["qualifier"] = df_c["qualifier"].replace("prosumer", "")
 
     df = df.merge(
         df_c,
         how="left",
-        on=["area", "technology", "qualifier", "build_year", "cumulative"],
+        left_on="name",
+        right_on="name_in_network",
+        # on=[
+        #     "area",
+        #     "technology",
+        #     "qualifier",
+        #     # "bus_qualifier",
+        #     # "bus_from_qualifier",
+        #     # "bus2_qualifier",
+        #     "build_year",
+        #     "cumulative",
+        #     # "length",
+        # ],
     )
 
-    df["nom"] = df["nom_opt"].abs().round(0).fillna(df["nom"]).replace(inf, np.inf)
-    df["name"] = df["name"].fillna(df["name_in_network"])
+    df["nom"] = df["nom_opt"].round(1).fillna(df["nom"]).replace(inf, np.inf)
+    
+    
+    # df["nom"] = (
+    #     df["nom_opt"]
+    #     .apply(lambda x: x if x >= 0.5 else 0)
+    #     .round(1)
+    #     .fillna(df["nom"])
+    #     .replace(inf, np.inf)
+    # )
+    # df["name"] = df["name"].fillna(df["name_in_network"])
 
-    for attr in ["qualifier"]:
-        df[attr] = df[attr].replace("", pd.NA)
+    # for attr in [
+    #     "qualifier",
+    #     # "bus_qualifier",
+    #     # "bus_from_qualifier",
+    #     # "bus2_qualifier",
+    #     # "length",
+    # ]:
+    #     df[attr] = df[attr].replace("", pd.NA)
 
     df = df.drop(columns=["name_in_network", "nom_opt"])
 

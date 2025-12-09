@@ -1,0 +1,151 @@
+area,carrier,year,attribute,value
+PL dolnośląskie,solar PV ground,2030,nom_max,420
+PL kujawsko-pomorskie,solar PV ground,2030,nom_max,3630
+PL lubelskie,solar PV ground,2030,nom_max,7270
+PL lubuskie,solar PV ground,2030,nom_max,1060
+PL łódzkie,solar PV ground,2030,nom_max,1860
+PL małopolskie,solar PV ground,2030,nom_max,320
+PL mazowieckie,solar PV ground,2030,nom_max,8960
+PL opolskie,solar PV ground,2030,nom_max,2500
+PL podkarpackie,solar PV ground,2030,nom_max,1750
+PL podlaskie,solar PV ground,2030,nom_max,2680
+PL pomorskie,solar PV ground,2030,nom_max,2820
+PL śląskie,solar PV ground,2030,nom_max,2330
+PL świętokrzyskie,solar PV ground,2030,nom_max,330
+PL warmińsko-mazurskie,solar PV ground,2030,nom_max,5410
+PL wielkopolskie,solar PV ground,2030,nom_max,3340
+PL zachodniopomorskie,solar PV ground,2030,nom_max,2720
+PL dolnośląskie,solar PV roof,2030,nom_max,3450
+PL kujawsko-pomorskie,solar PV roof,2030,nom_max,2360
+PL lubelskie,solar PV roof,2030,nom_max,3080
+PL lubuskie,solar PV roof,2030,nom_max,2160
+PL łódzkie,solar PV roof,2030,nom_max,1250
+PL małopolskie,solar PV roof,2030,nom_max,5370
+PL mazowieckie,solar PV roof,2030,nom_max,5330
+PL opolskie,solar PV roof,2030,nom_max,1590
+PL podkarpackie,solar PV roof,2030,nom_max,3600
+PL podlaskie,solar PV roof,2030,nom_max,960
+PL pomorskie,solar PV roof,2030,nom_max,2790
+PL śląskie,solar PV roof,2030,nom_max,5960
+PL świętokrzyskie,solar PV roof,2030,nom_max,1640
+PL warmińsko-mazurskie,solar PV roof,2030,nom_max,1440
+PL wielkopolskie,solar PV roof,2030,nom_max,5670
+PL zachodniopomorskie,solar PV roof,2030,nom_max,1400
+PL pomorskie,wind offshore,2030,nom_max,6030
+PL zachodniopomorskie,wind offshore,2030,nom_max,0
+PL dolnośląskie,wind onshore,2030,nom_max,840
+PL kujawsko-pomorskie,wind onshore,2030,nom_max,7650
+PL lubelskie,wind onshore,2030,nom_max,2020
+PL lubuskie,wind onshore,2030,nom_max,560
+PL łódzkie,wind onshore,2030,nom_max,2300
+PL małopolskie,wind onshore,2030,nom_max,50
+PL mazowieckie,wind onshore,2030,nom_max,3920
+PL opolskie,wind onshore,2030,nom_max,400
+PL podkarpackie,wind onshore,2030,nom_max,700
+PL podlaskie,wind onshore,2030,nom_max,2400
+PL pomorskie,wind onshore,2030,nom_max,4650
+PL śląskie,wind onshore,2030,nom_max,140
+PL świętokrzyskie,wind onshore,2030,nom_max,70
+PL warmińsko-mazurskie,wind onshore,2030,nom_max,5460
+PL wielkopolskie,wind onshore,2030,nom_max,4060
+PL zachodniopomorskie,wind onshore,2030,nom_max,8120
+PL dolnośląskie,solar PV ground,2035,nom_max,420
+PL kujawsko-pomorskie,solar PV ground,2035,nom_max,3630
+PL lubelskie,solar PV ground,2035,nom_max,7270
+PL lubuskie,solar PV ground,2035,nom_max,1060
+PL łódzkie,solar PV ground,2035,nom_max,1860
+PL małopolskie,solar PV ground,2035,nom_max,320
+PL mazowieckie,solar PV ground,2035,nom_max,8960
+PL opolskie,solar PV ground,2035,nom_max,2500
+PL podkarpackie,solar PV ground,2035,nom_max,1750
+PL podlaskie,solar PV ground,2035,nom_max,2680
+PL pomorskie,solar PV ground,2035,nom_max,2820
+PL śląskie,solar PV ground,2035,nom_max,2330
+PL świętokrzyskie,solar PV ground,2035,nom_max,330
+PL warmińsko-mazurskie,solar PV ground,2035,nom_max,5410
+PL wielkopolskie,solar PV ground,2035,nom_max,3340
+PL zachodniopomorskie,solar PV ground,2035,nom_max,2720
+PL dolnośląskie,solar PV roof,2035,nom_max,3450
+PL kujawsko-pomorskie,solar PV roof,2035,nom_max,2360
+PL lubelskie,solar PV roof,2035,nom_max,3080
+PL lubuskie,solar PV roof,2035,nom_max,2160
+PL łódzkie,solar PV roof,2035,nom_max,1250
+PL małopolskie,solar PV roof,2035,nom_max,5370
+PL mazowieckie,solar PV roof,2035,nom_max,5330
+PL opolskie,solar PV roof,2035,nom_max,1590
+PL podkarpackie,solar PV roof,2035,nom_max,3600
+PL podlaskie,solar PV roof,2035,nom_max,960
+PL pomorskie,solar PV roof,2035,nom_max,2790
+PL śląskie,solar PV roof,2035,nom_max,5960
+PL świętokrzyskie,solar PV roof,2035,nom_max,1640
+PL warmińsko-mazurskie,solar PV roof,2035,nom_max,1440
+PL wielkopolskie,solar PV roof,2035,nom_max,5670
+PL zachodniopomorskie,solar PV roof,2035,nom_max,1400
+PL pomorskie,wind offshore,2035,nom_max,14400
+PL zachodniopomorskie,wind offshore,2035,nom_max,3600
+PL dolnośląskie,wind onshore,2035,nom_max,840
+PL kujawsko-pomorskie,wind onshore,2035,nom_max,7650
+PL lubelskie,wind onshore,2035,nom_max,2020
+PL lubuskie,wind onshore,2035,nom_max,560
+PL łódzkie,wind onshore,2035,nom_max,2300
+PL małopolskie,wind onshore,2035,nom_max,50
+PL mazowieckie,wind onshore,2035,nom_max,3920
+PL opolskie,wind onshore,2035,nom_max,400
+PL podkarpackie,wind onshore,2035,nom_max,700
+PL podlaskie,wind onshore,2035,nom_max,2400
+PL pomorskie,wind onshore,2035,nom_max,4650
+PL śląskie,wind onshore,2035,nom_max,140
+PL świętokrzyskie,wind onshore,2035,nom_max,70
+PL warmińsko-mazurskie,wind onshore,2035,nom_max,5460
+PL wielkopolskie,wind onshore,2035,nom_max,4060
+PL zachodniopomorskie,wind onshore,2035,nom_max,8120
+PL dolnośląskie,solar PV ground,2040,nom_max,420
+PL kujawsko-pomorskie,solar PV ground,2040,nom_max,3630
+PL lubelskie,solar PV ground,2040,nom_max,7270
+PL lubuskie,solar PV ground,2040,nom_max,1060
+PL łódzkie,solar PV ground,2040,nom_max,1860
+PL małopolskie,solar PV ground,2040,nom_max,320
+PL mazowieckie,solar PV ground,2040,nom_max,8960
+PL opolskie,solar PV ground,2040,nom_max,2500
+PL podkarpackie,solar PV ground,2040,nom_max,1750
+PL podlaskie,solar PV ground,2040,nom_max,2680
+PL pomorskie,solar PV ground,2040,nom_max,2820
+PL śląskie,solar PV ground,2040,nom_max,2330
+PL świętokrzyskie,solar PV ground,2040,nom_max,330
+PL warmińsko-mazurskie,solar PV ground,2040,nom_max,5410
+PL wielkopolskie,solar PV ground,2040,nom_max,3340
+PL zachodniopomorskie,solar PV ground,2040,nom_max,2720
+PL dolnośląskie,solar PV roof,2040,nom_max,3450
+PL kujawsko-pomorskie,solar PV roof,2040,nom_max,2360
+PL lubelskie,solar PV roof,2040,nom_max,3080
+PL lubuskie,solar PV roof,2040,nom_max,2160
+PL łódzkie,solar PV roof,2040,nom_max,1250
+PL małopolskie,solar PV roof,2040,nom_max,5370
+PL mazowieckie,solar PV roof,2040,nom_max,5330
+PL opolskie,solar PV roof,2040,nom_max,1590
+PL podkarpackie,solar PV roof,2040,nom_max,3600
+PL podlaskie,solar PV roof,2040,nom_max,960
+PL pomorskie,solar PV roof,2040,nom_max,2790
+PL śląskie,solar PV roof,2040,nom_max,5960
+PL świętokrzyskie,solar PV roof,2040,nom_max,1640
+PL warmińsko-mazurskie,solar PV roof,2040,nom_max,1440
+PL wielkopolskie,solar PV roof,2040,nom_max,5670
+PL zachodniopomorskie,solar PV roof,2040,nom_max,1400
+PL pomorskie,wind offshore,2040,nom_max,25100
+PL zachodniopomorskie,wind offshore,2040,nom_max,6100
+PL dolnośląskie,wind onshore,2040,nom_max,840
+PL kujawsko-pomorskie,wind onshore,2040,nom_max,7650
+PL lubelskie,wind onshore,2040,nom_max,2020
+PL lubuskie,wind onshore,2040,nom_max,560
+PL łódzkie,wind onshore,2040,nom_max,2300
+PL małopolskie,wind onshore,2040,nom_max,50
+PL mazowieckie,wind onshore,2040,nom_max,3920
+PL opolskie,wind onshore,2040,nom_max,400
+PL podkarpackie,wind onshore,2040,nom_max,700
+PL podlaskie,wind onshore,2040,nom_max,2400
+PL pomorskie,wind onshore,2040,nom_max,4650
+PL śląskie,wind onshore,2040,nom_max,140
+PL świętokrzyskie,wind onshore,2040,nom_max,70
+PL warmińsko-mazurskie,wind onshore,2040,nom_max,5460
+PL wielkopolskie,wind onshore,2040,nom_max,4060
+PL zachodniopomorskie,wind onshore,2040,nom_max,8120

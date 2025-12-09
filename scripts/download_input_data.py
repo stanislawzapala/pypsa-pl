@@ -34,27 +34,37 @@ urls = {
 
 
 def download_input_data():
+    # Uncomment needed datasets
     for name, variant in [
-        # technology_carrier_definitions
-        ("technology_carrier_definitions", "full"),
-        ("technology_carrier_definitions", "mini"),
-        # technology_cost_data
-        ("technology_cost_data", "instrat_2024"),
-        # installed_capacity
-        ("installed_capacity", "historical_totals"),
-        ("installed_capacity", "historical+instrat_projection"),
-        ("installed_capacity", "neighbours"),
-        # annual_energy_flows
-        ("annual_energy_flows", "historical"),
-        ("annual_energy_flows", "instrat_projection"),
-        ("annual_energy_flows", "constraints"),
-        ("annual_energy_flows", "neighbours"),
-        # capacity_utilisation
-        ("capacity_utilisation", "historical"),
-        ("capacity_utilisation", "instrat_projection"),
-        ("capacity_utilisation", "neighbours"),
-        # capacity_addition_potentials
-        ("capacity_addition_potentials", "instrat_projection"),
+        # # *** technology_carrier_definitions
+        # ("technology_carrier_definitions", "full"),
+        # # *** technology_cost_data
+        # ("technology_cost_data", "instrat_2025"),
+        # # *** installed_capacity
+        # ("installed_capacity", "historical_totals"),
+        # ("installed_capacity", "historical_totals_voivodeships"),
+        # ("installed_capacity", "transmission_grid_voivodeships"),
+        # ("installed_capacity", "historical+instrat_projection"),
+        # ("installed_capacity", "historical+instrat_projection_voivodeships"),
+        # ("installed_capacity", "neighbours"),
+        # ("installed_capacity", "interconnectors"),
+        # ("installed_capacity", "interconnectors_voivodeships"),
+        # # *** annual_energy_flows
+        # ("annual_energy_flows", "historical"),
+        # ("annual_energy_flows", "historical_voivodeships"),
+        # ("annual_energy_flows", "instrat_projection"),
+        # ("annual_energy_flows", "instrat_projection_voivodeships"),
+        # ("annual_energy_flows", "constraints"),
+        # ("annual_energy_flows", "neighbours"),
+        # # *** capacity_utilisation
+        # ("capacity_utilisation", "historical"),
+        # ("capacity_utilisation", "instrat_projection"),
+        # ("capacity_utilisation", "neighbours"),
+        # # *** capacity_addition_potentials
+        # ("capacity_addition_potentials", "instrat_projection"),
+        # ("capacity_addition_potentials", "instrat_res_potentials"),
+        # ("capacity_addition_potentials", "instrat_res_potentials_voivodeships"),
+        # ("capacity_addition_potentials", "instrat_other_potentials_voivodeships")
     ]:
         df = gsheet_to_df(urls[name], sheet_name=variant)
         df = ignore_commented_rows_columns(df)

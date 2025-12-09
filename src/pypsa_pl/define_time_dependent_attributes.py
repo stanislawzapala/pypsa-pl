@@ -10,10 +10,13 @@ def define_time_dependent_attributes(df_cap, params):
 
     # (1a) Electricity final use profiles - p_set
     electricity_final_use_df = df_cap.loc[
-        df_cap["carrier"] == "electricity final use", index[:-1]
+        df_cap["carrier"].str.startswith("electricity")
+        & df_cap["carrier"].str.endswith("final use"),
+        index[:-1],
     ].drop_duplicates()
     for vals in electricity_final_use_df.itertuples(index=False):
-        df.loc[(*vals, "p_set"), :] = ["electricity final use load profile"]
+        carrier = vals[0]
+        df.loc[(*vals, "p_set"), :] = [f"{carrier} load profile"]
 
     # # (1b) Fuel final use profiles - p_set
     # if "p_set_annual" in df_cap.columns:
@@ -112,11 +115,17 @@ def define_time_dependent_attributes(df_cap, params):
 
     # (7a) Availability of BEV charger / V2G
     bev_charger_df = df_cap.loc[
-        df_cap["carrier"].isin(["BEV charger", "BEV V2G"]), index[:-1]
+        df_cap["carrier"].isin(["BEV charger"]), index[:-1]
+    ].drop_duplicates()
+    bev_v2g_df = df_cap.loc[
+        df_cap["carrier"].isin(["BEV V2G"]), index[:-1]
     ].drop_duplicates()
     for vals in bev_charger_df.itertuples(index=False):
         df.loc[(*vals, "p_max_pu"), :] = ["BEV charger max output pu profile"]
         df.loc[(*vals, "p_min_pu"), :] = ["BEV charger min output pu profile"]
+    for vals in bev_v2g_df.itertuples(index=False):
+        df.loc[(*vals, "p_max_pu"), :] = ["BEV charger max output pu profile"]
+        # No p_min_pu for V2G as there is no inflexible use component
 
     # (7b) Max state of charge for BEV battery
     bev_battery_df = df_cap.loc[

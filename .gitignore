@@ -7,6 +7,7 @@ data/raw/*
 HiGHS.log
 highs_options.txt
 sync.sh
+solver.log
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,latex,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,jupyternotebooks,latex,visualstudiocode,vim

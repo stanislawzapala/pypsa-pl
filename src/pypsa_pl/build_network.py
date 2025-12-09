@@ -3,8 +3,9 @@ import numpy as np
 import pypsa
 import logging
 
-from pypsa_pl.helper_functions import ignore_user_warnings
+from pypsa_pl.helper_functions import ignore_user_warnings, ignore_future_warnings
 from pypsa_pl.config import data_dir
+from pypsa_pl.custom_line_types import add_custom_line_types
 from pypsa_pl.make_time_profiles import set_snapshot_index, make_profile_funcs
 from pypsa_pl.mathematical_operations import calculate_annuity
 
@@ -54,15 +55,13 @@ def load_and_preprocess_inputs(params, custom_operation=None):
         inputs = custom_operation(inputs, params)
 
     # Pivot df_tech to wide format
-    df_tech = (
-        inputs["technology_cost_data"]
-        .pivot(
-            index=["technology", "technology_year"],
-            columns="parameter",
-            values="value",
-        )
-        .reset_index()
+    df_tech = inputs["technology_cost_data"].pivot(
+        index=["technology", "technology_year"],
+        columns="parameter",
+        values="value",
     )
+    # Convert values to floats if possible
+    df_tech = df_tech.apply(pd.to_numeric, errors="ignore").reset_index()
 
     # Get co2_cost from df_tech
     df_co2_cost = df_tech[["technology_year", "co2_cost"]].dropna()
@@ -107,6 +106,9 @@ def load_and_preprocess_inputs(params, custom_operation=None):
     is_constant = ~df_final_use["carrier"].isin(
         [
             "electricity final use",
+            "electricity EHV final use",
+            "electricity HMV final use",
+            "electricity LV final use",
             "hydrogen final use",
             "light vehicle mobility final use",
             "space heating final use",
@@ -133,7 +135,7 @@ def create_custom_network(params):
     components.loc["Area"] = ["areas", "geographical location", np.nan]
 
     # Get default component attributes
-    attrs = pypsa.descriptors.Dict(
+    attrs = pypsa.definitions.structures.Dict(
         {k: v.copy() for k, v in pypsa.components.component_attrs.items()}
     )
     # Define custom atributes
@@ -171,20 +173,20 @@ def create_custom_network(params):
             "geographical location to which constraint is applied",
             "Input (required)",
         ]
-    for component in ["Bus", "Generator", "Link", "Store"]:
+    for component in ["Bus", "Generator", "Link", "Line", "Store"]:
         attrs[component].loc["area"] = [
             "string",
             np.nan,
             np.nan,
-            "geographical location of an asset or a bus",
+            "geographical location of an asset or a bus (output area for lines and links connecting two different areas)",
             "Input (required)",
         ]
-        if component == "Link":
-            attrs[component].loc["area2"] = [
+        if component in ["Link", "Line"]:
+            attrs[component].loc["area_from"] = [
                 "string",
                 np.nan,
                 np.nan,
-                "output area of a link if it connects two different areas",
+                "input area of a line or a link if it connects two different areas",
                 "Input (optional)",
             ]
         attrs[component].loc["qualifier"] = [
@@ -194,7 +196,7 @@ def create_custom_network(params):
             "extra details about an asset or a bus influencing its modelled behaviour",
             "Input (optional)",
         ]
-    for component in ["Generator", "Link", "Store"]:
+    for component in ["Generator", "Link", "Line", "Store"]:
         attrs[component].loc["technology"] = [
             "string",
             np.nan,
@@ -209,39 +211,48 @@ def create_custom_network(params):
             "aggregation category",
             "Input (optional)",
         ]
-        attrs[component].loc["variable_cost"] = [
-            "static or series",
-            "currency/MWh",
-            0,
-            "variable cost of production, excluding CO2 cost",
-            "Input (optional)",
-        ]
-        attrs[component].loc["co2_cost"] = [
-            "static or series",
-            "currency/MWh",
-            0,
-            "CO2 cost component of variable cost of production",
-            "Input (optional)",
-        ]
+        if component == "Link":
+            attrs[component].loc["length"] = [
+                "float",
+                "km",
+                np.nan,
+                "length of the link in km (optional, used for DC lines)",
+                "Input (optional)",
+            ]
+        if component != "Line":
+            attrs[component].loc["variable_cost"] = [
+                "static or series",
+                "currency/MWh",
+                0,
+                "variable cost of production, excluding CO2 cost",
+                "Input (optional)",
+            ]
+            attrs[component].loc["co2_cost"] = [
+                "static or series",
+                "currency/MWh",
+                0,
+                "CO2 cost component of variable cost of production",
+                "Input (optional)",
+            ]
         attrs[component].loc["fixed_cost"] = [
             "float",
             "currency/MW",
             0,
-            "fixed annual O&M cost of maintaining 1 MW of capacity",
+            "fixed annual O&M cost of maintaining 1 MW (or 1 MWkm) of capacity",
             "Input (optional)",
         ]
         attrs[component].loc["investment_cost"] = [
             "float",
             "currency/MW",
             0,
-            "total overnight investment cost of extending capacity by 1 MW",
+            "total overnight investment cost of extending capacity by 1 MW (or 1 MWkm)",
             "Input (optional)",
         ]
         attrs[component].loc["annual_investment_cost"] = [
             "float",
             "currency/MW",
             0,
-            "annualised investment cost of extending capacity by 1 MW",
+            "annualised investment cost of extending capacity by 1 MW (or 1 MWkm)",
             "Input (optional)",
         ]
         attrs[component].loc["parent"] = [
@@ -302,6 +313,8 @@ def create_custom_network(params):
     )
     network.name = params["run_name"]
     network.meta = params
+    # Add custom line types
+    add_custom_line_types(network)
 
     return network
 
@@ -353,64 +366,29 @@ def add_carriers(network, inputs, params):
 
     df = df.drop(columns="technology").groupby("carrier").first()
 
-    network.mremove("Carrier", network.carriers.index)
-    network.import_components_from_dataframe(df, "Carrier")
+    network.remove("Carrier", network.carriers.index)
+    network.add("Carrier", df.index, **df)
 
 
 def determine_bus_qualifiers(df):
-    bus_qualifiers = ["output_qualifier", "input_qualifier", "bus_qualifier"]
-
-    has_to_and_from_qualifier = df["qualifier"].str.startswith(
-        ("to and from ", "from and to "), na=False
-    ) & df["qualifier"].str.endswith(" bus", na=False)
-    has_to_qualifier = (
-        df["qualifier"].str.startswith("to ", na=False)
-        & df["qualifier"].str.endswith(" bus", na=False)
-        & ~has_to_and_from_qualifier
-    )
-    has_from_qualifier = (
-        df["qualifier"].str.startswith("from ", na=False)
-        & df["qualifier"].str.endswith(" bus", na=False)
-        & ~has_to_and_from_qualifier
-    )
-
-    qualifier = df.loc[has_to_and_from_qualifier, "qualifier"].str[
-        len("to and from ") : -len(" bus")
+    # Capacities with output carrier
+    has_output_carrier = df["output_carrier"].notna()
+    df.loc[has_output_carrier, "output_qualifier"] = df.loc[
+        has_output_carrier, "bus_qualifier"
     ]
-    for attr in bus_qualifiers:
-        df.loc[has_to_and_from_qualifier, attr] = qualifier
-    df.loc[has_to_qualifier, "output_qualifier"] = df.loc[
-        has_to_qualifier, "qualifier"
-    ].str[len("to ") : -len(" bus")]
-    df.loc[has_from_qualifier, "input_qualifier"] = df.loc[
-        has_from_qualifier, "qualifier"
-    ].str[len("from ") : -len(" bus")]
-
-    # Attribute fuel-based bus qualifiers to output2 (heat) of CHP units
-    # TODO: find way to specify bus2 qualifiers in the input data
-    is_chp_and_has_output2 = (
-        df["technology"].str.contains("CHP") & df["output2_carrier"].notna()
-    )
-    df.loc[is_chp_and_has_output2, "output2_qualifier"] = df.loc[
-        is_chp_and_has_output2, "output_qualifier"
-    ].fillna(
-        df.loc[is_chp_and_has_output2, "input_carrier"].map(
-            {
-                "hard coal": "hard coal",
-                "natural gas": "natural gas",
-                "biomass wood": "biomass and biogas",
-                "biomass agriculture": "biomass and biogas",
-                "biogas": "biomass and biogas",
-                "other fuel": "other",
-            }
-        )
-    )
-    df.loc[is_chp_and_has_output2, "output_qualifier"] = np.nan
-
-    for attr in bus_qualifiers:
-        if attr not in df.columns:
-            df[attr] = np.nan
-
+    # Capacities with input carrier
+    has_input_carrier = df["input_carrier"].notna()
+    df.loc[has_input_carrier, "input_qualifier"] = df.loc[
+        has_input_carrier, "bus_from_qualifier"
+    ]
+    # Capacities with output2 carrier
+    has_output_carrier = df["output2_carrier"].notna()
+    df.loc[has_output_carrier, "output2_qualifier"] = df.loc[
+        has_output_carrier, "bus2_qualifier"
+    ]
+    # Only capacities with bus carrier can keep bus qualifier at the end
+    has_bus_carrier = df["bus_carrier"].notna()
+    df.loc[~has_bus_carrier, "bus_qualifier"] = np.nan
     return df
 
 
@@ -418,8 +396,17 @@ def add_buses_and_areas(network, inputs, params):
 
     df_cap = inputs["installed_capacity"]
     df_carr = inputs["technology_carrier_definitions"]
-    # List all technology and area combinations present in the capacities
-    df = df_cap[["technology", "area", "qualifier"]].drop_duplicates()
+    # List all technology, area, and bus qualifier combinations present in the capacities
+    df = df_cap[
+        [
+            "technology",
+            "area",
+            "area_from",
+            "bus_qualifier",
+            "bus_from_qualifier",
+            "bus2_qualifier",
+        ]
+    ].drop_duplicates()
 
     # Combine with bus carriers of techs input and output buses
     bus_carrier_columns = [
@@ -434,17 +421,30 @@ def add_buses_and_areas(network, inputs, params):
 
     # Determine bus qualifiers
     df = determine_bus_qualifiers(df)
-    df = df.drop(columns="qualifier")
 
     # Identify all unique area, bus carrier, and bus qualifier combinations
-    df = pd.concat(
+    # Destination buses (area, bus, bus2)
+    df_to = pd.concat(
         [
             df[["area", col, col.replace("carrier", "qualifier")]]
-            .rename(columns=lambda x: x if x == "area" else x.split("_")[1])
+            .rename(columns=lambda x: "area" if x == "area" else x.split("_")[1])
             .dropna(subset=["carrier"])
-            for col in bus_carrier_columns
+            for col in ["bus_carrier", "output_carrier", "output2_carrier"]
         ]
-    ).drop_duplicates()
+    )
+
+    # Origin buses (area_from, bus_from)
+    df["area_from"] = df["area_from"].fillna(df["area"])
+    df_from = pd.concat(
+        [
+            df[["area_from", col, col.replace("carrier", "qualifier")]]
+            .rename(columns=lambda x: "area" if x == "area_from" else x.split("_")[1])
+            .dropna(subset=["carrier"])
+            for col in ["bus_carrier", "input_carrier"]
+        ]
+    )
+
+    df = pd.concat([df_to, df_from]).drop_duplicates()
 
     # Define bus names
     df["bus"] = df["area"] + " " + df["carrier"]
@@ -452,14 +452,21 @@ def add_buses_and_areas(network, inputs, params):
     df.loc[has_qualifier, "bus"] += " " + df.loc[has_qualifier, "qualifier"]
     df = df.sort_values("bus")
 
-    network.mremove("Bus", network.buses.index)
-    network.import_components_from_dataframe(df.set_index("bus"), "Bus")
+    # Define voltage level for EHV buses (400 kV)
+    df["v_nom"] = 1.0  # default value
+    df.loc[df["qualifier"] == "EHV", "v_nom"] = 400.0
+
+    network.remove("Bus", network.buses.index)
+    network.add("Bus", df.set_index("bus").index, **df.set_index("bus"))
 
     # Unique areas
-    df = df[["area"]].drop_duplicates().sort_values("area")
+    df = df[["area"]].copy()
+    # Always add "PL" area
+    df = pd.concat([df, pd.DataFrame([["PL"]], columns=["area"])], ignore_index=True)
+    df = df.drop_duplicates().sort_values("area")
 
-    network.mremove("Area", network.areas.index)
-    network.import_components_from_dataframe(df.set_index("area"), "Area")
+    network.remove("Area", network.areas.index)
+    network.add("Area", df.set_index("area").index, **df.set_index("area"))
 
 
 def process_capacity_data(inputs, params):
@@ -492,6 +499,7 @@ def process_capacity_data(inputs, params):
     )
 
     df = determine_bus_qualifiers(df)
+    df = df.drop(columns=["bus_from_qualifier", "bus2_qualifier"])
 
     # (1) Generators
     is_gen = df["component"] == "Generator"
@@ -516,32 +524,38 @@ def process_capacity_data(inputs, params):
     df.loc[is_negative_gen, "sign"] = -1
     df.loc[is_gen, "p_nom"] = df.loc[is_gen, "nom"]
 
-    # (2) Links
+    # (2) Links and lines
     is_link = df["component"] == "Link"
-    if "area2" not in df.columns:
-        df.loc[is_link, "area2"] = df.loc[is_link, "area"]
+    is_line = df["component"] == "Line"
+    is_link_or_line = is_link | is_line
+    if "area_from" not in df.columns:
+        df.loc[is_link_or_line, "area_from"] = df.loc[is_link_or_line, "area"]
     else:
-        df.loc[is_link, "area2"] = df.loc[is_link, "area2"].fillna(
-            df.loc[is_link, "area"]
-        )
+        df.loc[is_link_or_line, "area_from"] = df.loc[
+            is_link_or_line, "area_from"
+        ].fillna(df.loc[is_link_or_line, "area"])
 
-    df.loc[is_link, "bus_input"] = (
-        df.loc[is_link, "area"] + " " + df.loc[is_link, "input_carrier"]
+    df.loc[is_link_or_line, "bus_input"] = (
+        df.loc[is_link_or_line, "area_from"]
+        + " "
+        + df.loc[is_link_or_line, "input_carrier"]
     )
-    has_qualifier = is_link & df["input_qualifier"].notna()
+    has_qualifier = is_link_or_line & df["input_qualifier"].notna()
     df.loc[has_qualifier, "bus_input"] += " " + df.loc[has_qualifier, "input_qualifier"]
 
-    df.loc[is_link, "bus_output"] = (
-        df.loc[is_link, "area2"] + " " + df.loc[is_link, "output_carrier"]
+    df.loc[is_link_or_line, "bus_output"] = (
+        df.loc[is_link_or_line, "area"]
+        + " "
+        + df.loc[is_link_or_line, "output_carrier"]
     )
-    has_qualifier = is_link & df["output_qualifier"].notna()
+    has_qualifier = is_link_or_line & df["output_qualifier"].notna()
     df.loc[has_qualifier, "bus_output"] += (
         " " + df.loc[has_qualifier, "output_qualifier"]
     )
 
-    has_output2 = is_link & df["output2_carrier"].notna()
+    has_output2 = is_link_or_line & df["output2_carrier"].notna()
     df.loc[has_output2, "bus_output2"] = (
-        df.loc[has_output2, "area2"] + " " + df.loc[has_output2, "output2_carrier"]
+        df.loc[has_output2, "area"] + " " + df.loc[has_output2, "output2_carrier"]
     )
     has_qualifier = has_output2 & df["output2_qualifier"].notna()
     df.loc[has_qualifier, "bus_output2"] += (
@@ -551,6 +565,7 @@ def process_capacity_data(inputs, params):
         df["bus_output2"] = np.nan
 
     df.loc[is_link, "p_nom"] = df.loc[is_link, "nom"]
+    df.loc[is_line, "s_nom"] = df.loc[is_line, "nom"]
 
     # (3) Stores
     is_store = df["component"] == "Store"
@@ -612,8 +627,17 @@ def process_capacity_data(inputs, params):
         0 if "standing_loss" not in df.columns else df["standing_loss"].fillna(0)
     )
 
+    # Lines and links - make sure length column exists
+    if "length" not in df.columns:
+        df["length"] = np.nan
+
+    # Lines - make sure line_type column exists
+    if "line_type" not in df.columns:
+        df["line_type"] = np.nan
+
     if "efficiency2" not in df.columns:
         df["efficiency2"] = np.nan
+
     # Calculate marginal cost
     df["variable_cost"] = df["variable_cost"].fillna(0)
     df["co2_cost"] = df["co2_emissions"].fillna(0) / df["efficiency"] * df["co2_cost"]
@@ -675,8 +699,12 @@ def process_capacity_data(inputs, params):
         is_to_invest &= ~is_industrial
         is_to_retire &= ~is_industrial
 
-    is_gen_or_link = is_gen | is_link
-    for is_component, nom in [(is_gen_or_link, "p_nom"), (is_store, "e_nom")]:
+    is_gen_or_link = is_gen | is_link_or_line
+    for is_component, nom in [
+        (is_gen_or_link, "p_nom"),
+        (is_line, "s_nom"),
+        (is_store, "e_nom"),
+    ]:
         if params.get("invest_from_zero", True):
             df.loc[is_component & is_to_invest, nom] = 0
 
@@ -700,6 +728,7 @@ def process_capacity_data(inputs, params):
     # (V) Incorporate capacity utilisation assumptions
     # df_util might contain the following attributes:
     # p_min_pu, p_max_pu, p_set_pu, p_set_pu_annual
+    # e_min_pu, e_max_pu, s_max_pu
 
     df["qualifier"] = df["qualifier"].fillna("none")
     df_util["qualifier"] = df_util["qualifier"].fillna("none")
@@ -714,6 +743,7 @@ def process_capacity_data(inputs, params):
     df["p_max_pu"] = 1.0 if "p_max_pu" not in df.columns else df["p_max_pu"].fillna(1.0)
     df["e_min_pu"] = 0.0 if "e_min_pu" not in df.columns else df["e_min_pu"].fillna(0.0)
     df["e_max_pu"] = 1.0 if "e_max_pu" not in df.columns else df["e_max_pu"].fillna(1.0)
+    df["s_max_pu"] = 1.0 if "s_max_pu" not in df.columns else df["s_max_pu"].fillna(1.0)
 
     if "p_set_pu" in df.columns:
         p_set = df["p_set_pu"] * df["p_nom"]
@@ -740,6 +770,12 @@ def process_capacity_data(inputs, params):
         1.0
         if "p_max_pu_annual" not in df.columns
         else df["p_max_pu_annual"].fillna(1.0)
+    )
+    # Also availability_correction_factor might be defined for vRES technologies
+    df["availability_correction_factor"] = (
+        1.0
+        if "availability_correction_factor" not in df.columns
+        else df["availability_correction_factor"].fillna(1.0)
     )
 
     # Attribute p_set_pu and p_set_pu_annual to heating, mobility, and hydrogen links
@@ -770,7 +806,14 @@ def process_capacity_data(inputs, params):
     has_parent_tech = df["parent"].notna()
     df_children = df.loc[
         has_parent_tech,
-        ["name", "area", "build_year", "technology", "qualifier", "parent"],
+        [
+            "name",
+            "area",
+            "build_year",
+            "technology",
+            "qualifier",
+            "parent",
+        ],
     ]
     parent_techs = df_children["parent"].unique()
     df_parents = df.loc[
@@ -785,8 +828,8 @@ def process_capacity_data(inputs, params):
         how="inner",
     )
     # TODO: solve the issue of non-unique matches in a more general way
-    # For non-unique matches, demand that qualifiers or the last words of names match as well
     # Each child can have only one parent and each parent can have only one child per technology
+    # For non-unique matches, demand that qualifiers match as well
     get_non_unique = lambda x: x.duplicated(subset=["name"], keep=False) | x.duplicated(
         subset=["technology", "parent_name"], keep=False
     )
@@ -794,32 +837,34 @@ def process_capacity_data(inputs, params):
     qualifiers_equal = df_map["qualifier"].fillna("") == df_map[
         "parent_qualifier"
     ].fillna("")
-    last_1_words_equal = df_map["name"].str.split().str[-1:].str.join(",") == df_map[
-        "parent_name"
-    ].str.split().str[-1:].str.join(",")
-    df_map = df_map[is_unique | qualifiers_equal | last_1_words_equal]
-    # If still there is no unique match, demand that the 3 last word names match
-    is_unique = ~get_non_unique(df_map)
-    last_3_words_equal = df_map["name"].str.split().str[-3:].str.join(",") == df_map[
-        "parent_name"
-    ].str.split().str[-3:].str.join(",")
-    df_map = df_map[is_unique | last_3_words_equal]
+    df_map = df_map[is_unique | qualifiers_equal]
+    # If still there is no unique match, demand that the 1 last word name match, 2 last words match, 3 last words match (independent of order)
+    for n in range(1, 3 + 1):
+        is_unique = ~get_non_unique(df_map)
+        last_n_words_equal = df_map["name"].str.split().apply(
+            lambda x: set(x[-n:])
+        ) == df_map["parent_name"].str.split().apply(lambda x: set(x[-n:]))
+        df_map = df_map[is_unique | last_n_words_equal]
     assert sum(get_non_unique(df_map)) == 0
+
     # Map parent capacities to children capacities
     df_map = df_map[["name", "parent_name"]].rename(columns={"parent_name": "parent"})
     df = df.drop(columns="parent").merge(df_map, on="name", how="left")
 
-    df = df.dropna(axis=1, how="all")
+    # df = df.dropna(axis=1, how="all")
     df = df.sort_values("name")
 
     return df
 
 
+@ignore_future_warnings
 def add_capacities(network, df_cap, df_attr_t, params):
 
     for component, df in df_cap.groupby("component"):
 
-        network.mremove(component, network.df(component).index.intersection(df["name"]))
+        network.remove(
+            component, network.static(component).index.intersection(df["name"])
+        )
 
         index_t = ["carrier", "technology", "qualifier"]
 
@@ -857,9 +902,15 @@ def add_capacities(network, df_cap, df_attr_t, params):
             df.loc[df["qualifier"] == "none", "qualifier"] = np.nan
             df = df.set_index("name")
 
+            if "p_set" in dfs_t:
+                # TODO: find out why this fix for p_set is necessary
+                dfs_t["p_set"] = dfs_t["p_set"].reindex(
+                    df.index, axis=1, fill_value=np.nan
+                )
+
             if component == "Generator":
 
-                network.madd(
+                network.add(
                     component,
                     df.index,
                     bus=df["bus"],
@@ -892,19 +943,21 @@ def add_capacities(network, df_cap, df_attr_t, params):
                     parent=df["parent"],
                     parent_ratio=df["parent_ratio"],
                 )
-                network.generators = network.df(component).sort_index()
+                network.generators = network.static(component).sort_index()
 
             elif component == "Link":
 
                 if not params["reverse_links"]:
-                    network.madd(
+                    network.add(
                         component,
                         df.index,
                         bus0=df["bus_input"],
                         bus1=df["bus_output"],
-                        bus2=df["bus_output2"].fillna("") if "bus_output2" in df else "",
+                        bus2=(
+                            df["bus_output2"].fillna("") if "bus_output2" in df else ""
+                        ),
                         area=df["area"],
-                        area2=df["area2"],
+                        area_from=df["area_from"],
                         carrier=df["carrier"],
                         technology=df["technology"],
                         qualifier=df["qualifier"],
@@ -916,15 +969,25 @@ def add_capacities(network, df_cap, df_attr_t, params):
                         efficiency=(dfs_t if "efficiency" in attrs_t else df)[
                             "efficiency"
                         ],
-                        efficiency2=df["efficiency2"] if "efficiency2" in df else np.nan,
+                        efficiency2=(
+                            df["efficiency2"] if "efficiency2" in df else np.nan
+                        ),
+                        length=df["length"],
                         variable_cost=df["variable_cost"] * df["efficiency"],
                         co2_cost=df["co2_cost"],
                         marginal_cost=df["marginal_cost"] * df["efficiency"],
-                        fixed_cost=df["fixed_cost"] * df["efficiency"],
-                        investment_cost=df["investment_cost"] * df["efficiency"],
-                        annual_investment_cost=df["annual_investment_cost"]
+                        fixed_cost=df["fixed_cost"]
+                        * df["length"].fillna(1.0)
                         * df["efficiency"],
-                        capital_cost=df["capital_cost"] * df["efficiency"],
+                        investment_cost=df["investment_cost"]
+                        * df["length"].fillna(1.0)
+                        * df["efficiency"],
+                        annual_investment_cost=df["annual_investment_cost"]
+                        * df["length"].fillna(1.0)
+                        * df["efficiency"],
+                        capital_cost=df["capital_cost"]
+                        * df["length"].fillna(1.0)
+                        * df["efficiency"],
                         p_min_pu=(dfs_t if "p_min_pu" in attrs_t else df)["p_min_pu"],
                         p_max_pu=(dfs_t if "p_max_pu" in attrs_t else df)["p_max_pu"],
                         p_min_pu_annual=df["p_min_pu_annual"],
@@ -940,14 +1003,16 @@ def add_capacities(network, df_cap, df_attr_t, params):
                     if "efficiency" in attrs_t:
                         network.links.loc[df.index, "efficiency"] = df["efficiency"]
                 else:
-                    network.madd(
+                    network.add(
                         component,
                         df.index,
                         bus0=df["bus_output"],
                         bus1=df["bus_input"],
-                        bus2=df["bus_output2"].fillna("") if "bus_output2" in df else "",
+                        bus2=(
+                            df["bus_output2"].fillna("") if "bus_output2" in df else ""
+                        ),
                         area=df["area"],
-                        area2=df["area2"],
+                        area_from=df["area_from"],
                         carrier=df["carrier"],
                         technology=df["technology"],
                         qualifier=df["qualifier"],
@@ -958,14 +1023,21 @@ def add_capacities(network, df_cap, df_attr_t, params):
                         p_nom_max=df["p_nom_max"],
                         efficiency=1
                         / (dfs_t if "efficiency" in attrs_t else df)["efficiency"],
-                        efficiency2=-df["efficiency2"] / df["efficiency"] if "efficiency2" in df else np.nan,
+                        efficiency2=(
+                            -df["efficiency2"] / df["efficiency"]
+                            if "efficiency2" in df
+                            else np.nan
+                        ),
+                        length=df["length"],
                         variable_cost=-df["variable_cost"],
                         co2_cost=-df["co2_cost"],
                         marginal_cost=-df["marginal_cost"],
-                        fixed_cost=df["fixed_cost"],
-                        investment_cost=df["investment_cost"],
-                        annual_investment_cost=df["annual_investment_cost"],
-                        capital_cost=df["capital_cost"],
+                        fixed_cost=df["fixed_cost"] * df["length"].fillna(1.0),
+                        investment_cost=df["investment_cost"]
+                        * df["length"].fillna(1.0),
+                        annual_investment_cost=df["annual_investment_cost"]
+                        * df["length"].fillna(1.0),
+                        capital_cost=df["capital_cost"] * df["length"].fillna(1.0),
                         p_min_pu=-(dfs_t if "p_max_pu" in attrs_t else df)["p_max_pu"],
                         p_max_pu=-(dfs_t if "p_min_pu" in attrs_t else df)["p_min_pu"],
                         p_set=-dfs_t["p_set"] if "p_set" in attrs_t else np.nan,
@@ -981,11 +1053,48 @@ def add_capacities(network, df_cap, df_attr_t, params):
                     if "efficiency" in attrs_t:
                         network.links.loc[df.index, "efficiency"] = 1 / df["efficiency"]
 
-                network.links = network.df(component).sort_index()
+                network.links = network.static(component).sort_index()
+
+            elif component == "Line":
+
+                # In case of lines, we should provide num_parallel instead of s_nom
+                # s_nom (MVA) = sqrt(3) * i_nom (kA) * v_nom (kV) * num_parallel
+                i_nom = df["line_type"].map(network.line_types["i_nom"])
+                v_nom = df["bus_input"].map(network.buses["v_nom"])
+
+                network.add(
+                    component,
+                    df.index,
+                    bus0=df["bus_input"],
+                    bus1=df["bus_output"],
+                    area=df["area"],
+                    area_from=df["area_from"],
+                    carrier=df["carrier"],
+                    technology=df["technology"],
+                    qualifier=df["qualifier"],
+                    aggregation=df["aggregation"],
+                    type=df["line_type"],
+                    num_parallel=df["s_nom"] / (np.sqrt(3) * i_nom * v_nom),
+                    s_nom=df["s_nom"],
+                    s_nom_extendable=df["s_nom_extendable"],
+                    s_nom_min=df["s_nom_min"],
+                    s_nom_max=df["s_nom_max"],
+                    length=df["length"],
+                    fixed_cost=df["fixed_cost"] * df["length"],
+                    investment_cost=df["investment_cost"] * df["length"],
+                    annual_investment_cost=df["annual_investment_cost"] * df["length"],
+                    capital_cost=df["capital_cost"] * df["length"],
+                    s_max_pu=df["s_max_pu"],
+                    build_year=df["build_year"],
+                    lifetime=df["lifetime"],
+                    parent=df["parent"],
+                    parent_ratio=df["parent_ratio"],
+                )
+                network.lines = network.static(component).sort_index()
 
             elif component == "Store":
 
-                network.madd(
+                network.add(
                     component,
                     df.index,
                     bus=df["bus"],
@@ -1014,7 +1123,13 @@ def add_capacities(network, df_cap, df_attr_t, params):
                     parent_ratio=df["parent_ratio"],
                     e_cyclic=True,
                 )
-                network.stores = network.df(component).sort_index()
+                network.stores = network.static(component).sort_index()
+
+            # Exclude columns with all nans in p_set
+            if "p_set" in dfs_t:
+                network.dynamic(component)["p_set"] = network.dynamic(component)[
+                    "p_set"
+                ].dropna(axis=1, how="all")
 
 
 def add_capacity_constraints(network, inputs, params):
@@ -1084,6 +1199,12 @@ def add_energy_flow_constraints(network, inputs, params):
 
     df = df[df["year"] == params["year"]].drop(columns="year")
     df["type"] = "operational_limit"
+    # For subnational PL areas, use custom area-aware constraint
+    domestic_prefix = "PL"
+    df.loc[
+        (df["area"] != domestic_prefix) & df["area"].str.startswith(domestic_prefix),
+        "type",
+    ] = "operational_limit_per_area"
 
     df = df.set_index("name")[["area", "carrier", "type", "sense", "value"]]
 
@@ -1097,8 +1218,8 @@ def add_energy_flow_constraints(network, inputs, params):
             co2_emissions * 1e6,
         ]
 
-    network.mremove("GlobalConstraint", network.global_constraints.index)
-    network.madd(
+    network.remove("GlobalConstraint", network.global_constraints.index)
+    network.add(
         "GlobalConstraint",
         df.index,
         type=df["type"],

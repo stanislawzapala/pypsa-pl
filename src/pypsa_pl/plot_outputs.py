@@ -3,7 +3,14 @@ import numpy as np
 import logging
 
 from matplotlib import pyplot as plt
+import cartopy.crs as ccrs
+import geopandas as gpd
+from matplotlib.lines import Line2D
+from matplotlib.colors import Normalize
+from math import ceil
+import pypsa
 
+from pypsa_pl.config import data_dir
 from pypsa_pl.plots import plot_bar, plot_area, plot_line
 from pypsa_pl.plots import mpl_style, get_order_and_colors
 from pypsa_pl.process_output_network import (
@@ -16,6 +23,8 @@ from pypsa_pl.process_output_network import (
     calculate_input_capacities,
     calculate_storage_capacities,
     calculate_output_capacity_additions,
+    calculate_grid_capacities,
+    calculate_grid_capacity_additions,
     calculate_input_capacity_additions,
     calculate_storage_capacity_additions,
     calculate_flows,
@@ -39,7 +48,7 @@ def plot_installed_capacities(
     network=None,
     df=None,
     run_name=None,
-    bus_carriers=["electricity in"],
+    bus_carriers=["electricity in", "electricity out"],
     carrier_name="electricity",
     bus_qualifiers=None,
     capacity_type="generation",
@@ -68,10 +77,13 @@ def plot_installed_capacities(
             )
         df = df.groupby([x_var, cat_var]).agg({"value": "sum"}).reset_index()
         df["value"] = (df["value"] / 1e3).round(2)
-        # Exclude virtual components
+        # Exclude virtual components and grids
         df = df[
             ~df[cat_var].isin(
                 ["hydrogen", "light vehicle mobility", "electricity grid"]
+            )
+            & ~df[cat_var].str.startswith(
+                ("transformation", "connection", "distribution")
             )
         ]
 
@@ -104,7 +116,7 @@ def plot_capacity_additions(
     network=None,
     df=None,
     run_name=None,
-    bus_carriers="electricity in",
+    bus_carriers="electricity",
     carrier_name="electricity",
     bus_qualifiers=None,
     capacity_type="generation",
@@ -261,6 +273,90 @@ def plot_storage_capacity_additions(
         cat_order=carrier_order,
         cat_colors=carrier_colors,
         label_threshold=get_label_threshold(ylim, figsize, 1.5),
+        figsize=figsize,
+    )
+
+    ax = fig.axes[0]
+    ax.set_xlabel("")
+    if ylim is not None:
+        ax.set_ylim(*ylim)
+    ax.axhline(
+        y=0,
+        linestyle="--",
+        color=mpl_style["axes.edgecolor"],
+        linewidth=mpl_style["axes.linewidth"],
+    )
+    return fig, df
+
+
+def plot_grid_capacities(
+    network=None,
+    df=None,
+    run_name=None,
+    x_var="year",
+    cat_var="carrier",
+    ylim=None,
+    figsize=(4, 6),
+    make_fig=True,
+):
+    if network is not None:
+        df = calculate_grid_capacities(network)
+        df = df.groupby([x_var, cat_var]).agg({"value": "sum"}).reset_index()
+        df["value"] = (df["value"] / 1e3).round(2)
+
+    carrier_order, carrier_colors = get_order_and_colors(
+        network, agg=cat_var, run_name=run_name
+    )
+    if not make_fig:
+        return None, df
+
+    fig = plot_bar(
+        df,
+        title="Grid capacities [GW]",
+        x_var=x_var,
+        cat_var=cat_var,
+        cat_order=carrier_order,
+        cat_colors=carrier_colors,
+        label_threshold=get_label_threshold(ylim, figsize, 1),
+        figsize=figsize,
+    )
+
+    ax = fig.axes[0]
+    ax.set_xlabel("")
+    if ylim is not None:
+        ax.set_ylim(*ylim)
+    return fig, df
+
+
+def plot_grid_capacity_additions(
+    network=None,
+    df=None,
+    run_name=None,
+    x_var="year",
+    cat_var="carrier",
+    ylim=None,
+    figsize=(4, 6),
+    make_fig=True,
+):
+    if network is not None:
+        df = calculate_grid_capacity_additions(network)
+        df = df.groupby([x_var, cat_var]).agg({"value": "sum"}).reset_index()
+        df["value"] = (df["value"] / 1e3).round(2)
+
+    carrier_order, carrier_colors = get_order_and_colors(
+        network, agg=cat_var, run_name=run_name
+    )
+    if not make_fig:
+        return None, df
+
+    fig = plot_bar(
+        df,
+        title="Grid capacity additions [GW]",
+        x_var=x_var,
+        cat_var=cat_var,
+        cat_order=carrier_order,
+        cat_colors=carrier_colors,
+        label_threshold=get_label_threshold(ylim, figsize, 1),
         figsize=figsize,
     )
 
@@ -707,7 +803,7 @@ def plot_detailed_costs(
 
         df = df[df["year"] == network.meta["year"]].drop(columns="year")
         # Convert to bln PLN
-        df["value"] = (df["value"] / 1e9).round(2)
+        df["value"] = (df["value"] / 1e9).round(4)
         df = df[df["value"].abs() > 0]
 
     df["cost component"] = pd.Categorical(
@@ -1031,7 +1127,7 @@ def plot_custom_dataset_as_barplot(
     ax = fig.axes[0]
     ax.set_xlabel("")
     if unit is None:
-        unit = title.split(" [")[1][:-1]
+        unit = title.split("[")[1][:-1]
     ax.set_ylabel(unit, ha="left", y=1, rotation=0, labelpad=0)
     if ylim is not None:
         ax.set_ylim(*ylim)
@@ -1082,11 +1178,13 @@ def plot_hourly_generation(
             columns=(
                 []
                 # [col for col in df.columns if "final use" in col]
-                + [col for col in df.columns if col.endswith(("storage", "battery"))]
+                # + [col for col in df.columns if col.endswith(("storage", "battery"))]
             )
         )
 
     df.index = pd.to_datetime(df.index)
+    if not make_fig:
+        return None, df
 
     if subperiods is None:
         subperiods = [("", (0, len(df)))]
@@ -1139,7 +1237,7 @@ def plot_prices(
     network=None,
     df=None,
     run_name=None,
-    bus_carriers=["electricity in"],
+    bus_carriers=["electricity in", "electricity out"],
     carrier_name="electricity",
     bus_qualifiers=None,
     subperiods=None,
@@ -1185,3 +1283,378 @@ def plot_prices(
 
     # Returns fig for the last subperiod
     return fig, df
+
+
+generation_carrier_mapping = {
+    "wind offshore": "wind offshore",
+    "wind onshore": "wind onshore",
+    "solar PV roof": "solar PV roof",
+    "solar PV ground": "solar PV roof",
+    "nuclear power": "nuclear power",
+    "_other": "natural gas power",  # map all others into color of natural gas power
+}
+generation_labels = {
+    "wind offshore": "wind offshore",
+    "wind onshore": "wind onshore",
+    "solar PV roof": "solar PV",
+    "nuclear power": "nuclear",
+    "natural gas power": "other generation",
+}
+
+
+consumption_carrier_mapping = {
+    "hydrogen electrolysis": "hydrogen electrolysis",
+    "electricity HMV final use": "electricity HMV final use",
+    "electricity LV final use": "electricity HMV final use",
+    "_other": "electricity final use",  # map all others into color of electricity final use
+}
+consumption_labels = {
+    "hydrogen electrolysis": "electrolysis",
+    "electricity HMV final use": "other electricity use",
+}
+
+translations_pl = {
+    "wind offshore": "wiatr – morze",
+    "wind onshore": "wiatr – ląd",
+    "solar PV": "PV",
+    "nuclear": "energia jądrowa",
+    "other generation": "pozostałe źródła",
+    "electrolysis": "elektroliza",
+    "other electricity use": "pozostałe zużycie energii",
+    "Consumption": "Pobór",
+    "Generation": "Produkcja",
+    "Transmission capacity": "Moce przesyłowe",
+    "Mean line load": "Średnie obciążenie linii",
+}
+
+t = lambda x: translations_pl.get(x, x)
+
+cm_to_inches = lambda x, y: (x / 2.54, y / 2.54)
+
+from matplotlib.patches import Patch
+from matplotlib.lines import Line2D
+
+
+def plot_power_system(network, transmission_agg="mean"):
+
+    projection = ccrs.TransverseMercator(central_longitude=20, central_latitude=52)
+    ax = plt.axes(projection=projection)
+    fig = ax.figure
+    fig.set_size_inches(cm_to_inches(18, 15))
+
+    gdf = gpd.read_file(data_dir("clean", "voivodeships.geojson"))
+    bounds = gdf.total_bounds
+    margin = 0.1  # 0.1
+    bounds = [
+        bounds[0] - margin,
+        bounds[2] + margin,
+        bounds[1] - margin,
+        bounds[3] + margin,
+    ]
+
+    ax.add_geometries(
+        gdf.geometry,
+        facecolor="none",
+        edgecolor="black",
+        lw=0.5,
+        crs=ccrs.PlateCarree(),
+    )
+
+    df_xy = pd.read_csv(data_dir("clean", "voivodeship_centroids.csv"))
+    df_xy["area"] = "PL " + df_xy["voivodeship"]
+    df_xy = pd.concat(
+        [
+            df_xy,
+            pd.read_csv(data_dir("clean", "neighbour_centroids.csv")),
+        ],
+        ignore_index=True,
+    )
+    df_xy = df_xy.set_index("area")[["lon", "lat"]]
+
+    network.buses.x = network.buses.area.map(df_xy["lon"])
+    network.buses.y = network.buses.area.map(df_xy["lat"])
+
+    alpha = 1
+    gw_to_width = 1.3
+
+    # BUSES: show positive (production) and negative (consumption) power flows
+    flows = (
+        network.statistics.energy_balance(
+            groupby=["bus", "area", "carrier"],
+            bus_carrier=["electricity in", "electricity out"],
+            aggregate_time="sum",
+        )
+    ).reset_index()
+    flows = flows[["bus", "area", "carrier", network.meta["year"]]].rename(
+        columns={network.meta["year"]: "value"}
+    )
+    # Remove foreign buses
+    flows = flows[flows["area"].str.startswith("PL ")]
+    # Remove interarea flows
+    flows = flows[
+        ~flows["carrier"].isin(
+            [
+                "transmission line AC",
+                "transmission line DC",
+                "electricity import",
+                "electricity export",
+            ]
+        )
+    ]
+    # Remove storage and grid losses
+    flows = flows[
+        ~flows["carrier"].str.startswith(("battery", "hydro PSH", "direct line"))
+    ]
+    flows = flows[
+        ~flows["carrier"].str.startswith(
+            ("distribution", "transformation", "connection")
+        )
+    ]
+
+    # Remap HMV and LV flows to EHV buses
+    flows["bus"] = flows["area"] + " electricity in EHV"
+
+    flows_agg = flows.groupby(["carrier"])["value"].sum().reset_index()
+    generation_carriers = flows_agg[flows_agg["value"] > 0]["carrier"].unique()
+    consumption_carriers = flows_agg[flows_agg["value"] < 0]["carrier"].unique()
+
+    # Use custom groupby
+    flows.loc[flows["carrier"].isin(generation_carriers), "carrier"] = (
+        flows.loc[flows["carrier"].isin(generation_carriers), "carrier"]
+        .map(generation_carrier_mapping)
+        .fillna(generation_carrier_mapping["_other"])
+    )
+
+    flows.loc[flows["carrier"].isin(consumption_carriers), "carrier"] = (
+        flows.loc[flows["carrier"].isin(consumption_carriers), "carrier"]
+        .map(consumption_carrier_mapping)
+        .fillna(consumption_carrier_mapping["_other"])
+    )
+
+    # Get unique carriers and their colors for legend
+    unique_carriers = flows["carrier"].unique()
+    carrier_colors = {}
+    for carrier in unique_carriers:
+        if carrier in network.carriers.index:
+            carrier_colors[carrier] = network.carriers.loc[carrier, "color"]
+        else:
+            # Fallback color if not in network.carriers
+            carrier_colors[carrier] = "gray"
+
+    # Reorder elements
+    flows["order"] = flows["carrier"].map(network.carriers["order"])
+    flows = flows.groupby(["bus", "carrier", "order"]).sum().reset_index()
+    flows = flows.sort_values(["bus", "order"]).drop(columns="order")
+    flows = flows.set_index(["bus", "carrier"])["value"]
+
+    ordered_carriers = sorted(
+        unique_carriers, key=lambda x: network.carriers.loc[x, "order"]
+    )
+
+    # LINES: width shows transmission volume, color shows annual utilisation
+
+    # Aggregate parallel lines, name according to first line
+    buses_to_representative_line = (
+        network.lines.reset_index(names="name")
+        .groupby(["bus0", "bus1"])["name"]
+        .first()
+    )
+    line_to_representative_line = network.lines[["bus0", "bus1"]].apply(
+        lambda row: buses_to_representative_line.loc[(row["bus0"], row["bus1"])], axis=1
+    )
+
+    transmission_capacity = network.lines.groupby(line_to_representative_line)[
+        "s_nom_opt"
+    ].sum()
+
+    # Sum p0 in groups as defined by line_to_representative_line
+    p0_agg = network.lines_t.p0.T.groupby(line_to_representative_line).sum().T
+
+    if transmission_agg == "mean":
+        transmission_direction = p0_agg.mean().apply(np.sign) * transmission_capacity
+        transmission_utilisation = p0_agg.abs().mean() / transmission_capacity * 100
+    # elif transmission_agg == "max":
+    #     idxmax = network.lines_t.p0.abs().idxmax()
+    #     transmission_direction = (
+    #         pd.Series(
+    #             [network.lines_t.p0.loc[t, i] for i, t in idxmax.items()],
+    #             index=idxmax.index,
+    #         ).apply(np.sign)
+    #         * transmission_capacity
+    #     )
+    #     transmission_utilisation = (
+    #         pd.Series(
+    #             [network.lines_t.p0.loc[t, i] for i, t in idxmax.items()],
+    #             index=idxmax.index,
+    #         ).abs()
+    #         / transmission_capacity
+    #     )
+
+    transmission_direction.index = pd.MultiIndex.from_product(
+        [["Line"], transmission_direction.index], names=["component", "name"]
+    )
+    transmission_utilisation_max = transmission_utilisation.max()
+    transmission_utilisation_max = 0.65 * 100
+
+    # LINKS: interconnectors
+    # Group by the neighbour country, and calculate mean capacity over directions
+    interconnectors = network.links[
+        network.links.carrier.isin(["electricity import", "electricity export"])
+    ].copy()
+    interconnectors["neighbour_area"] = np.where(
+        interconnectors.area.str.startswith("PL"),
+        interconnectors.area_from,
+        interconnectors.area,
+    )
+    interconnectors["domestic_area"] = np.where(
+        interconnectors.area.str.startswith("PL"),
+        interconnectors.area,
+        interconnectors.area_from,
+    )
+
+    interconnector_capacity = (
+        interconnectors.reset_index(names="name")
+        .groupby(["neighbour_area", "domestic_area"])
+        .agg({"p_nom_opt": "sum", "name": "first"})
+        .set_index("name")["p_nom_opt"]
+    )
+
+    # Divide by 2 to get mean capacity over both directions
+    interconnector_capacity /= 2
+
+    collections = network.plot(
+        ax=ax,
+        title="",# f"{network.name} - {network.meta['year']}",
+        bus_sizes=flows / flows.abs().sum() * 1.2,
+        bus_split_circles=True,
+        # bus_colors=network.buses.color,
+        line_widths=transmission_capacity / 1000 * gw_to_width,
+        link_widths=interconnector_capacity / 1000 * gw_to_width,
+        line_colors=transmission_utilisation,
+        link_colors="grey",
+        line_cmap="YlOrRd",
+        line_norm=Normalize(
+            vmin=0, vmax=ceil(transmission_utilisation_max * 100) / 100
+        ),
+        line_alpha=alpha,
+        link_alpha=alpha,
+        # flow=transmission_direction / 1000 * gw_to_width * 0.75,
+        projection=projection,
+        geomap=True,
+        color_geomap=False,
+        boundaries=bounds,
+    )
+
+    # legend_labels = [
+    #     "  AC 400 kV 2 GVA",
+    #     "  AC 400 kV 4 GVA",
+    #     "  AC 400 kV 6 GVA",
+    # ]
+
+    # pypsa.plot.add_legend_lines(
+    #     ax,
+    #     sizes=[2 * gw_to_width, 4 * gw_to_width, 6 * gw_to_width],
+    #     labels=legend_labels,
+    #     colors=["orange"] * len(legend_labels),
+    #     patch_kw=None,
+    #     legend_kw=dict(title=t("Transmission capacity")),
+    # )
+
+    transmission_legend_elements = [
+        Line2D([0], [0], color="orange", lw=2 * gw_to_width, label="  2 GVA"),
+        Line2D([0], [0], color="orange", lw=4 * gw_to_width, label="  4 GVA"),
+        Line2D([0], [0], color="orange", lw=6 * gw_to_width, label="  6 GVA"),
+    ]
+
+    # Create the transmission capacity legend
+    transmission_legend = ax.legend(
+        handles=transmission_legend_elements,
+        loc="upper right",
+        bbox_to_anchor=(1.10, 1),
+        title=t("Transmission capacity"),
+        title_fontsize=9,
+        # fontsize=10
+    )
+
+    # Add the transmission legend to the plot
+    ax.add_artist(transmission_legend)
+
+    # Add carrier legend (generation and consumption)
+    legend_elements = []
+
+    generation_carriers_sorted = [
+        c for c in reversed(ordered_carriers) if c in generation_carriers
+    ]
+    consumption_carriers_sorted = [
+        c for c in reversed(ordered_carriers) if c in consumption_carriers
+    ]
+
+    # Add generation carriers
+    if generation_carriers_sorted:
+        legend_elements.append(
+            Patch(facecolor="none", edgecolor="none", label=f"{t('Generation')} [TWh]")
+        )
+        for carrier in generation_carriers_sorted:
+            legend_elements.append(
+                Patch(
+                    facecolor=carrier_colors[carrier],
+                    label=f"  {t(generation_labels[carrier])}",
+                )
+            )
+
+    # Add consumption carriers
+    if consumption_carriers_sorted:
+        legend_elements.append(
+            Patch(facecolor="none", edgecolor="none", label=f"{t('Consumption')} [TWh]")
+        )
+        for carrier in consumption_carriers_sorted:
+            legend_elements.append(
+                Patch(
+                    facecolor=carrier_colors[carrier],
+                    label=f"  {t(consumption_labels[carrier])}",
+                )
+            )
+
+    # Create the carriers legend
+    carriers_legend = ax.legend(
+        handles=legend_elements,
+        loc="lower left",
+        bbox_to_anchor=(0, 0),
+        frameon=False,
+        title="",
+    )
+
+    # Add the carriers legend to the plot
+    ax.add_artist(carriers_legend)
+
+    colorbar = next(x for x in collections if x.get_label() == "_child2")
+    fig.colorbar(
+        colorbar,
+        fraction=0.02,
+        pad=0.004,
+        label=f"{t(transmission_agg.capitalize() + ' line load')} [%]",
+    )
+
+    fig.tight_layout()
+    # legend_handles = [
+    #     Line2D([0], [0], color="red", lw=1 * gw_to_width, alpha=alpha),
+    #     Line2D([0], [0], color="red", lw=2 * gw_to_width, alpha=alpha),
+    # ]
+    # ax.legend(
+    #     handles=legend_handles,
+    #     labels=legend_labels,
+    #     loc="center left",
+    #     bbox_to_anchor=(1, 0.5),
+    #     frameon=False,
+    # )
+
+    # ax.figure.tight_layout()
+
+    # name = f"grid_pl{'_reduced' if reduced else ''};v_noms={'+'.join(str(v) for v in v_noms)}"
+    # ax.figure.savefig(
+    #     data_dir("clean", "electricity_grid_data", f"{name}.png"),
+    #     bbox_inches="tight",
+    #     dpi=600,
+    # )
+    plt.close()
+    return fig

@@ -2,14 +2,13 @@ import logging
 import numpy as np
 import pandas as pd
 
-# from pypsa_pl_mini.config import data_dir
-from pypsa_pl.custom_statistics import make_capex_calculator, make_opex_calculator
+from pypsa_pl.custom_statistics import make_opex_calculator
 from pypsa_pl.build_network import concat_inputs
 
 
 def get_attr(attr):
     def getter(n, c):
-        df = n.df(c)
+        df = n.static(c)
         if attr in df:
             values = df[attr].fillna("")
         else:
@@ -21,7 +20,7 @@ def get_attr(attr):
 
 def get_bus_attr(bus, attr):
     def getter(n, c):
-        df = n.df(c)
+        df = n.static(c)
         if bus in df:
             values = df[bus].map(n.buses[attr]).fillna("")
         else:
@@ -86,26 +85,19 @@ def calculate_statistics(network, bus_carriers=None):
         .reset_index(names=index + ["year"])
     )
 
-    # TODO: statistics seem to be broken in the current version of pypsa - verify impacts
-    # Temporary fix: swap supply with withdrawal and change sign if both are either NaN or negative
-    to_swap = (df["Supply"].isna() | (df["Supply"] < 0)) & (
-        df["Withdrawal"].isna() | (df["Withdrawal"] < 0)
-    )
-    df.loc[to_swap, ["Supply", "Withdrawal"]] = -df.loc[
-        to_swap, ["Withdrawal", "Supply"]
-    ].values
-
-    # Replace all NaNs with 0
     value_columns = [
         "Optimal Capacity",
         "Installed Capacity",
-        "Dispatch",
-        "Withdrawal",
-        "Curtailment",
         "Supply",
+        "Withdrawal",
+        "Energy Balance",
+        "Transmission",
+        "Capacity Factor",
+        "Curtailment",
         "Capital Expenditure",
         "Operational Expenditure",
         "Revenue",
+        "Market Value",
     ]
     df[value_columns] = df[value_columns].fillna(0)
 
@@ -117,7 +109,15 @@ def calculate_statistics(network, bus_carriers=None):
     is_store = df["component"] == "Store"
     df.loc[
         is_store,
-        ["Dispatch", "Withdrawal", "Supply", "Operational Expenditure", "Revenue"],
+        [
+            "Supply",
+            "Withdrawal",
+            "Energy Balance",
+            # "Transmission",
+            # "Curtailment",
+            "Operational Expenditure",
+            "Revenue",
+        ],
     ] *= network.snapshot_weightings["generators"].values[0]
 
     df = df.set_index(["year"] + index).reset_index()
@@ -260,8 +260,10 @@ def calculate_co2_emissions(network):
 def calculate_opex(network, cost_attr="marginal_cost", bus_carriers=None):
     index = ["component", "area", "aggregation", "carrier", "technology", "qualifier"]
     df = (
-        make_opex_calculator(attr=cost_attr)(
-            network, groupby=make_custom_groupby(), bus_carrier=bus_carriers
+        make_opex_calculator(cost_attr=cost_attr)(
+            network.statistics,
+            groupby=make_custom_groupby(),
+            bus_carrier=bus_carriers,
         )
         .rename_axis("year", axis=1)
         .stack(future_stack=True)
@@ -279,8 +281,10 @@ def calculate_opex(network, cost_attr="marginal_cost", bus_carriers=None):
 def calculate_capex(network, cost_attr="capital_cost", bus_carriers=None):
     index = ["component", "area", "carrier", "technology", "qualifier"]
     df = (
-        make_capex_calculator(attr=cost_attr)(
-            network, groupby=make_custom_groupby(), bus_carrier=bus_carriers
+        network.statistics.capex(
+            groupby=make_custom_groupby(),
+            bus_carrier=bus_carriers,
+            cost_attribute=cost_attr,
         )
         .rename_axis("year", axis=1)
         .stack(future_stack=True)
@@ -325,9 +329,10 @@ def calculate_electricity_trade_revenue(network, domestic_area="PL"):
         dfs.append(df)
 
     df = pd.concat(dfs)
+    # TODO: verify that it was correct to replace "Dispatch" with "Supply"
     df = (
         df.groupby(["year", "area", "aggregation", "carrier"])
-        .agg(value=("Revenue", "sum"), flow=("Dispatch", "sum"))
+        .agg(value=("Revenue", "sum"), flow=("Supply", "sum"))
         .reset_index()
     )
     df["marginal_cost"] = (df["value"] / df["flow"]).round(2)
@@ -369,7 +374,7 @@ def define_sectors(network):
         "lulucf": ["lulucf"],
     }
     df = network.buses[["area", "carrier"]].drop_duplicates()
-    df = df[df["area"].str.startswith("PL")].drop(columns="area")
+    df = df[df["area"].str.startswith("PL")].drop(columns="area").drop_duplicates()
     df["sector"] = (
         df["carrier"]
         .map(
@@ -386,6 +391,7 @@ def define_sectors(network):
         .reset_index(drop=True)
         .rename(columns={"carrier": "bus_carrier"})
     )
+
     return df
 
 
@@ -469,12 +475,13 @@ def calculate_sectoral_costs(network):
     index = ["area", "year", "sector", "carrier", "aggregation", "cost component"]
     df = df.groupby(index).agg({"value": "sum"}).reset_index()
 
-    df["value"] = (df["value"] / 1e9).round(3)
+    df["value"] = (df["value"] / 1e9).round(4)
     df = df[df["value"].abs() > 0].reset_index(drop=True)
     return df
 
 
-def calculate_sectoral_flows(network):
+def calculate_sectoral_flows(network, aggregate_pl=True):
+
     df_sector = define_sectors(network)
 
     dfs = []
@@ -504,18 +511,11 @@ def calculate_sectoral_flows(network):
         "final use"
     )
     sector_map = sector_map.set_index("carrier")["sector"]
+
     df["sector_to"] = df["carrier"].map(sector_map)
 
     # Keep only intersectoral flows
     df = df[df["sector_from"] != df["sector_to"]]
-
-    # Electricity final use can include transmission losses
-    electricity_transmission_loss = network.meta.get(
-        "electricity_transmission_loss", 0.03
-    )
-    df.loc[df["carrier"] == "electricity final use", "value"] *= (
-        1 - electricity_transmission_loss
-    )
 
     # Split fuel flows to CHP between electricity and heat centralised sectors
     df_chp = calculate_generation_shares_in_chp(network).rename(
@@ -536,7 +536,7 @@ def calculate_sectoral_flows(network):
         "aggregation",
     ]
     df = df.groupby(index).agg({"value": "sum"}).reset_index()
-    df["value"] = df["value"].round(3)
+    df["value"] = df["value"].round(4)
     df = df[df["value"].abs() > 0].reset_index(drop=True)
 
     return df
@@ -550,6 +550,8 @@ def calculate_sectoral_unit_costs(network):
     assert df_flows["area"].str.startswith("PL").all()
     assert df_costs["year"].nunique() == 1
     assert df_flows["year"].nunique() == 1
+
+    # Aggregate
 
     # (1) Calculate unit costs in a self-consistent manner
 
@@ -630,7 +632,7 @@ def calculate_sectoral_unit_costs(network):
     df = df.drop(columns="demand")
 
     # (4) Change unit from GPLN/TWh to PLN/MWh
-    df["value"] = (df["value"] * 1e3).round(2)
+    df["value"] = (df["value"] * 1e3).round(4)
 
     return df
 
@@ -676,6 +678,8 @@ def calculate_output_capacities(
         .rename("value")
         .reset_index()
     )
+    if reverse_links:
+        df_link["value"] = df_link["value"].abs()
 
     df_link = df_link[
         is_in_bus_carriers(
@@ -700,6 +704,40 @@ def calculate_output_capacities(
     df = pd.concat([df_gen, df_link])
     if inf:
         df = df[df["value"] != inf]
+    return df.reset_index(drop=True)
+
+def calculate_transmission_capacities(
+    network, bus_carriers=["electricity in"], bus_qualifiers=None, type="final"
+):
+    if type == "final":
+        calculate_capacity = network.statistics.optimal_capacity
+    elif type == "initial":
+        calculate_capacity = network.statistics.installed_capacity
+
+    df = (
+        calculate_capacity(
+            comps=["Line", "Transformer"],
+            bus_carrier=bus_carriers,
+            groupby=make_custom_groupby(buses=["bus0", "bus1"]),
+            at_port=True,
+        )
+        .rename_axis("year", axis=1)
+        .stack(future_stack=True)
+        .rename("value")
+        .reset_index()
+    )
+
+    df = df[
+        is_in_bus_carriers(df, bus_carriers, column_name="bus0_carrier")
+        | is_in_bus_carriers(df, bus_carriers, column_name="bus1_carrier")
+    ].drop(columns=["bus0_carrier", "bus1_carrier"])
+
+    if bus_qualifiers is not None:
+        df = df[
+            check_qualifiers(df, bus_qualifiers, column_name="bus0_qualifier")
+            | check_qualifiers(df, bus_qualifiers, column_name="bus1_qualifier")
+        ].drop(columns=["bus0_qualifier", "bus1_qualifier"])
+
     return df.reset_index(drop=True)
 
 
@@ -758,6 +796,9 @@ def calculate_input_capacities(
         .rename("value")
         .reset_index()
     )
+    if reverse_links:
+        df_link["value"] = df_link["value"].abs()
+
     df_link = df_link[
         is_in_bus_carriers(
             df_link, bus_carriers, column_name=f"{input_buses[0]}_carrier"
@@ -833,6 +874,80 @@ def calculate_storage_capacity_additions(
     return df.drop(columns=["value_init", "value_final"])
 
 
+def calculate_grid_capacities(
+    network,
+    bus_carriers=["electricity in", "electricity out"],
+    bus_qualifiers=None,
+    type="final",
+):
+    reverse_links = network.meta.get("reverse_links", False)
+    # If links are not reversed, link capacities need to be reduced by losses
+    assert reverse_links
+
+    inf = network.meta.get("inf", None)
+
+    if type == "final":
+        calculate_capacity = network.statistics.optimal_capacity
+    elif type == "initial":
+        calculate_capacity = network.statistics.installed_capacity
+
+    output_buses = ["bus0", "bus1"]
+    df = (
+        calculate_capacity(
+            comps=["Link", "Line"],
+            bus_carrier=bus_carriers,
+            groupby=make_custom_groupby(extra_attrs=["area_from"], buses=output_buses),
+            at_port=False,
+        )
+        .rename_axis("year", axis=1)
+        .stack(future_stack=True)
+        .rename("value")
+        .reset_index()
+    )
+    df = df.drop(columns=[f"{bus}_carrier" for bus in output_buses])
+
+    aggregation = ["transmission grid", "distribution grid"]
+    df = df[df["aggregation"].isin(aggregation)]
+
+    if bus_qualifiers is not None:
+        df = df[
+            check_qualifiers(
+                df, bus_qualifiers, column_name=f"{output_buses[0]}_qualifier"
+            )
+            | check_qualifiers(
+                df, bus_qualifiers, column_name=f"{output_buses[1]}_qualifier"
+            )
+        ]
+    df = df.drop(columns=[f"{bus}_qualifier" for bus in output_buses])
+
+    if inf:
+        df = df[df["value"] != inf]
+
+    df = df.set_index(["component", "area", "area_from"]).reset_index()
+    return df.reset_index(drop=True)
+
+
+def calculate_grid_capacity_additions(
+    network, bus_carriers=["electricity in", "electricity out"], bus_qualifiers=None
+):
+    df_init = calculate_grid_capacities(
+        network,
+        bus_carriers=bus_carriers,
+        bus_qualifiers=bus_qualifiers,
+        type="initial",
+    )
+    df_final = calculate_grid_capacities(
+        network,
+        bus_carriers=bus_carriers,
+        bus_qualifiers=bus_qualifiers,
+        type="final",
+    )
+    index = [col for col in df_init.columns if col != "value"]
+    df = pd.merge(df_init, df_final, on=index, suffixes=("_init", "_final"))
+    df["value"] = df["value_final"] - df["value_init"]
+    return df.drop(columns=["value_init", "value_final"])
+
+
 def calculate_curtailed_vres_energy(network, area="PL"):
     df = (
         network.statistics.curtailment(groupby=make_custom_groupby())
@@ -842,6 +957,7 @@ def calculate_curtailed_vres_energy(network, area="PL"):
         .reset_index()
         .drop(columns="component")
     )
+    df = df[df["carrier"].str.startswith(("solar PV", "wind"))]
     df = df[df["area"].str.startswith(area)]
     df = df[df["value"] > 0]
     df = df.set_index("year").reset_index()
@@ -852,8 +968,12 @@ def calculate_flows(
     network, bus_carriers="electricity", bus_qualifiers=None, annual=True
 ):
 
+    # TODO: add qualifier, aggregation, etc. to groupby argument
+    # https://pypsa.readthedocs.io/en/latest/references/release-notes.html#v0-32-0-5th-december-2024
     df = (
-        network.statistics.energy_balance(aggregate_bus=False, aggregate_time=False)
+        network.statistics.energy_balance(
+            groupby=["bus", "carrier", "bus_carrier"], aggregate_time=False
+        )
         .stack(level=0, future_stack=True)
         .reset_index()
         .rename(columns={"period": "year"})
@@ -911,6 +1031,9 @@ def calculate_energy_balance_at_peak_load(
         for col in df.columns
         if col.endswith(("space heating", "water heating", "other heating"))
     ]
+    distribution_columns = [
+        col for col in df.columns if col.startswith("distribution grid")
+    ]
 
     if load_type == "total":
         df_load = df[df > 0].sum(axis=1)
@@ -918,6 +1041,8 @@ def calculate_energy_balance_at_peak_load(
         df_load = df.drop(columns=vres_columns)[df > 0].sum(axis=1)
     elif load_type == "vRES":
         df_load = df[vres_columns].sum(axis=1)
+    elif load_type == "distribution":
+        df_load = -df[distribution_columns].sum(axis=1)
     elif load_type == "final use":
         df_load = -df[final_use_columns].sum(axis=1)
     elif load_type == "heating":
@@ -945,7 +1070,10 @@ def calculate_energy_balance_at_peak_load(
 
 
 def calculate_marginal_prices(
-    network, bus_carriers=None, bus_qualifiers=None, area=["PL"]
+    network,
+    bus_carriers=None,
+    bus_qualifiers=None,
+    area_prefix="PL",
 ):
 
     df = network.buses_t["marginal_price"].T
@@ -957,7 +1085,9 @@ def calculate_marginal_prices(
     ).drop(columns="bus")
 
     df = df.rename(columns={"carrier": "bus_carrier"})
-    df = df[is_in_bus_carriers(df, bus_carriers) & df["area"].isin(area)]
+    df = df[
+        is_in_bus_carriers(df, bus_carriers) & df["area"].str.startswith(area_prefix)
+    ]
     if bus_qualifiers is not None:
         df = df[check_qualifiers(df, bus_qualifiers)]
     df = df.set_index(["year", "area", "bus_carrier"])
