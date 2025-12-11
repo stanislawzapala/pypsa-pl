@@ -3,7 +3,7 @@
 
 ## Introduction
 
-PyPSA-PL is an implementation of the energy modelling framework [PyPSA](https://pypsa.readthedocs.io) shipped with a use-ready dataset tailored for the Polish energy system. PyPSA-PL can be used to plan optimal investments in the power, heating, hydrogen, and light vehicle sectors – given the final use demand together with capital and operation costs for assets – or just to optimise the hourly dispatch of the utility units – given the final use demand and operation costs only. Starting from v3.1 (released in 2025) the model can operate on 16 voivodeship-level nodes and takes into account transmission and distribution expansion costs. All that makes it a useful tool to investigate the feasibility of decarbonisation scenarios for the Polish energy system in which a large share of electricity is supplied by variable sources like wind and solar.
+PyPSA-PL is an implementation of the energy modelling framework [PyPSA](https://pypsa.readthedocs.io) shipped with a use-ready dataset tailored for the Polish energy system. PyPSA-PL can be used to plan optimal investments in the power, heating, hydrogen, and light vehicle sectors – given final-use demand together with capital and operational costs for assets – or to optimise the hourly dispatch of utility units – given final-use demand and operational costs only. Starting with v3.1 (released in 2025), the model can operate on 16 voivodeship-level nodes and accounts for transmission and distribution expansion costs. All that makes it a valuable tool for investigating the feasibility of decarbonisation scenarios for the Polish energy system, in which a large share of electricity is supplied by variable sources such as wind and solar.
 
 ![](docs/pypsa_pl.png)
 
@@ -41,7 +41,7 @@ Here you can find the list of publications based on the PyPSA-PL results and lin
 
 
 * Kubiczek P., Nowak K., Smoleń M. (2025). Sieci na miarę. Koszty sieciowe a opłacalność OZE w Polsce do 2040 r. Instrat Policy Paper 03/2025. (awaiting translation into English)
- https://instrat.pl/sieci-a-oze [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13946754.svg)](https://doi.org/10.5281/zenodo.13946754)
+ https://instrat.pl/sieci-a-oze [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17779551.svg)](https://doi.org/10.5281/zenodo.17779551)
 * Kubiczek P., Smoleń M. (2024). Three challenging decades. Scenario for the Polish energy transition out to 2050. Instrat Policy Paper 03/2024. https://instrat.pl/three-challenging-decades/ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13946776.svg)](https://doi.org/10.5281/zenodo.13946776)
 * Kubiczek P., Smoleń M., Żelisko W. (2023). Poland approaching carbon neutrality. Four scenarios for the Polish energy transition until 2040. Instrat Policy Paper 06/2023. https://instrat.pl/poland-2040/ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10246018.svg)](https://doi.org/10.5281/zenodo.10246018)
 * Kubiczek P. (2023). Baseload power. Modelling the costs of low flexibility of the Polish power system. Instrat Policy Paper 04/2023. https://instrat.pl/baseload-power/ [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8263172.svg)](https://zenodo.org/record/8263172)
