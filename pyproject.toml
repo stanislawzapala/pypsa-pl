@@ -31,6 +31,7 @@ dependencies = [
     "gurobipy==12",
     "cartopy>=0.24.1,<0.25",
     "geopandas>=1.0.1,<2",
+    "ipykernel>=6.29.5",
 ]
 
 [dependency-groups]
