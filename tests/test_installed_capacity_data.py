@@ -27,11 +27,17 @@ class InstalledCapacityDataTest(unittest.TestCase):
         self.assertTrue(all(row["build_year"] == row["retire_year"] for row in rows))
 
     def test_projection_contains_national_snapshots_through_2050(self):
-        rows = load_installed_capacity_rows()
+        rows = [
+            row
+            for row in load_installed_capacity_rows()
+            if row["cumulative"].strip().upper() == "TRUE"
+            and row["build_year"]
+            and int(row["build_year"]) >= 2025
+        ]
         years = {int(row["build_year"]) for row in rows if row["build_year"]}
         areas = {row["area"] for row in rows if row["area"]}
 
-        self.assertTrue({2025, 2030, 2035, 2040, 2045, 2050}.issubset(years))
+        self.assertEqual(years, {2025, 2030, 2035, 2040, 2045, 2050})
         self.assertEqual(max(years), 2050)
         self.assertEqual(areas, {"PL"})
 
@@ -51,6 +57,7 @@ class InstalledCapacityDataTest(unittest.TestCase):
             "nuclear power large",
             "battery large power",
             "battery large storage",
+            "battery large charger",
         ]
 
         for technology in technologies:
