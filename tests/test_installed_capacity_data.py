@@ -47,7 +47,9 @@ class InstalledCapacityDataTest(unittest.TestCase):
                 self.assertTrue(year_rows)
                 self.assertEqual({row["area"] for row in year_rows if row["area"]}, {"PL"})
 
-    def test_main_generation_and_storage_technologies_are_aggregated_to_pl(self):
+    def test_main_generation_storage_and_flexibility_technologies_are_aggregated_to_pl(
+        self,
+    ):
         rows = load_installed_capacity_rows()
         technologies = [
             "hard coal power old",
@@ -64,6 +66,7 @@ class InstalledCapacityDataTest(unittest.TestCase):
             "battery large power",
             "battery large storage",
             "battery large charger",
+            "BEV",
         ]
 
         for technology in technologies:
