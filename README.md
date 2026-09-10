@@ -36,10 +36,12 @@ Power transmission grid | JAO. (2024). Static Grid Model (6th release). Joint Al
 
 For the `historical+instrat_projection` installed-capacity variant, cumulative rows in
 `data/input/installed_capacity;variant=historical+instrat_projection.csv` are stored as
-year-specific snapshots (`build_year == retire_year`). In practice this means that setting
-the model year to 2025, 2030, 2035, 2040, 2045, or 2050 selects the corresponding
-national (`area = PL`) installed-capacity mix from the input data, including the main
-generation, storage, and flexibility technologies.
+year-specific snapshots (`build_year == retire_year`). The model selects installed
+capacities by filtering rows with `build_year <= year <= retire_year`, so these cumulative
+rows are active only when the model year exactly matches the snapshot year. In practice
+this means that setting the model year to 2025, 2030, 2035, 2040, 2045, or 2050 selects
+the corresponding national (`area = PL`) installed-capacity mix from the input data,
+including the main generation, storage, and flexibility technologies.
 
 
 ## Publications and full datasets

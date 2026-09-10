@@ -34,12 +34,18 @@ class InstalledCapacityDataTest(unittest.TestCase):
             and row["build_year"]
             and int(row["build_year"]) >= 2025
         ]
-        years = {int(row["build_year"]) for row in rows if row["build_year"]}
-        areas = {row["area"] for row in rows if row["area"]}
+        expected_years = {2025, 2030, 2035, 2040, 2045, 2050}
+        years = {int(row["build_year"]) for row in rows}
 
-        self.assertEqual(years, {2025, 2030, 2035, 2040, 2045, 2050})
+        self.assertEqual(years, expected_years)
         self.assertEqual(max(years), 2050)
-        self.assertEqual(areas, {"PL"})
+
+        for year in expected_years:
+            with self.subTest(year=year):
+                year_rows = [row for row in rows if int(row["build_year"]) == year]
+
+                self.assertTrue(year_rows)
+                self.assertEqual({row["area"] for row in year_rows if row["area"]}, {"PL"})
 
     def test_main_generation_and_storage_technologies_are_aggregated_to_pl(self):
         rows = load_installed_capacity_rows()
