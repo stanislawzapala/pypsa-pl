@@ -34,6 +34,13 @@ Daily space heating demand time series | Ruhnau, O., Muessel, J. (2023). When2He
 Traffic data used to infer light vehicle mobility and BEV charging time series | GDDKiA. (2023). Stacje Ciągłych Pomiarów Ruchu (SCPR). Generalna Dyrekcja Dróg Krajowych i Autostrad. https://www.gov.pl/web/gddkia/stacje-ciaglych-pomiarow-ruchu
 Power transmission grid | JAO. (2024). Static Grid Model (6th release). Joint Allocation Office. https://www.jao.eu/static-grid-model 
 
+For the `historical+instrat_projection` installed-capacity variant, cumulative rows in
+`data/input/installed_capacity;variant=historical+instrat_projection.csv` are stored as
+year-specific snapshots (`build_year == retire_year`). In practice this means that setting
+the model year to 2025, 2030, 2035, 2040, 2045, or 2050 selects the corresponding
+national (`area = PL`) installed-capacity mix from the input data, including the main
+generation, storage, and flexibility technologies.
+
 
 ## Publications and full datasets
 
